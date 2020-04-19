@@ -13,4 +13,11 @@ public class HelloController {
     public UserTest getUser(){
         return new UserTest("alice","1234");
     }
+
+    @RequestMapping("/")
+    public String getIndex(){
+        return "mm/classic/mmenu/html/index";
+    }
+
+
 }
