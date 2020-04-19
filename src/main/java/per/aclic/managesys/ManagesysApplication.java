@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ManagesysApplication {
 
     public static void main(String[] args) {
+        //测试
         SpringApplication springApplication =
                 new SpringApplication(ManagesysApplication.class);
         springApplication.setBannerMode(Banner.Mode.OFF);
