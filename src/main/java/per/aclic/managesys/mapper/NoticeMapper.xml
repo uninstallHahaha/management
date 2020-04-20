@@ -5,6 +5,7 @@
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="cuserid" jdbcType="VARCHAR" property="cuserid" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -66,9 +67,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, title, content, ctime
+    id, title, content, cuserid, ctime
   </sql>
-  <select id="selectByExample" parameterType="per.aclic.managesys.model.NoticeExample" resultMap="BaseResultMap">
+
+  <select id="selectByExample" parameterType="per.aclic.managesys.model.NoticeExample"
+          resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -82,6 +85,13 @@
       order by ${orderByClause}
     </if>
   </select>
+
+<!--  limit 查询-->
+  <select id="selectByLimit" parameterType="per.aclic.managesys.model.NoticeExample"
+          resultMap="BaseResultMap">
+    select * from notice limit #{limit}
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -98,12 +108,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+
   <insert id="insert" parameterType="per.aclic.managesys.model.Notice">
     insert into notice (id, title, content, 
-      ctime)
+      cuserid, ctime)
     values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{ctime,jdbcType=TIMESTAMP})
+      #{cuserid,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP})
   </insert>
+
   <insert id="insertSelective" parameterType="per.aclic.managesys.model.Notice">
     insert into notice
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -115,6 +127,9 @@
       </if>
       <if test="content != null">
         content,
+      </if>
+      <if test="cuserid != null">
+        cuserid,
       </if>
       <if test="ctime != null">
         ctime,
@@ -129,6 +144,9 @@
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="cuserid != null">
+        #{cuserid,jdbcType=VARCHAR},
       </if>
       <if test="ctime != null">
         #{ctime,jdbcType=TIMESTAMP},
@@ -153,6 +171,9 @@
       <if test="record.content != null">
         content = #{record.content,jdbcType=VARCHAR},
       </if>
+      <if test="record.cuserid != null">
+        cuserid = #{record.cuserid,jdbcType=VARCHAR},
+      </if>
       <if test="record.ctime != null">
         ctime = #{record.ctime,jdbcType=TIMESTAMP},
       </if>
@@ -166,6 +187,7 @@
     set id = #{record.id,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
+      cuserid = #{record.cuserid,jdbcType=VARCHAR},
       ctime = #{record.ctime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -180,6 +202,9 @@
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
       </if>
+      <if test="cuserid != null">
+        cuserid = #{cuserid,jdbcType=VARCHAR},
+      </if>
       <if test="ctime != null">
         ctime = #{ctime,jdbcType=TIMESTAMP},
       </if>
@@ -190,6 +215,7 @@
     update notice
     set title = #{title,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
+      cuserid = #{cuserid,jdbcType=VARCHAR},
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>

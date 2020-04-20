@@ -11,6 +11,8 @@ public class Achi {
 
     private Integer type;
 
+    private String detail;
+
     private Date ctime;
 
     public String getId() {
@@ -43,6 +45,14 @@ public class Achi {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
     }
 
     public Date getCtime() {

@@ -2,9 +2,10 @@ package per.aclic.managesys.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import per.aclic.managesys.model.Notice;
 import per.aclic.managesys.model.NoticeExample;
-
+@Repository
 public interface NoticeMapper {
     long countByExample(NoticeExample example);
 
@@ -17,6 +18,8 @@ public interface NoticeMapper {
     int insertSelective(Notice record);
 
     List<Notice> selectByExample(NoticeExample example);
+
+    List<Notice> selectByLimit(int limit);
 
     Notice selectByPrimaryKey(String id);
 

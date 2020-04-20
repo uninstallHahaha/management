@@ -59,10 +59,10 @@
         可以设置为somepck.domainName，那么会自动把domainName类再放到somepck包里面；
         -->
         <table tableName="achi" domainObjectName="Achi"></table>
-        <table tableName="log" domainObjectName="Log"></table>
-        <table tableName="message" domainObjectName="Message"></table>
-        <table tableName="notice" domainObjectName="Notice"></table>
-        <table tableName="proj" domainObjectName="Proj"></table>
-        <table tableName="user" domainObjectName="User"></table>
+<!--        <table tableName="log" domainObjectName="Log"></table>-->
+<!--        <table tableName="message" domainObjectName="Message"></table>-->
+<!--        <table tableName="notice" domainObjectName="Notice"></table>-->
+<!--        <table tableName="proj" domainObjectName="Proj"></table>-->
+<!--        <table tableName="user" domainObjectName="User"></table>-->
     </context>
 </generatorConfiguration>

@@ -9,7 +9,19 @@ public class Notice {
 
     private String content;
 
+    private String cuserid;
+
     private Date ctime;
+
+    public Notice() {
+    }
+
+    public Notice(String id, String title, String content, String cuserid) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.cuserid = cuserid;
+    }
 
     public String getId() {
         return id;
@@ -33,6 +45,14 @@ public class Notice {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public String getCuserid() {
+        return cuserid;
+    }
+
+    public void setCuserid(String cuserid) {
+        this.cuserid = cuserid == null ? null : cuserid.trim();
     }
 
     public Date getCtime() {

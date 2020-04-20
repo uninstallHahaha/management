@@ -13,7 +13,7 @@ public class Proj {
 
     private Integer count;
 
-    private String desc;
+    private String detail;
 
     private Integer type;
 
@@ -59,12 +59,12 @@ public class Proj {
         this.count = count;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
     }
 
     public Integer getType() {

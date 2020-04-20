@@ -2,9 +2,11 @@ package per.aclic.managesys.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import per.aclic.managesys.model.Achi;
 import per.aclic.managesys.model.AchiExample;
 
+@Repository
 public interface AchiMapper {
     long countByExample(AchiExample example);
 

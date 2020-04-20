@@ -54,15 +54,15 @@
         var self = this;
 
         (0, _jquery2.default)('[data-filter]', this.$filters).on('click', function (e) {
+          //切换tab激活状态
           var $this = (0, _jquery2.default)(this);
           var $li = $this.parent('li');
-
           $li.siblings().find('.nav-link.active').each(function () {
             (0, _jquery2.default)(this).attr('aria-expanded', false).removeClass('active');
           });
 
           $this.addClass('active').attr('aria-expanded', true);
-
+          //根据选择的tab进行卡片的隐藏
           var filter = $this.attr('data-filter');
           if (filter !== '*') {
             filter = '[data-type="' + filter + '"]';

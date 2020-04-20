@@ -6,6 +6,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="userid" jdbcType="VARCHAR" property="userid" />
     <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, userid, type, ctime
+    id, name, userid, type, detail, ctime
   </sql>
   <select id="selectByExample" parameterType="per.aclic.managesys.model.AchiExample" resultMap="BaseResultMap">
     select
@@ -101,9 +102,11 @@
   </delete>
   <insert id="insert" parameterType="per.aclic.managesys.model.Achi">
     insert into achi (id, name, userid, 
-      type, ctime)
+      type, detail, ctime
+      )
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
-      #{type,jdbcType=INTEGER}, #{ctime,jdbcType=TIMESTAMP})
+      #{type,jdbcType=INTEGER}, #{detail,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="per.aclic.managesys.model.Achi">
     insert into achi
@@ -119,6 +122,9 @@
       </if>
       <if test="type != null">
         type,
+      </if>
+      <if test="detail != null">
+        detail,
       </if>
       <if test="ctime != null">
         ctime,
@@ -136,6 +142,9 @@
       </if>
       <if test="type != null">
         #{type,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=VARCHAR},
       </if>
       <if test="ctime != null">
         #{ctime,jdbcType=TIMESTAMP},
@@ -163,6 +172,9 @@
       <if test="record.type != null">
         type = #{record.type,jdbcType=INTEGER},
       </if>
+      <if test="record.detail != null">
+        detail = #{record.detail,jdbcType=VARCHAR},
+      </if>
       <if test="record.ctime != null">
         ctime = #{record.ctime,jdbcType=TIMESTAMP},
       </if>
@@ -177,6 +189,7 @@
       name = #{record.name,jdbcType=VARCHAR},
       userid = #{record.userid,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=INTEGER},
+      detail = #{record.detail,jdbcType=VARCHAR},
       ctime = #{record.ctime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -194,6 +207,9 @@
       <if test="type != null">
         type = #{type,jdbcType=INTEGER},
       </if>
+      <if test="detail != null">
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
       <if test="ctime != null">
         ctime = #{ctime,jdbcType=TIMESTAMP},
       </if>
@@ -205,6 +221,7 @@
     set name = #{name,jdbcType=VARCHAR},
       userid = #{userid,jdbcType=VARCHAR},
       type = #{type,jdbcType=INTEGER},
+      detail = #{detail,jdbcType=VARCHAR},
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>

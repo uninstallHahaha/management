@@ -7,7 +7,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="count" jdbcType="INTEGER" property="count" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
     <result column="type" jdbcType="INTEGER" property="type" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
   </resultMap>
@@ -70,8 +70,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, userid, name, state, count, desc, type, ctime
+    id, userid, name, state, count, detail, type, ctime
   </sql>
+
+
   <select id="selectByExample" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -86,6 +88,23 @@
       order by ${orderByClause}
     </if>
   </select>
+
+
+  <select id="selectByLimit" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
+    select * from proj limit #{limit}
+  </select>
+
+<!--  查询所有项目 -->
+  <select id="selectAllProj" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
+    select * from proj where type &lt; 20
+  </select>
+
+  <!--  查询所有活动 -->
+  <select id="selectAllAc" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
+    select * from proj where type &gt; 20
+  </select>
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -104,10 +123,10 @@
   </delete>
   <insert id="insert" parameterType="per.aclic.managesys.model.Proj">
     insert into proj (id, userid, name, 
-      state, count, desc, 
+      state, count, detail, 
       type, ctime)
     values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{state,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, #{desc,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, #{detail,jdbcType=VARCHAR}, 
       #{type,jdbcType=INTEGER}, #{ctime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="per.aclic.managesys.model.Proj">
@@ -128,8 +147,8 @@
       <if test="count != null">
         count,
       </if>
-      <if test="desc != null">
-        desc,
+      <if test="detail != null">
+        detail,
       </if>
       <if test="type != null">
         type,
@@ -154,8 +173,8 @@
       <if test="count != null">
         #{count,jdbcType=INTEGER},
       </if>
-      <if test="desc != null">
-        #{desc,jdbcType=VARCHAR},
+      <if test="detail != null">
+        #{detail,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
         #{type,jdbcType=INTEGER},
@@ -189,8 +208,8 @@
       <if test="record.count != null">
         count = #{record.count,jdbcType=INTEGER},
       </if>
-      <if test="record.desc != null">
-        desc = #{record.desc,jdbcType=VARCHAR},
+      <if test="record.detail != null">
+        detail = #{record.detail,jdbcType=VARCHAR},
       </if>
       <if test="record.type != null">
         type = #{record.type,jdbcType=INTEGER},
@@ -210,7 +229,7 @@
       name = #{record.name,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=INTEGER},
       count = #{record.count,jdbcType=INTEGER},
-      desc = #{record.desc,jdbcType=VARCHAR},
+      detail = #{record.detail,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=INTEGER},
       ctime = #{record.ctime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -232,8 +251,8 @@
       <if test="count != null">
         count = #{count,jdbcType=INTEGER},
       </if>
-      <if test="desc != null">
-        desc = #{desc,jdbcType=VARCHAR},
+      <if test="detail != null">
+        detail = #{detail,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
         type = #{type,jdbcType=INTEGER},
@@ -250,7 +269,7 @@
       name = #{name,jdbcType=VARCHAR},
       state = #{state,jdbcType=INTEGER},
       count = #{count,jdbcType=INTEGER},
-      desc = #{desc,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
       type = #{type,jdbcType=INTEGER},
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
