@@ -10,6 +10,7 @@ import per.aclic.managesys.model.Achi;
 import per.aclic.managesys.model.Notice;
 import per.aclic.managesys.model.Proj;
 import per.aclic.managesys.service.AchiService;
+import per.aclic.managesys.service.MessageService;
 import per.aclic.managesys.service.NoticeService;
 import per.aclic.managesys.service.ProjService;
 
@@ -24,6 +25,8 @@ public class PageController {
     ProjService projService;
     @Autowired
     AchiService achiService;
+    @Autowired
+    MessageService messageService;
 
 //    模板跳转通用公式
     @RequestMapping("/{first}/{second}")
@@ -62,7 +65,10 @@ public class PageController {
     //学术成果详情页面
     @RequestMapping("/getPage/getAchiDetailPage/{achid}")
     public String getAchiDetailPage(Model model,@PathVariable String achid) {
+        //成果详情
         model.addAttribute("achiDetail",achiService.findById(achid));
+        //相关评论
+        model.addAttribute("relativeMessages",messageService.findByProjid(achid));
         return "/mm/classic/mmenu/html/tables/achiDetail";
     }
 

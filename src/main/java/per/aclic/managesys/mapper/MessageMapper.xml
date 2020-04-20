@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="per.aclic.managesys.model.Message">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="projid" jdbcType="VARCHAR" property="projid" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
@@ -67,8 +68,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, userid, projid, content, ctime
+    id, userid, username, projid, content, ctime
   </sql>
+
+
   <select id="selectByExample" parameterType="per.aclic.managesys.model.MessageExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -83,6 +86,13 @@
       order by ${orderByClause}
     </if>
   </select>
+
+
+  <select id="selectByProjid" parameterType="per.aclic.managesys.model.MessageExample" resultMap="BaseResultMap">
+    select * from message where projid = #{id}
+  </select>
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -99,12 +109,18 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+
+
   <insert id="insert" parameterType="per.aclic.managesys.model.Message">
-    insert into message (id, userid, projid, 
-      content, ctime)
-    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{projid,jdbcType=VARCHAR}, 
-      #{content,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP})
+    insert into message (id, userid, username, 
+      projid, content, ctime
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{projid,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP}
+      )
   </insert>
+
+
   <insert id="insertSelective" parameterType="per.aclic.managesys.model.Message">
     insert into message
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -113,6 +129,9 @@
       </if>
       <if test="userid != null">
         userid,
+      </if>
+      <if test="username != null">
+        username,
       </if>
       <if test="projid != null">
         projid,
@@ -130,6 +149,9 @@
       </if>
       <if test="userid != null">
         #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
       </if>
       <if test="projid != null">
         #{projid,jdbcType=VARCHAR},
@@ -157,6 +179,9 @@
       <if test="record.userid != null">
         userid = #{record.userid,jdbcType=VARCHAR},
       </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
       <if test="record.projid != null">
         projid = #{record.projid,jdbcType=VARCHAR},
       </if>
@@ -175,6 +200,7 @@
     update message
     set id = #{record.id,jdbcType=VARCHAR},
       userid = #{record.userid,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
       projid = #{record.projid,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
       ctime = #{record.ctime,jdbcType=TIMESTAMP}
@@ -187,6 +213,9 @@
     <set>
       <if test="userid != null">
         userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="projid != null">
         projid = #{projid,jdbcType=VARCHAR},
@@ -203,6 +232,7 @@
   <update id="updateByPrimaryKey" parameterType="per.aclic.managesys.model.Message">
     update message
     set userid = #{userid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
       projid = #{projid,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       ctime = #{ctime,jdbcType=TIMESTAMP}

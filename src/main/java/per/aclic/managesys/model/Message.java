@@ -7,6 +7,8 @@ public class Message {
 
     private String userid;
 
+    private String username;
+
     private String projid;
 
     private String content;
@@ -27,6 +29,14 @@ public class Message {
 
     public void setUserid(String userid) {
         this.userid = userid == null ? null : userid.trim();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public String getProjid() {

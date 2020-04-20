@@ -58,9 +58,9 @@
         domainObjectName：生成的domain类的名字,当表名和domain类的名字有差异时一定要设置，如果不设置，直接使用表名作为domain类的名字；
         可以设置为somepck.domainName，那么会自动把domainName类再放到somepck包里面；
         -->
-        <table tableName="achi" domainObjectName="Achi"></table>
+<!--        <table tableName="achi" domainObjectName="Achi"></table>-->
 <!--        <table tableName="log" domainObjectName="Log"></table>-->
-<!--        <table tableName="message" domainObjectName="Message"></table>-->
+        <table tableName="message" domainObjectName="Message"></table>
 <!--        <table tableName="notice" domainObjectName="Notice"></table>-->
 <!--        <table tableName="proj" domainObjectName="Proj"></table>-->
 <!--        <table tableName="user" domainObjectName="User"></table>-->

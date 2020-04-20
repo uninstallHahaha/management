@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="per.aclic.managesys.dao.AchiMapper">
-  <resultMap id="BaseResultMap" type="per.aclic.managesys.model.Achi">
+<mapper namespace="per.aclic.managesys.dao.MessageMapper">
+  <resultMap id="BaseResultMap" type="per.aclic.managesys.model.Message">
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="userid" jdbcType="VARCHAR" property="userid" />
-    <result column="type" jdbcType="INTEGER" property="type" />
-    <result column="detail" jdbcType="VARCHAR" property="detail" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="projid" jdbcType="VARCHAR" property="projid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -68,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, userid, type, detail, ctime
+    id, userid, username, projid, content, ctime
   </sql>
-  <select id="selectByExample" parameterType="per.aclic.managesys.model.AchiExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="per.aclic.managesys.model.MessageExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from achi
+    from message
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,44 +87,44 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from achi
+    from message
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from achi
+    delete from message
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="per.aclic.managesys.model.AchiExample">
-    delete from achi
+  <delete id="deleteByExample" parameterType="per.aclic.managesys.model.MessageExample">
+    delete from message
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="per.aclic.managesys.model.Achi">
-    insert into achi (id, name, userid, 
-      type, detail, ctime
+  <insert id="insert" parameterType="per.aclic.managesys.model.Message">
+    insert into message (id, userid, username, 
+      projid, content, ctime
       )
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
-      #{type,jdbcType=INTEGER}, #{detail,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP}
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{projid,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="per.aclic.managesys.model.Achi">
-    insert into achi
+  <insert id="insertSelective" parameterType="per.aclic.managesys.model.Message">
+    insert into message
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="name != null">
-        name,
-      </if>
       <if test="userid != null">
         userid,
       </if>
-      <if test="type != null">
-        type,
+      <if test="username != null">
+        username,
       </if>
-      <if test="detail != null">
-        detail,
+      <if test="projid != null">
+        projid,
+      </if>
+      <if test="content != null">
+        content,
       </if>
       <if test="ctime != null">
         ctime,
@@ -134,46 +134,46 @@
       <if test="id != null">
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
       <if test="userid != null">
         #{userid,jdbcType=VARCHAR},
       </if>
-      <if test="type != null">
-        #{type,jdbcType=INTEGER},
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
       </if>
-      <if test="detail != null">
-        #{detail,jdbcType=VARCHAR},
+      <if test="projid != null">
+        #{projid,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
       </if>
       <if test="ctime != null">
         #{ctime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="per.aclic.managesys.model.AchiExample" resultType="java.lang.Long">
-    select count(*) from achi
+  <select id="countByExample" parameterType="per.aclic.managesys.model.MessageExample" resultType="java.lang.Long">
+    select count(*) from message
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update achi
+    update message
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
-      </if>
       <if test="record.userid != null">
         userid = #{record.userid,jdbcType=VARCHAR},
       </if>
-      <if test="record.type != null">
-        type = #{record.type,jdbcType=INTEGER},
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.detail != null">
-        detail = #{record.detail,jdbcType=VARCHAR},
+      <if test="record.projid != null">
+        projid = #{record.projid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
       </if>
       <if test="record.ctime != null">
         ctime = #{record.ctime,jdbcType=TIMESTAMP},
@@ -184,31 +184,31 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update achi
+    update message
     set id = #{record.id,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR},
       userid = #{record.userid,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=INTEGER},
-      detail = #{record.detail,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
+      projid = #{record.projid,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
       ctime = #{record.ctime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="per.aclic.managesys.model.Achi">
-    update achi
+  <update id="updateByPrimaryKeySelective" parameterType="per.aclic.managesys.model.Message">
+    update message
     <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
       <if test="userid != null">
         userid = #{userid,jdbcType=VARCHAR},
       </if>
-      <if test="type != null">
-        type = #{type,jdbcType=INTEGER},
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="detail != null">
-        detail = #{detail,jdbcType=VARCHAR},
+      <if test="projid != null">
+        projid = #{projid,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
       </if>
       <if test="ctime != null">
         ctime = #{ctime,jdbcType=TIMESTAMP},
@@ -216,12 +216,12 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="per.aclic.managesys.model.Achi">
-    update achi
-    set name = #{name,jdbcType=VARCHAR},
-      userid = #{userid,jdbcType=VARCHAR},
-      type = #{type,jdbcType=INTEGER},
-      detail = #{detail,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="per.aclic.managesys.model.Message">
+    update message
+    set userid = #{userid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      projid = #{projid,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
