@@ -1550,7 +1550,8 @@
 <!-- Page -->
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">项目</h1>
+    <h1 class="page-title" th:if="${pageType == 1}">项目</h1>
+    <h1 class="page-title" th:if="${pageType == 2}">学术活动</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
       <li class="breadcrumb-item"><a href="javascript:void(0)">Tables</a></li>
@@ -1583,7 +1584,8 @@
         <div id="toolbar">
           <button id="addToTable" class="btn btn-outline btn-primary" type="button">
             <i class="icon wb-plus" aria-hidden="true"></i>
-            <a href="/getProjFormPage" >新建项目</a>
+            <a href="/getProjFormPage" th:if="${pageType == 1}">新建项目</a>
+            <a href="/getProjFormPage" th:if="${pageType == 2}">添加活动</a>
           </button>
           <button id="remove" class="btn btn-danger" disabled>
             <i class="glyphicon glyphicon-remove"></i> 删除
@@ -1613,8 +1615,6 @@
           data-response-handler="responseHandler">
         </table>
         <!-- End bootstrap table  -->
-
-
       </div>
     </div>
     <!-- End Panel Table Add Row -->

@@ -28,6 +28,14 @@ public class ProjService {
         return projMapper.selectAllProjWithUser();
     }
 
+    public List<Proj> findAllAc(){
+        return projMapper.selectAllAcWithUser();
+    }
+
+    public Proj findOne(String id){
+        return projMapper.selectByPrimaryKey(id);
+    }
+
 
     public int addProj(Proj proj){
 //        for(int i = 0;i<10;i++){
@@ -60,6 +68,10 @@ public class ProjService {
             }
         }
         return res;
+    }
+
+    public int modProj(Proj proj){
+       return projMapper.updateByPrimaryKey(proj);
     }
 
 }

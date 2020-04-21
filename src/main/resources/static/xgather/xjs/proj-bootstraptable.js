@@ -35,9 +35,12 @@ function operateFormatter(value, row, index) {
 }
 
 window.operateEvents = {
+    //修改
     'click .like': function (e, value, row, index) {
-        alert('You click like action, row: ' + JSON.stringify(row))
+        // alert('You click like action, row: ' + JSON.stringify(row))
+        location.href = '/getProjFormPage?id='+row.id
     },
+    //删除
     'click .remove': function (e, value, row, index) {
         $.ajax({
             url: '/delProj',

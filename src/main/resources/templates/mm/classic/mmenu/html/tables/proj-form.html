@@ -1564,7 +1564,8 @@
 <!-- Page -->
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">新建项目</h1>
+    <h1 class="page-title" th:if="${projInfo} eq null">新建项目/活动</h1>
+    <h1 class="page-title" th:if="${projInfo} ne null">修改项目/活动</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
       <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li>
@@ -1588,14 +1589,20 @@
     <!-- Panel Full Example -->
     <div class="panel">
       <div class="panel-heading">
-        <h3 class="panel-title">Full Example
+        <h3 class="panel-title" th:if="${projInfo} eq null">填写项目/活动相关表单
+          <span class="panel-desc">Basic validation will display a label with the error after the form
+                control. </span>
+        </h3>
+        <h3 class="panel-title" th:if="${projInfo} ne null">修改项目/活动相关信息
           <span class="panel-desc">Basic validation will display a label with the error after the form
                 control. </span>
         </h3>
       </div>
       <div class="panel-body">
 
-        <form id="exampleFullForm" autocomplete="off" action="/addProjForm">
+        <form id="exampleFullForm" autocomplete="off"
+              method="post"
+              action="/addProjForm">
           <div class="row row-lg">
             <div class="col-xl-6 form-horizontal">
               <div class="form-group row">
@@ -1603,43 +1610,16 @@
                   <span class="required">*</span>
                 </label>
                 <div class=" col-xl-12 col-md-9">
+                  <input type="text" style="display:none" name="id" th:value="${projInfo?.id}">
                   <input type="text" class="form-control"
                          data-fv-stringlength="true"
                          data-fv-stringlength-max="20" data-fv-stringlength-message="please enter less than 20 length"
-                         name="name" placeholder="John Fish"
+                         name="name" placeholder="输入项目/活动名称"
+                         th:value="${projInfo?.name}"
                          required="">
                 </div>
               </div>
 
-
-              <div class="form-group row">
-                <label class="col-xl-12 col-md-3 form-control-label">项目/活动启动时间
-                  <span class="required">*</span>
-                </label>
-                <div class="col-xl-12 col-md-9">
-                  <!--                      <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD"-->
-                  <!--                        required="" />-->
-                  <div class="input-group">
-                  <span class="input-group-addon">
-                        <i class="icon wb-calendar" aria-hidden="true"></i>
-                  </span>
-                    <input
-                      name="ctime"
-                      type="text" class="form-control" data-plugin="datepicker" required="">
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="form-group row">
-                <label class="col-xl-12 col-md-3 form-control-label">项目GitHub地址</label>
-                <div class="col-xl-12 col-md-9">
-                  <input type="url" class="form-control" name="github" placeholder="https://github.com/amazingSurge">
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-6 form-horizontal">
 
               <div class="form-group row">
                 <label class="col-xl-12 col-md-3 form-control-label">所属科目
@@ -1647,20 +1627,45 @@
                 </label>
                 <div class="col-xl-12 col-md-9">
                   <div class="d-flex flex-column">
-                    <div class="radio-custom radio-primary">
-                      <input type="radio" id="inputAwesome" name="subject" value="1" required="">
+                    <div class="radio-custom radio-primary" >
+                      <input type="radio" id="inputAwesome" name="subject" value="1" required=""
+                             th:attr="checked=${projInfo!=null?(projInfo.type%10 == 1?true:false):'false'}"
+                      >
                       <label for="inputAwesome">数学</label>
                     </div>
-
                     <div class="radio-custom radio-primary">
-                      <input type="radio" id="inputVeryAwesome" name="subject" value="2">
+                      <input type="radio" id="inputVeryAwesome" name="subject" value="2"
+                             th:attr="checked=${projInfo!=null?(projInfo.type%10 == 2?true:false):'false'}"
+                      >
                       <label for="inputVeryAwesome">计算机</label>
                     </div>
-
                     <div class="radio-custom radio-primary">
-                      <input type="radio" id="inputUltraAwesome" name="subject" value="3">
+                      <input type="radio" id="inputUltraAwesome" name="subject" value="3"
+                             th:attr="checked=${projInfo!=null?(projInfo.type%10 == 3?true:false):'false'}"
+                      >
                       <label for="inputUltraAwesome">英语</label>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-xl-6 form-horizontal">
+
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">项目/活动启动时间
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                  <div class="input-group">
+                  <span class="input-group-addon">
+                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                  </span>
+                    <input
+                      th:value="${projInfo?.ctime}"
+                      name="ctime"
+                      type="text" class="form-control" data-plugin="datepicker" required="">
                   </div>
                 </div>
               </div>
@@ -1672,12 +1677,16 @@
                 <div class="col-xl-12 col-md-9">
                   <div class="d-flex flex-column">
                     <div class="radio-custom radio-primary">
-                      <input type="radio" id="inputAwesome" name="type" value="1" required="">
+                      <input type="radio" id="inputAwesome" name="type" value="1" required=""
+                             th:attr="checked=${projInfo!=null?(projInfo.type/10 == 1?true:false):'false'}"
+                      >
                       <label for="inputAwesome">项目</label>
                     </div>
 
                     <div class="radio-custom radio-primary">
-                      <input type="radio" id="inputVeryAwesome" name="type" value="2">
+                      <input type="radio" id="inputVeryAwesome" name="type" value="2"
+                             th:attr="checked=${projInfo!=null?(projInfo.type/10 == 2?true:false):'false'}"
+                      >
                       <label for="inputVeryAwesome">活动</label>
                     </div>
 
@@ -1693,7 +1702,8 @@
                 </label>
                 <div class="col-xl-12 col-md-9">
                       <textarea class="form-control" name="detail" rows="3" placeholder="Describe your skills"
-                                required=""></textarea>
+                                required=""
+                      th:text="${projInfo?.detail}"></textarea>
                 </div>
               </div>
             </div>

@@ -2,151 +2,155 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="per.aclic.managesys.dao.ProjMapper">
 
-  <resultMap id="BaseResultMap" type="per.aclic.managesys.model.Proj">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="userid" jdbcType="VARCHAR" property="userid" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="state" jdbcType="INTEGER" property="state" />
-    <result column="count" jdbcType="INTEGER" property="count" />
-    <result column="detail" jdbcType="VARCHAR" property="detail" />
-    <result column="type" jdbcType="INTEGER" property="type" />
-    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="per.aclic.managesys.model.Proj">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="userid" jdbcType="VARCHAR" property="userid"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="count" jdbcType="INTEGER" property="count"/>
+        <result column="detail" jdbcType="VARCHAR" property="detail"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="ctime" jdbcType="TIMESTAMP" property="ctime"/>
+    </resultMap>
 
-<!--  联合user查询-->
-  <resultMap id="ResultMapMUser" type="per.aclic.managesys.model.mixmodel.projMuser">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="userid" jdbcType="VARCHAR" property="userid" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="state" jdbcType="INTEGER" property="state" />
-    <result column="count" jdbcType="INTEGER" property="count" />
-    <result column="detail" jdbcType="VARCHAR" property="detail" />
-    <result column="type" jdbcType="INTEGER" property="type" />
-    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
+    <!--  联合user查询-->
+    <resultMap id="ResultMapMUser" type="per.aclic.managesys.model.mixmodel.projMuser">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="userid" jdbcType="VARCHAR" property="userid"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="count" jdbcType="INTEGER" property="count"/>
+        <result column="detail" jdbcType="VARCHAR" property="detail"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="ctime" jdbcType="TIMESTAMP" property="ctime"/>
 
-    <result column="userName" jdbcType="VARCHAR" property="userName" />
-    <result column="userPass" jdbcType="VARCHAR" property="userPass" />
-    <result column="userRole" jdbcType="INTEGER" property="userRole" />
-  </resultMap>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
+        <result column="userPass" jdbcType="VARCHAR" property="userPass"/>
+        <result column="userRole" jdbcType="INTEGER" property="userRole"/>
+    </resultMap>
 
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
     id, userid, name, state, count, detail, type, ctime
   </sql>
 
 
-  <select id="selectByExample" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from proj
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
+    <select id="selectByExample" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from proj
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
 
 
-  <select id="selectByLimit" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
+    <select id="selectByLimit" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
     select * from proj limit #{limit}
   </select>
 
-<!--  查询所有项目 -->
-  <select id="selectAllProj" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
+    <!--  查询所有项目 -->
+    <select id="selectAllProj" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
     select * from proj where type &lt; 20
   </select>
 
-  <!--  查询所有项目-联合user -->
-  <select id="selectAllProjWithUser" parameterType="per.aclic.managesys.model.ProjExample"
-          resultMap="ResultMapMUser">
+    <!--  查询所有项目-联合user -->
+    <select id="selectAllProjWithUser" parameterType="per.aclic.managesys.model.ProjExample"
+            resultMap="ResultMapMUser">
     SELECT p.*,u.`name` userName,u.pass userPass,u.role userRole
     FROM `proj` as p ,`user` as u where p.userid=u.id and p.type &lt; 20
   </select>
 
-  <!--  查询所有活动 -->
-  <select id="selectAllAc" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
-    select * from proj where type &gt; 20
+    <!--  查询所有活动 -联合user-->
+    <select id="selectAllAcWithUser" parameterType="per.aclic.managesys.model.ProjExample"
+            resultMap="BaseResultMap">
+        SELECT p.*,u.`name` userName,u.pass userPass,u.role userRole
+        FROM `proj` as p ,`user` as u where p.userid=u.id and p.type &gt; 20
   </select>
 
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from proj
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from proj
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from proj
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="per.aclic.managesys.model.ProjExample">
-    delete from proj
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="per.aclic.managesys.model.Proj">
+    <delete id="deleteByExample" parameterType="per.aclic.managesys.model.ProjExample">
+        delete from proj
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="per.aclic.managesys.model.Proj">
     insert into proj (id, userid, name, 
       state, count, detail, 
       type, ctime)
@@ -154,141 +158,141 @@
       #{state,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, #{detail,jdbcType=VARCHAR}, 
       #{type,jdbcType=INTEGER}, #{ctime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="per.aclic.managesys.model.Proj">
-    insert into proj
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="userid != null">
-        userid,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="state != null">
-        state,
-      </if>
-      <if test="count != null">
-        count,
-      </if>
-      <if test="detail != null">
-        detail,
-      </if>
-      <if test="type != null">
-        type,
-      </if>
-      <if test="ctime != null">
-        ctime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="state != null">
-        #{state,jdbcType=INTEGER},
-      </if>
-      <if test="count != null">
-        #{count,jdbcType=INTEGER},
-      </if>
-      <if test="detail != null">
-        #{detail,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        #{type,jdbcType=INTEGER},
-      </if>
-      <if test="ctime != null">
-        #{ctime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="per.aclic.managesys.model.ProjExample" resultType="java.lang.Long">
-    select count(*) from proj
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update proj
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
-      </if>
-      <if test="record.userid != null">
+    <insert id="insertSelective" parameterType="per.aclic.managesys.model.Proj">
+        insert into proj
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userid != null">
+                userid,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="count != null">
+                count,
+            </if>
+            <if test="detail != null">
+                detail,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="ctime != null">
+                ctime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="userid != null">
+                #{userid,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="count != null">
+                #{count,jdbcType=INTEGER},
+            </if>
+            <if test="detail != null">
+                #{detail,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="ctime != null">
+                #{ctime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="per.aclic.managesys.model.ProjExample" resultType="java.lang.Long">
+        select count(*) from proj
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update proj
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userid != null">
+                userid = #{record.userid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.name != null">
+                name = #{record.name,jdbcType=VARCHAR},
+            </if>
+            <if test="record.state != null">
+                state = #{record.state,jdbcType=INTEGER},
+            </if>
+            <if test="record.count != null">
+                count = #{record.count,jdbcType=INTEGER},
+            </if>
+            <if test="record.detail != null">
+                detail = #{record.detail,jdbcType=VARCHAR},
+            </if>
+            <if test="record.type != null">
+                type = #{record.type,jdbcType=INTEGER},
+            </if>
+            <if test="record.ctime != null">
+                ctime = #{record.ctime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update proj
+        set id = #{record.id,jdbcType=VARCHAR},
         userid = #{record.userid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
-      </if>
-      <if test="record.state != null">
         state = #{record.state,jdbcType=INTEGER},
-      </if>
-      <if test="record.count != null">
         count = #{record.count,jdbcType=INTEGER},
-      </if>
-      <if test="record.detail != null">
         detail = #{record.detail,jdbcType=VARCHAR},
-      </if>
-      <if test="record.type != null">
         type = #{record.type,jdbcType=INTEGER},
-      </if>
-      <if test="record.ctime != null">
-        ctime = #{record.ctime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update proj
-    set id = #{record.id,jdbcType=VARCHAR},
-      userid = #{record.userid,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR},
-      state = #{record.state,jdbcType=INTEGER},
-      count = #{record.count,jdbcType=INTEGER},
-      detail = #{record.detail,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=INTEGER},
-      ctime = #{record.ctime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="per.aclic.managesys.model.Proj">
-    update proj
-    <set>
-      <if test="userid != null">
-        userid = #{userid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="state != null">
-        state = #{state,jdbcType=INTEGER},
-      </if>
-      <if test="count != null">
-        count = #{count,jdbcType=INTEGER},
-      </if>
-      <if test="detail != null">
-        detail = #{detail,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        type = #{type,jdbcType=INTEGER},
-      </if>
-      <if test="ctime != null">
-        ctime = #{ctime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="per.aclic.managesys.model.Proj">
+        ctime = #{record.ctime,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="per.aclic.managesys.model.Proj">
+        update proj
+        <set>
+            <if test="userid != null">
+                userid = #{userid,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="count != null">
+                count = #{count,jdbcType=INTEGER},
+            </if>
+            <if test="detail != null">
+                detail = #{detail,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="ctime != null">
+                ctime = #{ctime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="per.aclic.managesys.model.Proj">
     update proj
     set userid = #{userid,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

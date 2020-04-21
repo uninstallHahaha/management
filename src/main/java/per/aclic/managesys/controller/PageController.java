@@ -45,12 +45,23 @@ public class PageController {
         return "/mm/classic/mmenu/html/tables/notice";
     }
 
-    //个人所有项目界面
+    //个人所有  项目界面
     //TODO 在加入用户系统后,应当更改为获取该用户的项目和活动
     @RequestMapping("/getAllProjPage")
     public String getAllProjPage(Model model) {
-        List<Proj> allProj = projService.findAll();
+        List<Proj> allProj = projService.findAllProj();
         model.addAttribute("projs",allProj);
+        model.addAttribute("pageType",1);
+        return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
+    }
+
+    //个人所有  活动界面
+    //TODO 在加入用户系统后,应当更改为获取该用户的项目和活动
+    @RequestMapping("/getAllAcPage")
+    public String getAllAcPage(Model model) {
+        List<Proj> allProj = projService.findAllAc();
+        model.addAttribute("projs",allProj);
+        model.addAttribute("pageType",2);
         return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
     }
 
@@ -81,7 +92,12 @@ public class PageController {
 
     //项目表单页面
     @RequestMapping("/getProjFormPage")
-    public String getProjFormPage(Model model){
+    public String getProjFormPage(Model model , String id){
+        if(null != id){
+            Proj proj = projService.findOne(id);
+            model.addAttribute("pageType",proj.getType()/10==1?1:2);
+            model.addAttribute("projInfo",proj);
+        }
         return "/mm/classic/mmenu/html/tables/proj-form";
     }
 }

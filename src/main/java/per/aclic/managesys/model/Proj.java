@@ -23,6 +23,20 @@ public class Proj {
         return id;
     }
 
+    public Proj() {
+    }
+
+    public Proj(String id, String userid, String name, Integer state, Integer count, String detail, Integer type, Date ctime) {
+        this.id = id;
+        this.userid = userid;
+        this.name = name;
+        this.state = state;
+        this.count = count;
+        this.detail = detail;
+        this.type = type;
+        this.ctime = ctime;
+    }
+
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
     }
