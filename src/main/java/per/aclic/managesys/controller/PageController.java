@@ -55,6 +55,14 @@ public class PageController {
         return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
     }
 
+    //项目详情
+    @RequestMapping("/getProjInfoPage")
+    public String getProjInfoPage(Model model, String id) {
+        model.addAttribute("projInfo",projService.findOne(id));
+        model.addAttribute("projRelativeMessage",messageService.findByProjid(id));
+        return "/mm/classic/mmenu/html/tables/projDetail";
+    }
+
     //个人所有  活动界面
     //TODO 在加入用户系统后,应当更改为获取该用户的项目和活动
     @RequestMapping("/getAllAcPage")

@@ -25,6 +25,9 @@ function detailFormatter(index, row) {
 
 function operateFormatter(value, row, index) {
     return [
+        '<a class="info" href="javascript:void(0)" title="详情">',
+        '<i class="icon wb-info" aria-hidden="true"></i>',
+        '</a>  ',
         '<a class="like" href="javascript:void(0)" title="Like">',
         '<i class="icon wb-wrench" aria-hidden="true"></i>',
         '</a>  ',
@@ -35,6 +38,11 @@ function operateFormatter(value, row, index) {
 }
 
 window.operateEvents = {
+    //详情
+    'click .info': function (e, value, row, index) {
+        // alert('You click like action, row: ' + JSON.stringify(row))
+        location.href = '/getProjInfoPage?id='+row.id
+    },
     //修改
     'click .like': function (e, value, row, index) {
         // alert('You click like action, row: ' + JSON.stringify(row))
