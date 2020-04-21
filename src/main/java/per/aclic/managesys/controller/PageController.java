@@ -51,7 +51,7 @@ public class PageController {
     public String getAllProjPage(Model model) {
         List<Proj> allProj = projService.findAll();
         model.addAttribute("projs",allProj);
-        return "/mm/classic/mmenu/html/tables/proj-datatable";
+        return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
     }
 
     //学术成果页面
