@@ -76,6 +76,12 @@ public class PageController {
     @RequestMapping("/getProjCenterPage")
     public String getProjCenterPage(Model model){
         model.addAttribute("projs2Center",projService.findAllProj());
-        return "/mm/classic/mmenu/html/tables/proj-center.html";
+        return "/mm/classic/mmenu/html/tables/proj-center";
+    }
+
+    //项目表单页面
+    @RequestMapping("/getProjFormPage")
+    public String getProjFormPage(Model model){
+        return "/mm/classic/mmenu/html/tables/proj-form";
     }
 }

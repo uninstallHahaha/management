@@ -7,7 +7,7 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
 
-  <title>项目</title>
+  <title>项目-表单</title>
 
   <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -25,24 +25,38 @@
   <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
   <link rel="stylesheet" href="../../../global/vendor/jquery-mmenu/jquery-mmenu.css">
   <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-  <link rel="stylesheet" href="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet"
-        href="../../../global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css">
-  <link rel="stylesheet"
-        href="../../../global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css">
-  <link rel="stylesheet" href="../../../global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css">
-  <link rel="stylesheet" href="../../../global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css">
-  <link rel="stylesheet" href="../../../global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.css">
-  <link rel="stylesheet"
-        href="../../../global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
-  <link rel="stylesheet" href="../../../global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
-  <link rel="stylesheet" href="../../assets/examples/css/tables/datatable.css">
+  <link rel="stylesheet" href="../../../global/vendor/formvalidation/formValidation.css">
+  <link rel="stylesheet" href="../../assets/examples/css/forms/validation.css">
+  <link rel="stylesheet" href="../../../global/vendor/animsition/animsition.css">
+  <link rel="stylesheet" href="../../../global/vendor/asscrollable/asScrollable.css">
+  <link rel="stylesheet" href="../../../global/vendor/switchery/switchery.css">
+  <link rel="stylesheet" href="../../../global/vendor/intro-js/introjs.css">
+  <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
+  <link rel="stylesheet" href="../../../global/vendor/jquery-mmenu/jquery-mmenu.css">
+  <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
+  <link rel="stylesheet" href="../../../global/vendor/select2/select2.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-tokenfield/bootstrap-tokenfield.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-select/bootstrap-select.css">
+  <link rel="stylesheet" href="../../../global/vendor/icheck/icheck.css">
+  <link rel="stylesheet" href="../../../global/vendor/switchery/switchery.css">
+  <link rel="stylesheet" href="../../../global/vendor/asrange/asRange.css">
+  <link rel="stylesheet" href="../../../global/vendor/ionrangeslider/ionrangeslider.min.css">
+  <link rel="stylesheet" href="../../../global/vendor/asspinner/asSpinner.css">
+  <link rel="stylesheet" href="../../../global/vendor/clockpicker/clockpicker.css">
+  <link rel="stylesheet" href="../../../global/vendor/ascolorpicker/asColorPicker.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-touchspin/bootstrap-touchspin.css">
+  <link rel="stylesheet" href="../../../global/vendor/jquery-labelauty/jquery-labelauty.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-maxlength/bootstrap-maxlength.css">
+  <link rel="stylesheet" href="../../../global/vendor/timepicker/jquery-timepicker.css">
+  <link rel="stylesheet" href="../../../global/vendor/jquery-strength/jquery-strength.css">
+  <link rel="stylesheet" href="../../../global/vendor/multi-select/multi-select.css">
+  <link rel="stylesheet" href="../../../global/vendor/typeahead-js/typeahead.css">
+  <link rel="stylesheet" href="../../assets/examples/css/forms/advanced.css">
 
-  <!--  bootstrap table-->
-  <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
 
   <!-- Fonts -->
-  <link rel="stylesheet" href="../../../global/fonts/font-awesome/font-awesome.css">
   <link rel="stylesheet" href="../../../global/fonts/web-icons/web-icons.min.css">
   <link rel="stylesheet" href="../../../global/fonts/brand-icons/brand-icons.min.css">
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
@@ -1192,7 +1206,7 @@
         </li>
       </ul>
     </li>
-    <li class="site-menu-item has-sub">
+    <li class="site-menu-item has-sub active open">
       <a href="javascript:void(0)">
         <i class="site-menu-icon wb-library" aria-hidden="true"></i>
         <span class="site-menu-title">Forms</span>
@@ -1224,7 +1238,7 @@
             <span class="site-menu-title">Form Wizard</span>
           </a>
         </li>
-        <li class="site-menu-item">
+        <li class="site-menu-item active">
           <a class="animsition-link" href="../forms/validation.html">
             <span class="site-menu-title">Form Validation</span>
           </a>
@@ -1269,7 +1283,7 @@
         </li>
       </ul>
     </li>
-    <li class="site-menu-item has-sub active open">
+    <li class="site-menu-item has-sub">
       <a href="javascript:void(0)">
         <i class="site-menu-icon wb-table" aria-hidden="true"></i>
         <span class="site-menu-title">Tables</span>
@@ -1311,7 +1325,7 @@
             <span class="site-menu-title">FooTable</span>
           </a>
         </li>
-        <li class="site-menu-item active">
+        <li class="site-menu-item">
           <a class="animsition-link" href="../tables/datatable.html">
             <span class="site-menu-title">DataTables</span>
           </a>
@@ -1550,14 +1564,14 @@
 <!-- Page -->
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">项目</h1>
+    <h1 class="page-title">新建项目</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="javascript:void(0)">Tables</a></li>
-      <li class="breadcrumb-item active">DataTables</li>
+      <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li>
+      <li class="breadcrumb-item active">Validation</li>
     </ol>
     <div class="page-header-actions">
-      <a class="btn btn-sm btn-default btn-outline btn-round" href="http://datatables.net"
+      <a class="btn btn-sm btn-default btn-outline btn-round" href="http://formvalidation.io"
          target="_blank">
         <i class="icon wb-link" aria-hidden="true"></i>
         <span class="hidden-sm-down">Official Website</span>
@@ -1565,60 +1579,134 @@
     </div>
   </div>
 
-  <div class="page-content">
-    <!-- Panel Table Add Row -->
+  <div class="page-content container-fluid">
+
+    <div class="row">
+
+    </div>
+
+    <!-- Panel Full Example -->
     <div class="panel">
-      <header class="panel-heading">
-<!--        <h3 class="panel-title">项目</h3>-->
-      </header>
+      <div class="panel-heading">
+        <h3 class="panel-title">Full Example
+          <span class="panel-desc">Basic validation will display a label with the error after the form
+                control. </span>
+        </h3>
+      </div>
       <div class="panel-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="mb-15">
+
+        <form id="exampleFullForm" autocomplete="off" action="/addProjForm">
+          <div class="row row-lg">
+            <div class="col-xl-6 form-horizontal">
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">项目/活动名
+                  <span class="required">*</span>
+                </label>
+                <div class=" col-xl-12 col-md-9">
+                  <input type="text" class="form-control"
+                         data-fv-stringlength="true"
+                         data-fv-stringlength-max="20" data-fv-stringlength-message="please enter less than 20 length"
+                         name="name" placeholder="John Fish"
+                         required="">
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">项目/活动启动时间
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                  <!--                      <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD"-->
+                  <!--                        required="" />-->
+                  <div class="input-group">
+                  <span class="input-group-addon">
+                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                  </span>
+                    <input
+                      name="ctime"
+                      type="text" class="form-control" data-plugin="datepicker" required="">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">项目GitHub地址</label>
+                <div class="col-xl-12 col-md-9">
+                  <input type="url" class="form-control" name="github" placeholder="https://github.com/amazingSurge">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-6 form-horizontal">
+
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">所属科目
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                  <div class="d-flex flex-column">
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputAwesome" name="subject" value="1" required="">
+                      <label for="inputAwesome">数学</label>
+                    </div>
+
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputVeryAwesome" name="subject" value="2">
+                      <label for="inputVeryAwesome">计算机</label>
+                    </div>
+
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputUltraAwesome" name="subject" value="3">
+                      <label for="inputUltraAwesome">英语</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">类型
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                  <div class="d-flex flex-column">
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputAwesome" name="type" value="1" required="">
+                      <label for="inputAwesome">项目</label>
+                    </div>
+
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputVeryAwesome" name="type" value="2">
+                      <label for="inputVeryAwesome">活动</label>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-12 form-horizontal">
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">项目/活动描述
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                      <textarea class="form-control" name="detail" rows="3" placeholder="Describe your skills"
+                                required=""></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-xl-12 text-right padding-top-m">
+              <button type="submit" class="btn btn-primary" id="validateButton1">提交</button>
             </div>
           </div>
-        </div>
 
-        <!--  bootstrap table  -->
-        <div id="toolbar">
-          <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-            <i class="icon wb-plus" aria-hidden="true"></i>
-            <a href="/getProjFormPage" >新建项目</a>
-          </button>
-          <button id="remove" class="btn btn-danger" disabled>
-            <i class="glyphicon glyphicon-remove"></i> 删除
-          </button>
-        </div>
-        <table
-          id="table"
-          data-toolbar="#toolbar"
-          data-search="true"
-          data-show-refresh="true"
-          data-show-toggle="false"
-          data-show-fullscreen="true"
-          data-show-columns="true"
-          data-show-columns-toggle-all="true"
-          data-detail-view="false"
-          data-show-export="true"
-          data-click-to-select="true"
-          data-detail-formatter="detailFormatter"
-          data-minimum-count-columns="2"
-          data-show-pagination-switch="false"
-          data-pagination="true"
-          data-id-field="id"
-          data-page-list="[10, 25, 50, 100, all]"
-          data-show-footer="false"
-          data-side-pagination="client"
-          data-url="/obtainProjs"
-          data-response-handler="responseHandler">
-        </table>
-        <!-- End bootstrap table  -->
-
-
+        </form>
       </div>
     </div>
-    <!-- End Panel Table Add Row -->
-
+    <!-- End Panel Full Example -->
   </div>
 </div>
 <!-- End Page -->
@@ -1649,22 +1737,8 @@
 <script src="../../../global/vendor/intro-js/intro.js"></script>
 <script src="../../../global/vendor/screenfull/screenfull.js"></script>
 <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-<script src="../../../global/vendor/datatables.net/jquery.dataTables.js"></script>
-<script src="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-<script src="../../../global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.js"></script>
-<script src="../../../global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js"></script>
-<script src="../../../global/vendor/datatables.net-rowgroup/dataTables.rowGroup.js"></script>
-<script src="../../../global/vendor/datatables.net-scroller/dataTables.scroller.js"></script>
-<script src="../../../global/vendor/datatables.net-responsive/dataTables.responsive.js"></script>
-<script src="../../../global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
-<script src="../../../global/vendor/datatables.net-buttons/dataTables.buttons.js"></script>
-<script src="../../../global/vendor/datatables.net-buttons/buttons.html5.js"></script>
-<script src="../../../global/vendor/datatables.net-buttons/buttons.flash.js"></script>
-<script src="../../../global/vendor/datatables.net-buttons/buttons.print.js"></script>
-<script src="../../../global/vendor/datatables.net-buttons/buttons.colVis.js"></script>
-<script src="../../../global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
-<script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
-<script src="../../../global/vendor/bootbox/bootbox.js"></script>
+<script src="../../../global/vendor/formvalidation/formValidation.min.js"></script>
+<script src="../../../global/vendor/formvalidation/framework/bootstrap4.min.js"></script>
 
 <!-- Scripts -->
 <script src="../../../global/js/Component.js"></script>
@@ -1687,19 +1761,88 @@
 <script src="../../../global/js/Plugin/asscrollable.js"></script>
 <script src="../../../global/js/Plugin/slidepanel.js"></script>
 <script src="../../../global/js/Plugin/switchery.js"></script>
-<script src="../../../global/js/Plugin/datatables.js"></script>
 
+<script src="../../../global/vendor/jquery-mmenu/jquery.mmenu.min.all.js"></script>
+<script src="../../../global/vendor/switchery/switchery.js"></script>
+<script src="../../../global/vendor/intro-js/intro.js"></script>
+<script src="../../../global/vendor/screenfull/screenfull.js"></script>
+<script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
+<script src="../../../global/vendor/select2/select2.full.min.js"></script>
+<script src="../../../global/vendor/bootstrap-tokenfield/bootstrap-tokenfield.min.js"></script>
+<script src="../../../global/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="../../../global/vendor/bootstrap-select/bootstrap-select.js"></script>
+<script src="../../../global/vendor/icheck/icheck.min.js"></script>
+<script src="../../../global/vendor/switchery/switchery.js"></script>
+<script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
+<script src="../../../global/vendor/ionrangeslider/ion.rangeSlider.min.js"></script>
+<script src="../../../global/vendor/asspinner/jquery-asSpinner.min.js"></script>
+<script src="../../../global/vendor/clockpicker/bootstrap-clockpicker.min.js"></script>
+<script src="../../../global/vendor/ascolor/jquery-asColor.min.js"></script>
+<script src="../../../global/vendor/asgradient/jquery-asGradient.min.js"></script>
+<script src="../../../global/vendor/ascolorpicker/jquery-asColorPicker.min.js"></script>
+<script src="../../../global/vendor/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+<script src="../../../global/vendor/jquery-knob/jquery.knob.js"></script>
+<script src="../../../global/vendor/bootstrap-touchspin/bootstrap-touchspin.min.js"></script>
+<script src="../../../global/vendor/jquery-labelauty/jquery-labelauty.js"></script>
+<script src="../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="../../../global/vendor/timepicker/jquery.timepicker.min.js"></script>
+<script src="../../../global/vendor/datepair/datepair.min.js"></script>
+<script src="../../../global/vendor/datepair/jquery.datepair.min.js"></script>
+<script src="../../../global/vendor/jquery-strength/password_strength.js"></script>
+<script src="../../../global/vendor/jquery-strength/password_strength.js"></script>
+<script src="../../../global/vendor/jquery-strength/jquery-strength.min.js"></script>
+<script src="../../../global/vendor/multi-select/jquery.multi-select.js"></script>
+<script src="../../../global/vendor/typeahead-js/bloodhound.min.js"></script>
+<script src="../../../global/vendor/typeahead-js/typeahead.jquery.min.js"></script>
+<script src="../../../global/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 
-<!--  X-->
-<script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
-<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
-<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
-<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+<!-- Scripts -->
+<script src="../../../global/js/Component.js"></script>
+<script src="../../../global/js/Plugin.js"></script>
+<script src="../../../global/js/Base.js"></script>
+<script src="../../../global/js/Config.js"></script>
 
-<script src="/xgather/xlib/layer/layer.js"></script>
+<script src="../../assets/js/Section/Menubar.js"></script>
+<script src="../../assets/js/Section/Sidebar.js"></script>
+<script src="../../assets/js/Section/PageAside.js"></script>
+<script src="../../assets/js/Section/GridMenu.js"></script>
 
-<script src="/xgather/xdividejs/proj-datatable.js"></script>
-<script src="/xgather/xjs/proj-bootstraptable.js"></script>
+<!-- Config -->
+<script src="../../../global/js/config/colors.js"></script>
+<script src="../../assets/js/config/tour.js"></script>
+<script>Config.set('assets', '../../assets');</script>
+
+<!-- Page -->
+<script src="../../assets/js/Site.js"></script>
+<script src="../../../global/js/Plugin/asscrollable.js"></script>
+<script src="../../../global/js/Plugin/slidepanel.js"></script>
+<script src="../../../global/js/Plugin/switchery.js"></script>
+<script src="../../../global/js/Plugin/select2.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-tokenfield.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-tagsinput.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-select.js"></script>
+<script src="../../../global/js/Plugin/icheck.js"></script>
+<script src="../../../global/js/Plugin/switchery.js"></script>
+<script src="../../../global/js/Plugin/asrange.js"></script>
+<script src="../../../global/js/Plugin/ionrangeslider.js"></script>
+<script src="../../../global/js/Plugin/asspinner.js"></script>
+<script src="../../../global/js/Plugin/clockpicker.js"></script>
+<script src="../../../global/js/Plugin/ascolorpicker.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-maxlength.js"></script>
+<script src="../../../global/js/Plugin/jquery-knob.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-touchspin.js"></script>
+<script src="../../../global/js/Plugin/card.js"></script>
+<script src="../../../global/js/Plugin/jquery-labelauty.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-datepicker.js"></script>
+<script src="../../../global/js/Plugin/jt-timepicker.js"></script>
+<script src="../../../global/js/Plugin/datepair.js"></script>
+<script src="../../../global/js/Plugin/jquery-strength.js"></script>
+<script src="../../../global/js/Plugin/multi-select.js"></script>
+<script src="../../../global/js/Plugin/jquery-placeholder.js"></script>
+
+<script src="../../assets/examples/js/forms/advanced.js"></script>
+
+<script src="../../assets/examples/js/forms/validation.js"></script>
 
 </body>
 </html>

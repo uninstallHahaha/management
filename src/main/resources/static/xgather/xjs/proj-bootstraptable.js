@@ -39,10 +39,23 @@ window.operateEvents = {
         alert('You click like action, row: ' + JSON.stringify(row))
     },
     'click .remove': function (e, value, row, index) {
-        $table.bootstrapTable('remove', {
-            field: 'id',
-            values: [row.id]
+        $.ajax({
+            url: '/delProj',
+            data: {'id': row.id},
+            async: false,
+            success: function (res) {
+                if (res == 1) {
+                    $table.bootstrapTable('remove', {
+                        field: 'id',
+                        values: [row.id]
+                    })
+                    layer.msg('删除成功')
+                }else{
+                    layer.msg('删除失败')
+                }
+            }
         })
+
     }
 }
 
@@ -59,8 +72,8 @@ function initTable() {
                     align: 'center',
                     valign: 'middle'
                 }, {
-                title: '用户id',
-                field: 'userid',
+                title: '项目发起者',
+                field: 'userName',
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
@@ -108,11 +121,24 @@ function initTable() {
     $table.on('all.bs.table', function (e, name, args) {
         console.log(name, args)
     })
+    //del list
     $remove.click(function () {
         var ids = getIdSelections()
-        $table.bootstrapTable('remove', {
-            field: 'id',
-            values: ids
+        $.ajax({
+            url: '/delProjList',
+            data: {'ids': ids},
+            async: false,
+            success: function (res) {
+                if (res == 1) {
+                    $table.bootstrapTable('remove', {
+                        field: 'id',
+                        values: ids
+                    })
+                    layer.msg('删除成功')
+                }else{
+                    layer.msg('删除失败')
+                }
+            }
         })
         $remove.prop('disabled', true)
     })

@@ -25,23 +25,41 @@ public class ProjService {
     }
 
     public List<Proj> findAllProj(){
-        return projMapper.selectAllProj();
+        return projMapper.selectAllProjWithUser();
     }
 
 
     public int addProj(Proj proj){
-        for(int i = 0;i<10;i++){
-            Proj p = new Proj();
-            p.setCount(99);
-            p.setDetail("项目描述"+i);
-            p.setId(Utils.genUUID());
-            p.setName("项目名称"+i);
-            p.setState(1);
-            p.setType(1);
-            p.setUserid(Utils.genUUID());
-            projMapper.insert(p);
+//        for(int i = 0;i<10;i++){
+//            Proj p = new Proj();
+//            p.setCount(99);
+//            p.setDetail("项目描述"+i);
+//            p.setId(Utils.genUUID());
+//            p.setName("项目名称"+i);
+//            p.setState(1);
+//            p.setType(1);
+//            p.setUserid("djflajfklj");
+//            projMapper.insert(p);
+//        }
+        return projMapper.insert(proj);
+    }
+
+    //del one
+    public int delProj(String id){
+        return projMapper.deleteByPrimaryKey(id);
+    }
+
+    //del list
+    public int delProjList(List<String> ids){
+        int res = 1;
+        for (String id:
+             ids) {
+            int curres= projMapper.deleteByPrimaryKey(id);
+            if(curres != 1){
+                res = 0;
+            }
         }
-        return 1;
+        return res;
     }
 
 }

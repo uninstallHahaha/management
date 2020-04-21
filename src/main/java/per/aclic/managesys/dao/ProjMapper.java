@@ -24,6 +24,8 @@ public interface ProjMapper {
 
     List<Proj> selectAllProj();
 
+    List<Proj> selectAllProjWithUser();
+
     List<Proj> selectAllAc();
 
     Proj selectByPrimaryKey(String id);

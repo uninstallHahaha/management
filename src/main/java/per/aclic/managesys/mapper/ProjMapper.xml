@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="per.aclic.managesys.dao.ProjMapper">
+
   <resultMap id="BaseResultMap" type="per.aclic.managesys.model.Proj">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="userid" jdbcType="VARCHAR" property="userid" />
@@ -11,6 +12,23 @@
     <result column="type" jdbcType="INTEGER" property="type" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
   </resultMap>
+
+<!--  联合user查询-->
+  <resultMap id="ResultMapMUser" type="per.aclic.managesys.model.mixmodel.projMuser">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
+
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="userPass" jdbcType="VARCHAR" property="userPass" />
+    <result column="userRole" jdbcType="INTEGER" property="userRole" />
+  </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -97,6 +115,13 @@
 <!--  查询所有项目 -->
   <select id="selectAllProj" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
     select * from proj where type &lt; 20
+  </select>
+
+  <!--  查询所有项目-联合user -->
+  <select id="selectAllProjWithUser" parameterType="per.aclic.managesys.model.ProjExample"
+          resultMap="ResultMapMUser">
+    SELECT p.*,u.`name` userName,u.pass userPass,u.role userRole
+    FROM `proj` as p ,`user` as u where p.userid=u.id and p.type &lt; 20
   </select>
 
   <!--  查询所有活动 -->
