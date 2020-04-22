@@ -6,6 +6,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import per.aclic.managesys.Utils.Utils;
 import per.aclic.managesys.model.Log;
+import per.aclic.managesys.model.User;
 import per.aclic.managesys.service.LogService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +30,13 @@ public class LogInterceptor implements HandlerInterceptor {
             return true;
         }
         Log log = new Log(Utils.genUUID(),
-                Utils.genUUID(),"alilce",1,request.getRequestURI());
+                "-","-",0,request.getRequestURI());
+        User user = (User)request.getSession().getAttribute("USER");
+        if(null != user){
+            log.setUserid(user.getId());
+            log.setUsername(user.getName());
+            log.setUserrole(user.getRole());
+        }
         logService.addLog(log);
         return true;
     }

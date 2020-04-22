@@ -45,7 +45,7 @@ public class IndexController {
         model.addAttribute("str", "个人主页");
         //通知
         String[] iconList = {" wb-chat", " wb-image", " wb-file", " wb-map"};
-        model.addAttribute("recentNotices", noticeService.findRecentNotice(5));
+        model.addAttribute("recentNotices", noticeService.findRecentNotice(7));
         model.addAttribute("noticeIcons", iconList);
         String[] iconColorList = {" bg-green-600", " bg-blue-600", " bg-cyan-600", " bg-orange-600"};
         model.addAttribute("iconColorList", iconColorList);

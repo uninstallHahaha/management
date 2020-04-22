@@ -35,7 +35,7 @@ public class LoginController {
                 map.put("data","密码不正确");
                 return map;
             }else{
-                session.setAttribute("USERSESSION", oneByName);
+                session.setAttribute("USER", oneByName);
                 map.put("stat",1);
                 map.put("data","");
                 return map;
@@ -57,7 +57,7 @@ public class LoginController {
         User user = new User(Utils.genUUID(),name,pass,role);
         int addRes = userService.addUser(user);
         if(addRes ==  1){
-            session.setAttribute("USERSESSION",user);
+            session.setAttribute("USER",user);
             map.put("stat",1);
             map.put("data","");
             return map;
