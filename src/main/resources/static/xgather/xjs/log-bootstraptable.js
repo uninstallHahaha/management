@@ -125,7 +125,7 @@ function initTable() {
     $remove.click(function () {
         var ids = getIdSelections()
         $.ajax({
-            url: '/delProjList',
+            url: '/delLogList',
             data: {'ids': ids},
             async: false,
             success: function (res) {

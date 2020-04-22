@@ -43,8 +43,8 @@ public class LogController {
     }
 
     @ResponseBody
-    @RequestMapping("/delProjList")
-    public int delProjList(@RequestParam(value = "ids[]") List<String> ids) {
+    @RequestMapping("/delLogList")
+    public int delLogList(@RequestParam(value = "ids[]") List<String> ids) {
         return logService.delLogList(ids);
     }
 }
