@@ -4,7 +4,10 @@
   <resultMap id="BaseResultMap" type="per.aclic.managesys.model.Log">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="userid" jdbcType="VARCHAR" property="userid" />
-    <result column="opdesc" jdbcType="VARCHAR" property="opdesc" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userrole" jdbcType="INTEGER" property="userrole" />
+    <result column="opobj" jdbcType="VARCHAR" property="opobj" />
+    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, userid, opdesc
+    id, userid, username, userrole, opobj, ctime
   </sql>
   <select id="selectByExample" parameterType="per.aclic.managesys.model.LogExample" resultMap="BaseResultMap">
     select
@@ -97,12 +100,18 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+
+
   <insert id="insert" parameterType="per.aclic.managesys.model.Log">
-    insert into log (id, userid, opdesc
+    insert into log (id, userid, username, 
+      userrole, opobj, ctime
       )
-    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{opdesc,jdbcType=VARCHAR}
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{userrole,jdbcType=INTEGER}, #{opobj,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP}
       )
   </insert>
+
+
   <insert id="insertSelective" parameterType="per.aclic.managesys.model.Log">
     insert into log
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -112,8 +121,17 @@
       <if test="userid != null">
         userid,
       </if>
-      <if test="opdesc != null">
-        opdesc,
+      <if test="username != null">
+        username,
+      </if>
+      <if test="userrole != null">
+        userrole,
+      </if>
+      <if test="opobj != null">
+        opobj,
+      </if>
+      <if test="ctime != null">
+        ctime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -123,8 +141,17 @@
       <if test="userid != null">
         #{userid,jdbcType=VARCHAR},
       </if>
-      <if test="opdesc != null">
-        #{opdesc,jdbcType=VARCHAR},
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        #{userrole,jdbcType=INTEGER},
+      </if>
+      <if test="opobj != null">
+        #{opobj,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -143,8 +170,17 @@
       <if test="record.userid != null">
         userid = #{record.userid,jdbcType=VARCHAR},
       </if>
-      <if test="record.opdesc != null">
-        opdesc = #{record.opdesc,jdbcType=VARCHAR},
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userrole != null">
+        userrole = #{record.userrole,jdbcType=INTEGER},
+      </if>
+      <if test="record.opobj != null">
+        opobj = #{record.opobj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ctime != null">
+        ctime = #{record.ctime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -155,7 +191,10 @@
     update log
     set id = #{record.id,jdbcType=VARCHAR},
       userid = #{record.userid,jdbcType=VARCHAR},
-      opdesc = #{record.opdesc,jdbcType=VARCHAR}
+      username = #{record.username,jdbcType=VARCHAR},
+      userrole = #{record.userrole,jdbcType=INTEGER},
+      opobj = #{record.opobj,jdbcType=VARCHAR},
+      ctime = #{record.ctime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -166,8 +205,17 @@
       <if test="userid != null">
         userid = #{userid,jdbcType=VARCHAR},
       </if>
-      <if test="opdesc != null">
-        opdesc = #{opdesc,jdbcType=VARCHAR},
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        userrole = #{userrole,jdbcType=INTEGER},
+      </if>
+      <if test="opobj != null">
+        opobj = #{opobj,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null">
+        ctime = #{ctime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -175,7 +223,10 @@
   <update id="updateByPrimaryKey" parameterType="per.aclic.managesys.model.Log">
     update log
     set userid = #{userid,jdbcType=VARCHAR},
-      opdesc = #{opdesc,jdbcType=VARCHAR}
+      username = #{username,jdbcType=VARCHAR},
+      userrole = #{userrole,jdbcType=INTEGER},
+      opobj = #{opobj,jdbcType=VARCHAR},
+      ctime = #{ctime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -139,4 +139,10 @@ public class PageController {
         model.addAttribute("allManager", allManager);
         return "/mm/classic/mmenu/html/tables/userManage";
     }
+
+    //日志管理
+    @RequestMapping("/getLogPage")
+    public String getLogPage(){
+        return "/mm/classic/mmenu/html/tables/log-bootstrap";
+    }
 }

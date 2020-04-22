@@ -7,7 +7,7 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
 
-  <title th:text="${str}">概要</title>
+  <title>日志管理</title>
 
   <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -25,16 +25,24 @@
   <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
   <link rel="stylesheet" href="../../../global/vendor/jquery-mmenu/jquery-mmenu.css">
   <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-  <link rel="stylesheet" href="../../../global/vendor/chartist/chartist.css">
-  <link rel="stylesheet" href="../../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
-  <link rel="stylesheet" href="../../../global/vendor/aspieprogress/asPieProgress.css">
-  <link rel="stylesheet" href="../../../global/vendor/jquery-selective/jquery-selective.css">
-  <link rel="stylesheet" href="../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="../../../global/vendor/asscrollable/asScrollable.css">
-  <link rel="stylesheet" href="../../assets/examples/css/dashboard/team.css">
+  <link rel="stylesheet" href="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet"
+        href="../../../global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css">
+  <link rel="stylesheet"
+        href="../../../global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css">
+  <link rel="stylesheet" href="../../../global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css">
+  <link rel="stylesheet" href="../../../global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css">
+  <link rel="stylesheet" href="../../../global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.css">
+  <link rel="stylesheet"
+        href="../../../global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
+  <link rel="stylesheet" href="../../../global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
+  <link rel="stylesheet" href="../../assets/examples/css/tables/datatable.css">
 
+  <!--  bootstrap table-->
+  <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
 
   <!-- Fonts -->
+  <link rel="stylesheet" href="../../../global/fonts/font-awesome/font-awesome.css">
   <link rel="stylesheet" href="../../../global/fonts/web-icons/web-icons.min.css">
   <link rel="stylesheet" href="../../../global/fonts/brand-icons/brand-icons.min.css">
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
@@ -54,7 +62,7 @@
     Breakpoints();
   </script>
 </head>
-<body class="animsition site-navbar-small dashboard">
+<body class="animsition site-navbar-small ">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
@@ -529,10 +537,10 @@
 </nav>
 <div class="site-menubar">
   <ul class="site-menu">
-    <li class="site-menu-item has-sub active open">
+    <li class="site-menu-item has-sub">
       <a href="javascript:void(0)">
         <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-        <span class="site-menu-title">概要</span>
+        <span class="site-menu-title">Dashboard</span>
         <span class="site-menu-arrow"></span>
       </a>
       <ul class="site-menu-sub">
@@ -556,144 +564,13 @@
             <span class="site-menu-title">Analytics</span>
           </a>
         </li>
-        <li class="site-menu-item active">
+        <li class="site-menu-item">
           <a class="animsition-link" href="../dashboard/team.html">
-            <span class="site-menu-title">概要</span>
+            <span class="site-menu-title">Team</span>
           </a>
         </li>
       </ul>
     </li>
-
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-file" aria-hidden="true"></i>
-        <span class="site-menu-title">项目和学术活动</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/getAllProjPage">
-            <span class="site-menu-title">项目</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/getAllAcPage">
-            <span class="site-menu-title">学术活动</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
-        <span class="site-menu-title">学术成果</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/getAchiPPage">
-            <span class="site-menu-title">我的学术成果</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/getAchiPPage">
-            <span class="site-menu-title">学术成果中心</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>
-        <span class="site-menu-title">项目和学术活动中心</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/getProjCenterPage">
-            <span class="site-menu-title">项目/学术活动中心</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
-        <span class="site-menu-title">通知中心</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/getAllNoticePage">
-            <span class="site-menu-title">通知中心</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon  wb-extension" aria-hidden="true"></i>
-        <span class="site-menu-title">科管:管理项目和学术活动</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/tables/proj-manage.html">
-            <span class="site-menu-title">所有项目和学术活动</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-library" aria-hidden="true"></i>
-        <span class="site-menu-title">通知中心</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/tables/notice.html">
-            <span class="site-menu-title">通知中心</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-grid-4" aria-hidden="true"></i>
-        <span class="site-menu-title">用户管理</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/getUserManagePage">
-            <span class="site-menu-title">用户管理</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-grid-4" aria-hidden="true"></i>
-        <span class="site-menu-title">日志管理</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/getLogPage">
-            <span class="site-menu-title">日志管理</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-
     <li class="site-menu-item has-sub">
       <a href="javascript:void(0)">
         <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
@@ -1392,7 +1269,7 @@
         </li>
       </ul>
     </li>
-    <li class="site-menu-item has-sub">
+    <li class="site-menu-item has-sub active open">
       <a href="javascript:void(0)">
         <i class="site-menu-icon wb-table" aria-hidden="true"></i>
         <span class="site-menu-title">Tables</span>
@@ -1434,14 +1311,9 @@
             <span class="site-menu-title">FooTable</span>
           </a>
         </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/proj-datatable.html">
-            <span class="site-menu-title">项目</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="/tables/party.html">
-            <span class="site-menu-title">学术活动</span>
+        <li class="site-menu-item active">
+          <a class="animsition-link" href="../tables/datatable.html">
+            <span class="site-menu-title">DataTables</span>
           </a>
         </li>
         <li class="site-menu-item">
@@ -1677,286 +1549,72 @@
 
 <!-- Page -->
 <div class="page">
-  <div class="page-content container-fluid">
-    <div class="row" data-plugin="matchHeight" data-by-row="true">
-      <!-- First Row -->
-      <!-- Completed Options Pie Widgets -->
-      <div class="col-xxl-3">
-        <div class="row h-full" data-plugin="matchHeight">
-          <div class="col-xxl-12 col-lg-4 col-sm-4">
-            <div class="card card-shadow card-completed-options">
-              <div class="card-block p-30">
-                <div class="row">
-                  <div class="col-6">
-                    <div class="counter text-left blue-grey-700">
-                      <div class="counter-label mt-10">我的项目
-                      </div>
-                      <div class="counter-number font-size-40 mt-10">
-                        1,234
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                         data-barcolor="#57c7d4" data-size="100" data-barsize="10"
-                         data-goal="86" aria-valuenow="86" role="progressbar">
-                          <span class="pie-progress-number blue-grey-700 font-size-20">
-                            86%
-                          </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xxl-12 col-lg-4 col-sm-4">
-            <div class="card card-shadow card-completed-options">
-              <div class="card-block p-30">
-                <div class="row">
-                  <div class="col-6">
-                    <div class="counter text-left blue-grey-700">
-                      <div class="counter-label mt-10">我的活动
-                      </div>
-                      <div class="counter-number font-size-40 mt-10">
-                        698
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                         data-barcolor="#62a8ea" data-size="100" data-barsize="10"
-                         data-goal="62" aria-valuenow="62" role="progressbar">
-                          <span class="pie-progress-number blue-grey-700 font-size-20">
-                            62%
-                          </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xxl-12 col-lg-4 col-sm-4">
-            <div class="card card-shadow card-completed-options">
-              <div class="card-block p-30">
-                <div class="row">
-                  <div class="col-6">
-                    <div class="counter text-left blue-grey-700">
-                      <div class="counter-label mt-10">我的成果
-                      </div>
-                      <div class="counter-number font-size-40 mt-10">
-                        1,358
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                         data-barcolor="#926dde" data-size="100" data-barsize="10"
-                         data-goal="56" aria-valuenow="56" role="progressbar">
-                          <span class="pie-progress-number blue-grey-700 font-size-20">
-                            56%
-                          </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End Completed Options Pie Widgets -->
-      <!-- Second Row -->
-      <!-- recent proj -->
-      <div class="col-xxl-4 col-xl-6 col-lg-6">
-        <div id="toDoListWidget" class="card card-shadow card-lg pb-20">
-          <div class="card-header card-header-transparent">
-            <div class="card-header-actions">
-              <a href="/getAllProjPage">查看所有</a>
-              <a id="addNewItemBtn" href="javascript:void(0)" class="add-item-toggle">
-                <i class="icon wb-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-            <h5 class="card-title">项目和活动</h5>
-          </div>
-          <ul class="list-group h-500" data-plugin="scrollable">
-            <div data-role="container">
-              <div data-role="content">
-
-                <li
-                  th:each="p,stat : ${recentProjs}"
-                  class="list-group-item flex-column align-items-start">
-                  <div class="checkbox-custom checkbox-success checkbox-lg">
-                    <input type="checkbox" name="checkbox">
-                    <label class="item-title" th:text="${p.name}">Edit meeting record</label>
-                  </div>
-                  <div class="w-full">
-                    <div class="item-due-date">
-                      <span th:text="${p.ctime}">Tue,aug 25</span>
-                    </div>
-                    <ul class="item-members">
-                      <li><span th:text="${'参与人数:'+p.count}">参与人数</span></li>
-<!--                      <li>-->
-<!--                        <span th:text="${'发起人:'+p.userid}">发起人</span>-->
-<!--                      </li>-->
-                    </ul>
-                  </div>
-                </li>
-
-              </div>
-            </div>
-          </ul>
-        </div>
-      </div>
-      <!-- End To Do List -->
-      <!-- Recent Activity -->
-      <div class="col-xxl-4 col-xl-6 col-lg-6">
-        <div id="recentActivityWidget" class="card card-shadow card-lg pb-20">
-          <div class="card-header card-header-transparent pb-10">
-            <div class="card-header-actions">
-              <span class="badge badge-default badge-round">
-                <a href="/getAllNoticePage">
-                  查看所有
-                </a>
-              </span>
-            </div>
-            <h5 class="card-title">
-              通知
-            </h5>
-          </div>
-          <ul class="timeline timeline-icon">
-            <li class="timeline-reverse timeline-item" th:each="n,stat : ${recentNotices}">
-              <div class="timeline-content-wrap">
-                <div
-                  th:class="${'timeline-dot '+iconColorList[#numbers.formatDecimal(T(java.lang.Math).floor(T(java.lang.Math).random()*4),1,0)]}"
-                  >
-                  <i
-                    th:class="${'icon '+noticeIcons[#numbers.formatDecimal(T(java.lang.Math).floor(T(java.lang.Math).random()*4),1,0)]}"
-                    aria-hidden="true"></i>
-                </div>
-                <div class="timeline-content">
-                  <div class="title">
-                    <a class="authors" th:text="${n.title}"
-                    href="/getAllNoticePage">Victor Erixon</a>
-                    <span th:text="${n.cuserid}">assigned to a task</span>
-                  </div>
-                  <div class="metas" th:text="${n.ctime}">
-                    active 14 minutes ago
-                  </div>
-
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- End Recent Activity -->
-      <!-- End Second Row -->
+  <div class="page-header">
+    <h1 class="page-title" >日志</h1>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">概要页</a></li>
+      <li class="breadcrumb-item"><a href="javascript:void(0)">日志管理</a></li>
+    </ol>
+    <div class="page-header-actions">
+      <a class="btn btn-sm btn-default btn-outline btn-round" href="http://datatables.net"
+         target="_blank">
+        <i class="icon wb-link" aria-hidden="true"></i>
+        <span class="hidden-sm-down">Official Website</span>
+      </a>
     </div>
+  </div>
+
+  <div class="page-content">
+    <!-- Panel Table Add Row -->
+    <div class="panel">
+      <header class="panel-heading">
+<!--        <h3 class="panel-title">项目</h3>-->
+      </header>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-15">
+            </div>
+          </div>
+        </div>
+
+        <!--  bootstrap table  -->
+        <div id="toolbar">
+          <button id="remove" class="btn btn-danger" disabled>
+            <i class="glyphicon glyphicon-remove"></i> 删除
+          </button>
+        </div>
+        <table
+          id="table"
+          data-toolbar="#toolbar"
+          data-search="true"
+          data-show-refresh="true"
+          data-show-toggle="false"
+          data-show-fullscreen="true"
+          data-show-columns="true"
+          data-show-columns-toggle-all="true"
+          data-detail-view="false"
+          data-show-export="true"
+          data-click-to-select="true"
+          data-detail-formatter="detailFormatter"
+          data-minimum-count-columns="2"
+          data-show-pagination-switch="false"
+          data-pagination="true"
+          data-id-field="id"
+          data-page-list="[10, 25, 50, 100, all]"
+          data-show-footer="false"
+          data-side-pagination="client"
+          data-url="/obtainLogs"
+          data-response-handler="responseHandler">
+        </table>
+        <!-- End bootstrap table  -->
+      </div>
+    </div>
+    <!-- End Panel Table Add Row -->
+
   </div>
 </div>
 <!-- End Page -->
-
-<!-- Add Item Dialog -->
-<div id="addtodoItemForm" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="addtodoItemForm"
-     aria-hidden="true">
-  <div class="modal-dialog modal-simple">
-    <form class="modal-content form-horizontal" role="form" action="#" method="post">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="moadl-title">Create New To Do Item</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group row">
-          <label class="col-sm-2 form-control-label" for="title">Title:</label>
-          <div class="col-sm-10">
-            <input id="title" class="form-control" type="text" name="title"/>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2 form-control-label" for="dueDate">Due Date</label>
-          <div class="col-sm-10">
-            <div class="input-group">
-              <input id="dueDate" class="form-control" type="text" data-plugin="datepicker"
-                     data-container="#addtodoItemForm"
-              />
-              <span class="input-group-addon">
-                    <i class="icon wb-calendar" aria-hidden="true"></i>
-                  </span>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2 form-control-label" for="people">People:</label>
-          <div class="col-sm-10">
-            <select id="people" multiple="multiple" class="plugin-selective">
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="form-actions">
-          <button class="btn btn-primary" data-dismiss="modal" type="button">
-            Add This Item
-          </button>
-          <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">
-            Cancel
-          </a>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<!-- End Add Item Dialog -->
-
-<!-- Edit Dialog -->
-<div class="modal fade" id="edittodoItemForm" aria-hidden="true" aria-labelledby="edittodoItemForm"
-     role="dialog" tabindex="-1" data-show="false">
-  <div class="modal-dialog modal-simple">
-    <form class="modal-content form-horizontal" action="#" method="post" role="form">
-      <div class="modal-header">
-        <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
-        <h4 class="modal-title">Edit To Do Item</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group row">
-          <label class="col-sm-2 form-control-label" for="editTitle">Title:
-          </label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="editTitle" name="editTitle">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2 form-control-label" for="editStarts">Due Date:
-          </label>
-          <div class="col-sm-10">
-            <div class="input-group">
-              <input type="text" class="form-control" id="editDueDate" name="editDueDate"
-                     data-container="#edittodoItemForm"
-                     data-plugin="datepicker">
-              <span class="input-group-addon">
-                    <i class="icon wb-calendar" aria-hidden="true"></i>
-                  </span>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2 form-control-label" for="editPeople">People:
-          </label>
-          <div class="col-sm-10">
-            <select id="editPeople" multiple="multiple" class="plugin-selective"></select>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="form-actions">
-          <button class="btn btn-primary" data-dismiss="modal" type="button">Save</button>
-          <button class="btn btn-danger" data-dismiss="modal" type="button">Delete</button>
-          <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<!-- End Edit Dialog -->
 
 
 <!-- Footer -->
@@ -1984,12 +1642,22 @@
 <script src="../../../global/vendor/intro-js/intro.js"></script>
 <script src="../../../global/vendor/screenfull/screenfull.js"></script>
 <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-<script src="../../../global/vendor/chartist/chartist.js"></script>
-<script src="../../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.js"></script>
-<script src="../../../global/vendor/aspieprogress/jquery-asPieProgress.js"></script>
-<script src="../../../global/vendor/matchheight/jquery.matchHeight-min.js"></script>
-<script src="../../../global/vendor/jquery-selective/jquery-selective.min.js"></script>
-<script src="../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="../../../global/vendor/datatables.net/jquery.dataTables.js"></script>
+<script src="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="../../../global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.js"></script>
+<script src="../../../global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js"></script>
+<script src="../../../global/vendor/datatables.net-rowgroup/dataTables.rowGroup.js"></script>
+<script src="../../../global/vendor/datatables.net-scroller/dataTables.scroller.js"></script>
+<script src="../../../global/vendor/datatables.net-responsive/dataTables.responsive.js"></script>
+<script src="../../../global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
+<script src="../../../global/vendor/datatables.net-buttons/dataTables.buttons.js"></script>
+<script src="../../../global/vendor/datatables.net-buttons/buttons.html5.js"></script>
+<script src="../../../global/vendor/datatables.net-buttons/buttons.flash.js"></script>
+<script src="../../../global/vendor/datatables.net-buttons/buttons.print.js"></script>
+<script src="../../../global/vendor/datatables.net-buttons/buttons.colVis.js"></script>
+<script src="../../../global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
+<script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
+<script src="../../../global/vendor/bootbox/bootbox.js"></script>
 
 <!-- Scripts -->
 <script src="../../../global/js/Component.js"></script>
@@ -2012,16 +1680,19 @@
 <script src="../../../global/js/Plugin/asscrollable.js"></script>
 <script src="../../../global/js/Plugin/slidepanel.js"></script>
 <script src="../../../global/js/Plugin/switchery.js"></script>
-<script src="../../../global/js/Plugin/matchheight.js"></script>
-<script src="../../../global/js/Plugin/aspieprogress.js"></script>
-<script src="../../../global/js/Plugin/bootstrap-datepicker.js"></script>
-<script src="../../../global/js/Plugin/asscrollable.js"></script>
-
-<!--现已加入X-->
-<script src="/xgather/xdividejs/team.js"></script>
+<script src="../../../global/js/Plugin/datatables.js"></script>
 
 
-<!--  mine-->
-<script src="/xjs/general.js"></script>
+<!--  X-->
+<script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+
+<script src="/xgather/xlib/layer/layer.js"></script>
+
+<script src="/xgather/xdividejs/proj-datatable.js"></script>
+<script src="/xgather/xjs/log-bootstraptable.js"></script>
+
 </body>
 </html>

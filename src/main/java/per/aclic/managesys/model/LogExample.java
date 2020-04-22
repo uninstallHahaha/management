@@ -1,6 +1,7 @@
 package per.aclic.managesys.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LogExample {
@@ -244,73 +245,263 @@ public class LogExample {
             return (Criteria) this;
         }
 
-        public Criteria andOpdescIsNull() {
-            addCriterion("opdesc is null");
+        public Criteria andUsernameIsNull() {
+            addCriterion("username is null");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescIsNotNull() {
-            addCriterion("opdesc is not null");
+        public Criteria andUsernameIsNotNull() {
+            addCriterion("username is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescEqualTo(String value) {
-            addCriterion("opdesc =", value, "opdesc");
+        public Criteria andUsernameEqualTo(String value) {
+            addCriterion("username =", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescNotEqualTo(String value) {
-            addCriterion("opdesc <>", value, "opdesc");
+        public Criteria andUsernameNotEqualTo(String value) {
+            addCriterion("username <>", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescGreaterThan(String value) {
-            addCriterion("opdesc >", value, "opdesc");
+        public Criteria andUsernameGreaterThan(String value) {
+            addCriterion("username >", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescGreaterThanOrEqualTo(String value) {
-            addCriterion("opdesc >=", value, "opdesc");
+        public Criteria andUsernameGreaterThanOrEqualTo(String value) {
+            addCriterion("username >=", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescLessThan(String value) {
-            addCriterion("opdesc <", value, "opdesc");
+        public Criteria andUsernameLessThan(String value) {
+            addCriterion("username <", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescLessThanOrEqualTo(String value) {
-            addCriterion("opdesc <=", value, "opdesc");
+        public Criteria andUsernameLessThanOrEqualTo(String value) {
+            addCriterion("username <=", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescLike(String value) {
-            addCriterion("opdesc like", value, "opdesc");
+        public Criteria andUsernameLike(String value) {
+            addCriterion("username like", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescNotLike(String value) {
-            addCriterion("opdesc not like", value, "opdesc");
+        public Criteria andUsernameNotLike(String value) {
+            addCriterion("username not like", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescIn(List<String> values) {
-            addCriterion("opdesc in", values, "opdesc");
+        public Criteria andUsernameIn(List<String> values) {
+            addCriterion("username in", values, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescNotIn(List<String> values) {
-            addCriterion("opdesc not in", values, "opdesc");
+        public Criteria andUsernameNotIn(List<String> values) {
+            addCriterion("username not in", values, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescBetween(String value1, String value2) {
-            addCriterion("opdesc between", value1, value2, "opdesc");
+        public Criteria andUsernameBetween(String value1, String value2) {
+            addCriterion("username between", value1, value2, "username");
             return (Criteria) this;
         }
 
-        public Criteria andOpdescNotBetween(String value1, String value2) {
-            addCriterion("opdesc not between", value1, value2, "opdesc");
+        public Criteria andUsernameNotBetween(String value1, String value2) {
+            addCriterion("username not between", value1, value2, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleIsNull() {
+            addCriterion("userrole is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleIsNotNull() {
+            addCriterion("userrole is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleEqualTo(Integer value) {
+            addCriterion("userrole =", value, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleNotEqualTo(Integer value) {
+            addCriterion("userrole <>", value, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleGreaterThan(Integer value) {
+            addCriterion("userrole >", value, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleGreaterThanOrEqualTo(Integer value) {
+            addCriterion("userrole >=", value, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleLessThan(Integer value) {
+            addCriterion("userrole <", value, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleLessThanOrEqualTo(Integer value) {
+            addCriterion("userrole <=", value, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleIn(List<Integer> values) {
+            addCriterion("userrole in", values, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleNotIn(List<Integer> values) {
+            addCriterion("userrole not in", values, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleBetween(Integer value1, Integer value2) {
+            addCriterion("userrole between", value1, value2, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserroleNotBetween(Integer value1, Integer value2) {
+            addCriterion("userrole not between", value1, value2, "userrole");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjIsNull() {
+            addCriterion("opobj is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjIsNotNull() {
+            addCriterion("opobj is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjEqualTo(String value) {
+            addCriterion("opobj =", value, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjNotEqualTo(String value) {
+            addCriterion("opobj <>", value, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjGreaterThan(String value) {
+            addCriterion("opobj >", value, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjGreaterThanOrEqualTo(String value) {
+            addCriterion("opobj >=", value, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjLessThan(String value) {
+            addCriterion("opobj <", value, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjLessThanOrEqualTo(String value) {
+            addCriterion("opobj <=", value, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjLike(String value) {
+            addCriterion("opobj like", value, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjNotLike(String value) {
+            addCriterion("opobj not like", value, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjIn(List<String> values) {
+            addCriterion("opobj in", values, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjNotIn(List<String> values) {
+            addCriterion("opobj not in", values, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjBetween(String value1, String value2) {
+            addCriterion("opobj between", value1, value2, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpobjNotBetween(String value1, String value2) {
+            addCriterion("opobj not between", value1, value2, "opobj");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeIsNull() {
+            addCriterion("ctime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeIsNotNull() {
+            addCriterion("ctime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeEqualTo(Date value) {
+            addCriterion("ctime =", value, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeNotEqualTo(Date value) {
+            addCriterion("ctime <>", value, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeGreaterThan(Date value) {
+            addCriterion("ctime >", value, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("ctime >=", value, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeLessThan(Date value) {
+            addCriterion("ctime <", value, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeLessThanOrEqualTo(Date value) {
+            addCriterion("ctime <=", value, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeIn(List<Date> values) {
+            addCriterion("ctime in", values, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeNotIn(List<Date> values) {
+            addCriterion("ctime not in", values, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeBetween(Date value1, Date value2) {
+            addCriterion("ctime between", value1, value2, "ctime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtimeNotBetween(Date value1, Date value2) {
+            addCriterion("ctime not between", value1, value2, "ctime");
             return (Criteria) this;
         }
     }

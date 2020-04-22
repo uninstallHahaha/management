@@ -2,9 +2,11 @@ package per.aclic.managesys.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import per.aclic.managesys.model.Log;
 import per.aclic.managesys.model.LogExample;
 
+@Repository
 public interface LogMapper {
     long countByExample(LogExample example);
 
