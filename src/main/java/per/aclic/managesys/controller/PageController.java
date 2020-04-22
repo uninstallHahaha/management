@@ -37,13 +37,15 @@ public class PageController {
         return resStr;
     }
 
-//    跳转到 所有通知 页面
+    //所有通知 页面
     @RequestMapping("/getAllNoticePage")
     public String getAllNoticePage(Model model) {
         List<Notice> allNotice = noticeService.findAll();
         model.addAttribute("notices",allNotice);
         return "/mm/classic/mmenu/html/tables/notice";
     }
+
+
 
     //个人所有  项目界面
     //TODO 在加入用户系统后,应当更改为获取该用户的项目和活动

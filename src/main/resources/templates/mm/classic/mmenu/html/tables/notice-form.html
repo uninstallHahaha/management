@@ -7,7 +7,7 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
 
-  <title>所有通知</title>
+  <title>通知-表单</title>
 
   <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -25,7 +25,8 @@
   <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
   <link rel="stylesheet" href="../../../global/vendor/jquery-mmenu/jquery-mmenu.css">
   <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-  <link rel="stylesheet" href="../../assets/examples/css/layouts/panel-transition.css">
+  <link rel="stylesheet" href="../../../global/vendor/formvalidation/formValidation.css">
+  <link rel="stylesheet" href="../../assets/examples/css/forms/validation.css">
   <link rel="stylesheet" href="../../../global/vendor/animsition/animsition.css">
   <link rel="stylesheet" href="../../../global/vendor/asscrollable/asScrollable.css">
   <link rel="stylesheet" href="../../../global/vendor/switchery/switchery.css">
@@ -33,7 +34,26 @@
   <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
   <link rel="stylesheet" href="../../../global/vendor/jquery-mmenu/jquery-mmenu.css">
   <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-  <link rel="stylesheet" href="../../assets/examples/css/uikit/modals.css">
+  <link rel="stylesheet" href="../../../global/vendor/select2/select2.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-tokenfield/bootstrap-tokenfield.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-select/bootstrap-select.css">
+  <link rel="stylesheet" href="../../../global/vendor/icheck/icheck.css">
+  <link rel="stylesheet" href="../../../global/vendor/switchery/switchery.css">
+  <link rel="stylesheet" href="../../../global/vendor/asrange/asRange.css">
+  <link rel="stylesheet" href="../../../global/vendor/ionrangeslider/ionrangeslider.min.css">
+  <link rel="stylesheet" href="../../../global/vendor/asspinner/asSpinner.css">
+  <link rel="stylesheet" href="../../../global/vendor/clockpicker/clockpicker.css">
+  <link rel="stylesheet" href="../../../global/vendor/ascolorpicker/asColorPicker.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-touchspin/bootstrap-touchspin.css">
+  <link rel="stylesheet" href="../../../global/vendor/jquery-labelauty/jquery-labelauty.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../../../global/vendor/bootstrap-maxlength/bootstrap-maxlength.css">
+  <link rel="stylesheet" href="../../../global/vendor/timepicker/jquery-timepicker.css">
+  <link rel="stylesheet" href="../../../global/vendor/jquery-strength/jquery-strength.css">
+  <link rel="stylesheet" href="../../../global/vendor/multi-select/multi-select.css">
+  <link rel="stylesheet" href="../../../global/vendor/typeahead-js/typeahead.css">
+  <link rel="stylesheet" href="../../assets/examples/css/forms/advanced.css">
 
 
   <!-- Fonts -->
@@ -565,7 +585,7 @@
         </li>
       </ul>
     </li>
-    <li class="site-menu-item has-sub active open">
+    <li class="site-menu-item has-sub">
       <a href="javascript:void(0)">
         <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
         <span class="site-menu-title">Layouts</span>
@@ -597,7 +617,7 @@
             <span class="site-menu-title">Different Headers</span>
           </a>
         </li>
-        <li class="site-menu-item active">
+        <li class="site-menu-item">
           <a class="animsition-link" href="../layouts/panel-transition.html">
             <span class="site-menu-title">Panel Transition</span>
           </a>
@@ -1186,7 +1206,7 @@
         </li>
       </ul>
     </li>
-    <li class="site-menu-item has-sub">
+    <li class="site-menu-item has-sub active open">
       <a href="javascript:void(0)">
         <i class="site-menu-icon wb-library" aria-hidden="true"></i>
         <span class="site-menu-title">Forms</span>
@@ -1218,7 +1238,7 @@
             <span class="site-menu-title">Form Wizard</span>
           </a>
         </li>
-        <li class="site-menu-item">
+        <li class="site-menu-item active">
           <a class="animsition-link" href="../forms/validation.html">
             <span class="site-menu-title">Form Validation</span>
           </a>
@@ -1544,93 +1564,155 @@
 <!-- Page -->
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">通知中心</h1>
+    <h1 class="page-title">新建通知</h1>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">概要页面</a></li>
-      <li class="breadcrumb-item active">通知中心</li>
+      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li>
+      <li class="breadcrumb-item active">Validation</li>
     </ol>
     <div class="page-header-actions">
-
-      <button class="btn btn-primary" data-target="#exampleFormModal" data-toggle="modal" type="button">发布通知</button>
-
-      <div class="btn-group btn-group-sm" id="withBtnGroup" aria-label="Page Header Actions"
-           role="group">
-        <div class="dropdown">
-          <button type="button" class="btn btn-pure" data-toggle="dropdown" aria-expanded="false">
-            Try Transtion
-            <span class="icon wb-chevron-down-mini" aria-hidden="true"></span>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right" role="menu">
-            <a class="dropdown-item" data-type="fade" href="javascript:void(0)">Fade</a>
-            <a class="dropdown-item" data-type="scale-up" href="javascript:void(0)">Scale Up</a>
-            <a class="dropdown-item" data-type="slide-left" href="javascript:void(0)">Slide Left</a>
-            <a class="dropdown-item" data-type="slide-right" href="javascript:void(0)">Slide Right</a>
-            <a class="dropdown-item" data-type="slide-top" href="javascript:void(0)">Slide Top</a>
-            <a class="dropdown-item" data-type="slide-bottom" href="javascript:void(0)">Slide Bottom</a>
-          </div>
-        </div>
-      </div>
+      <a class="btn btn-sm btn-default btn-outline btn-round" href="http://formvalidation.io"
+         target="_blank">
+        <i class="icon wb-link" aria-hidden="true"></i>
+        <span class="hidden-sm-down">Official Website</span>
+      </a>
     </div>
   </div>
-  <div id="exampleTransition" class="page-content container-fluid" data-plugin="animateList">
-    <ul class="blocks-sm-100 blocks-lg-2 blocks-xxl-3">
+
+  <div class="page-content container-fluid">
+
+    <div class="row">
+
+    </div>
+
+    <!-- Panel Full Example -->
+    <div class="panel">
+      <div class="panel-heading">
+        <h3 class="panel-title" >填写通知相关信息
+          <span class="panel-desc">Basic validation will display a label with the error after the form
+                control. </span>
+        </h3>
+      </div>
+      <div class="panel-body">
+
+        <form id="exampleFullForm" autocomplete="off"
+              method="post"
+              action="/addProjForm">
+          <div class="row row-lg">
+            <div class="col-xl-6 form-horizontal">
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">通知标题
+                  <span class="required">*</span>
+                </label>
+                <div class=" col-xl-12 col-md-9">
+                  <input type="text" class="form-control"
+                         data-fv-stringlength="true"
+                         data-fv-stringlength-max="20" data-fv-stringlength-message="please enter less than 20 length"
+                         name="name" placeholder="输入通知标题..."
+                         required="">
+                </div>
+              </div>
 
 
-      <li th:each="n, stat: ${notices}">
-        <div class="panel panel-bordered">
-          <div class="panel-heading">
-            <h3 class="panel-title" th:text="${n.title}">Panel Example - 1</h3>
-            <div class="panel-actions">
-<!--              <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle"-->
-<!--                 data-load-callback="customRefreshCallback" aria-hidden="true"></a>-->
-              <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse"
-                 aria-hidden="true"></a>
-              <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
-              <a class="panel-action icon wb-close notice-close" data-toggle="panel-close"
-                 data-th-data-cuserid="${n.id}"
-                 aria-hidden="true"
-                 title="删除通知"></a>
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">所属科目
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                  <div class="d-flex flex-column">
+                    <div class="radio-custom radio-primary" >
+                      <input type="radio" id="inputAwesome" name="subject" value="1" required=""
+                             th:attr="checked=${projInfo!=null?(projInfo.type%10 == 1?true:false):'false'}"
+                      >
+                      <label for="inputAwesome">数学</label>
+                    </div>
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputVeryAwesome" name="subject" value="2"
+                             th:attr="checked=${projInfo!=null?(projInfo.type%10 == 2?true:false):'false'}"
+                      >
+                      <label for="inputVeryAwesome">计算机</label>
+                    </div>
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputUltraAwesome" name="subject" value="3"
+                             th:attr="checked=${projInfo!=null?(projInfo.type%10 == 3?true:false):'false'}"
+                      >
+                      <label for="inputUltraAwesome">英语</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-xl-6 form-horizontal">
+
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">项目/活动启动时间
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                  <div class="input-group">
+                  <span class="input-group-addon">
+                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                  </span>
+                    <input
+                      th:value="${projInfo?.ctime}"
+                      name="ctime"
+                      type="text" class="form-control" data-plugin="datepicker" required="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">类型
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                  <div class="d-flex flex-column">
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputAwesome" name="type" value="1" required=""
+                             th:attr="checked=${projInfo!=null?(projInfo.type/10 == 1?true:false):'false'}"
+                      >
+                      <label for="inputAwesome">项目</label>
+                    </div>
+
+                    <div class="radio-custom radio-primary">
+                      <input type="radio" id="inputVeryAwesome" name="type" value="2"
+                             th:attr="checked=${projInfo!=null?(projInfo.type/10 == 2?true:false):'false'}"
+                      >
+                      <label for="inputVeryAwesome">活动</label>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-12 form-horizontal">
+              <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">项目/活动描述
+                  <span class="required">*</span>
+                </label>
+                <div class="col-xl-12 col-md-9">
+                      <textarea class="form-control" name="detail" rows="3" placeholder="Describe your skills"
+                                required=""
+                      th:text="${projInfo?.detail}"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-xl-12 text-right padding-top-m">
+              <button type="submit" class="btn btn-primary" id="validateButton1">提交</button>
             </div>
           </div>
-          <div class="panel-body">
-            <p th:text="${#strings.abbreviate(n.content,50)}">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Fusce
-              velit tortor, dictum in gravida nec, aliquet non lorem. pellentesque.ipiscing
-              elit. Fusce velit tortor.</p>
-          </div>
-        </div>
-      </li>
 
-    </ul>
+        </form>
+      </div>
+    </div>
+    <!-- End Panel Full Example -->
   </div>
 </div>
-
-<div class="modal fade" id="exampleFormModal" aria-labelledby="exampleFormModalLabel" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
-  <div class="modal-dialog modal-simple">
-    <form class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-        <h4 class="modal-title" id="exampleFormModalLabel">发布通知</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-xl-12 form-group">
-            <input type="text" class="form-control" id="noticeTitle" name="title" placeholder="通知标题...">
-          </div>
-
-          <div class="col-xl-12 form-group">
-            <textarea class="form-control" id="noticeContent" rows="5" placeholder="通知内容..."></textarea>
-          </div>
-          <div class="col-md-12 float-right">
-            <button class="btn btn-primary btn-outline" data-dismiss="modal" id="pushNoticeBtn" type="button">发布</button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
+<!-- End Page -->
 
 
 <!-- Footer -->
@@ -1658,6 +1740,8 @@
 <script src="../../../global/vendor/intro-js/intro.js"></script>
 <script src="../../../global/vendor/screenfull/screenfull.js"></script>
 <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
+<script src="../../../global/vendor/formvalidation/formValidation.min.js"></script>
+<script src="../../../global/vendor/formvalidation/framework/bootstrap4.min.js"></script>
 
 <!-- Scripts -->
 <script src="../../../global/js/Component.js"></script>
@@ -1680,14 +1764,88 @@
 <script src="../../../global/js/Plugin/asscrollable.js"></script>
 <script src="../../../global/js/Plugin/slidepanel.js"></script>
 <script src="../../../global/js/Plugin/switchery.js"></script>
-<script src="../../../global/js/Plugin/animate-list.js"></script>
-<script src="../../../global/js/Plugin/panel.js"></script>
 
-<script src="../../assets/examples/js/layouts/panel-transition.js"></script>
+<script src="../../../global/vendor/jquery-mmenu/jquery.mmenu.min.all.js"></script>
+<script src="../../../global/vendor/switchery/switchery.js"></script>
+<script src="../../../global/vendor/intro-js/intro.js"></script>
+<script src="../../../global/vendor/screenfull/screenfull.js"></script>
+<script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
+<script src="../../../global/vendor/select2/select2.full.min.js"></script>
+<script src="../../../global/vendor/bootstrap-tokenfield/bootstrap-tokenfield.min.js"></script>
+<script src="../../../global/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="../../../global/vendor/bootstrap-select/bootstrap-select.js"></script>
+<script src="../../../global/vendor/icheck/icheck.min.js"></script>
+<script src="../../../global/vendor/switchery/switchery.js"></script>
+<script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
+<script src="../../../global/vendor/ionrangeslider/ion.rangeSlider.min.js"></script>
+<script src="../../../global/vendor/asspinner/jquery-asSpinner.min.js"></script>
+<script src="../../../global/vendor/clockpicker/bootstrap-clockpicker.min.js"></script>
+<script src="../../../global/vendor/ascolor/jquery-asColor.min.js"></script>
+<script src="../../../global/vendor/asgradient/jquery-asGradient.min.js"></script>
+<script src="../../../global/vendor/ascolorpicker/jquery-asColorPicker.min.js"></script>
+<script src="../../../global/vendor/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+<script src="../../../global/vendor/jquery-knob/jquery.knob.js"></script>
+<script src="../../../global/vendor/bootstrap-touchspin/bootstrap-touchspin.min.js"></script>
+<script src="../../../global/vendor/jquery-labelauty/jquery-labelauty.js"></script>
+<script src="../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="../../../global/vendor/timepicker/jquery.timepicker.min.js"></script>
+<script src="../../../global/vendor/datepair/datepair.min.js"></script>
+<script src="../../../global/vendor/datepair/jquery.datepair.min.js"></script>
+<script src="../../../global/vendor/jquery-strength/password_strength.js"></script>
+<script src="../../../global/vendor/jquery-strength/password_strength.js"></script>
+<script src="../../../global/vendor/jquery-strength/jquery-strength.min.js"></script>
+<script src="../../../global/vendor/multi-select/jquery.multi-select.js"></script>
+<script src="../../../global/vendor/typeahead-js/bloodhound.min.js"></script>
+<script src="../../../global/vendor/typeahead-js/typeahead.jquery.min.js"></script>
+<script src="../../../global/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 
-<!--    xgather-->
-<script src="/xgather/xjs/notice.js"></script>
-<script src="/xgather/xlib/layer/layer.js"></script>
+<!-- Scripts -->
+<script src="../../../global/js/Component.js"></script>
+<script src="../../../global/js/Plugin.js"></script>
+<script src="../../../global/js/Base.js"></script>
+<script src="../../../global/js/Config.js"></script>
+
+<script src="../../assets/js/Section/Menubar.js"></script>
+<script src="../../assets/js/Section/Sidebar.js"></script>
+<script src="../../assets/js/Section/PageAside.js"></script>
+<script src="../../assets/js/Section/GridMenu.js"></script>
+
+<!-- Config -->
+<script src="../../../global/js/config/colors.js"></script>
+<script src="../../assets/js/config/tour.js"></script>
+<script>Config.set('assets', '../../assets');</script>
+
+<!-- Page -->
+<script src="../../assets/js/Site.js"></script>
+<script src="../../../global/js/Plugin/asscrollable.js"></script>
+<script src="../../../global/js/Plugin/slidepanel.js"></script>
+<script src="../../../global/js/Plugin/switchery.js"></script>
+<script src="../../../global/js/Plugin/select2.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-tokenfield.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-tagsinput.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-select.js"></script>
+<script src="../../../global/js/Plugin/icheck.js"></script>
+<script src="../../../global/js/Plugin/switchery.js"></script>
+<script src="../../../global/js/Plugin/asrange.js"></script>
+<script src="../../../global/js/Plugin/ionrangeslider.js"></script>
+<script src="../../../global/js/Plugin/asspinner.js"></script>
+<script src="../../../global/js/Plugin/clockpicker.js"></script>
+<script src="../../../global/js/Plugin/ascolorpicker.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-maxlength.js"></script>
+<script src="../../../global/js/Plugin/jquery-knob.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-touchspin.js"></script>
+<script src="../../../global/js/Plugin/card.js"></script>
+<script src="../../../global/js/Plugin/jquery-labelauty.js"></script>
+<script src="../../../global/js/Plugin/bootstrap-datepicker.js"></script>
+<script src="../../../global/js/Plugin/jt-timepicker.js"></script>
+<script src="../../../global/js/Plugin/datepair.js"></script>
+<script src="../../../global/js/Plugin/jquery-strength.js"></script>
+<script src="../../../global/js/Plugin/multi-select.js"></script>
+<script src="../../../global/js/Plugin/jquery-placeholder.js"></script>
+
+<script src="../../assets/examples/js/forms/advanced.js"></script>
+
+<script src="../../assets/examples/js/forms/validation.js"></script>
 
 </body>
 </html>

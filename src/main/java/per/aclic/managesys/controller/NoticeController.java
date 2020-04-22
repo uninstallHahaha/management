@@ -17,14 +17,16 @@ public class NoticeController {
 
     @ResponseBody
     @RequestMapping("/addNotice")
-    public int addNotice(Notice notice){
-        for(int i = 10; i< 20;i++){
-            Notice nt = new Notice(Utils.genUUID(),"通知"+i,
-                    "contentcontentcontentcontentcontentcontentcontentcont" +
-                            "entcontentcontentcontentcontentcontent",Utils.genUUID());
-            noticeService.addNotice(nt);
-        }
-        return 1;
+    public int addNotice(String title,String content){
+//        for(int i = 10; i< 20;i++){
+//            Notice nt = new Notice(Utils.genUUID(),"通知"+i,
+//                    "contentcontentcontentcontentcontentcontentcontentcont" +
+//                            "entcontentcontentcontentcontentcontent",Utils.genUUID());
+//            noticeService.addNotice(nt);
+//        }
+        Notice notice = new Notice(Utils.genUUID(),title,content,Utils.genUUID());
+        int res = noticeService.addNotice(notice);
+        return res;
     }
 
     @ResponseBody
