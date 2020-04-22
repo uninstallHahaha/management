@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import per.aclic.managesys.model.User;
 import per.aclic.managesys.model.UserExample;
-
+@Repository
 public interface UserMapper {
     long countByExample(UserExample example);
 
@@ -30,4 +30,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectByCondition(String name);
 }

@@ -82,12 +82,20 @@
       order by ${orderByClause}
     </if>
   </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user
     where id = #{id,jdbcType=VARCHAR}
   </select>
+
+<!--  模糊查询-->
+  <select id="selectByCondition" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from user
+    where name like #{name}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from user
     where id = #{id,jdbcType=VARCHAR}
