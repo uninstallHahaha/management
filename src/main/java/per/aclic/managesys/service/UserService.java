@@ -19,6 +19,10 @@ public class UserService {
         return userMapper.selectByPrimaryKey("djflajfklj");
     }
 
+    public User findOneByName(String name){
+      return  userMapper.selectByName(name);
+    }
+
     public int addUser(User user){
         return userMapper.insert(user);
     }

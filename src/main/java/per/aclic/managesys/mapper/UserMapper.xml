@@ -90,6 +90,11 @@
     where id = #{id,jdbcType=VARCHAR}
   </select>
 
+<!--  按照名字查询-->
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from user where name = #{name}
+  </select>
+
 <!--  模糊查询-->
   <select id="selectByCondition" parameterType="java.lang.String" resultMap="BaseResultMap">
     select * from user

@@ -32,4 +32,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     List<User> selectByCondition(String name);
+
+    User selectByName(String name);
 }

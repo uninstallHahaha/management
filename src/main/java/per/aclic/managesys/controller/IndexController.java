@@ -29,6 +29,18 @@ public class IndexController {
 
 
     @RequestMapping("/")
+    public String getLogin() {
+        return "/mm/classic/mmenu/html/login/login";
+    }
+
+
+    @RequestMapping("/getSignUpPage")
+    public String getSignUpPage() {
+        return "/mm/classic/mmenu/html/login/register";
+    }
+
+
+    @RequestMapping("/index")
     public String getIndex(Model model) {
         model.addAttribute("str", "个人主页");
         //通知

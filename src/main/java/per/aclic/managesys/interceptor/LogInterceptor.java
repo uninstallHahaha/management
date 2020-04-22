@@ -23,6 +23,8 @@ public class LogInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
+
+        //log
         if(request.getRequestURI().contains(".")){
             return true;
         }
