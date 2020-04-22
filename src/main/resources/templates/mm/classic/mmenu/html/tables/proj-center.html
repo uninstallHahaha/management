@@ -8,7 +8,7 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
 
-    <title th:text="${str}">学术成果</title>
+    <title>项目/学术活动中心</title>
 
     <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -26,13 +26,7 @@
     <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
     <link rel="stylesheet" href="../../../global/vendor/jquery-mmenu/jquery-mmenu.css">
     <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="../../../global/vendor/chartist/chartist.css">
-        <link rel="stylesheet" href="../../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
-        <link rel="stylesheet" href="../../../global/vendor/aspieprogress/asPieProgress.css">
-        <link rel="stylesheet" href="../../../global/vendor/jquery-selective/jquery-selective.css">
-        <link rel="stylesheet" href="../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="../../../global/vendor/asscrollable/asScrollable.css">
-        <link rel="stylesheet" href="../../assets/examples/css/dashboard/team.css">
+        <link rel="stylesheet" href="../../assets/examples/css/pages/search-result.css">
 
 
     <!-- Fonts -->
@@ -55,7 +49,7 @@
       Breakpoints();
     </script>
   </head>
-  <body class="animsition site-navbar-small dashboard">
+  <body class="animsition site-navbar-small page-search">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -520,10 +514,10 @@
       </div>
     </nav>    <div class="site-menubar">
       <ul class="site-menu">
-        <li class="site-menu-item has-sub active open">
+        <li class="site-menu-item has-sub">
           <a href="javascript:void(0)">
                   <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                  <span class="site-menu-title">概要</span>
+                  <span class="site-menu-title">Dashboard</span>
                           <span class="site-menu-arrow"></span>
               </a>
           <ul class="site-menu-sub">
@@ -547,49 +541,13 @@
                 <span class="site-menu-title">Analytics</span>
               </a>
             </li>
-            <li class="site-menu-item active">
+            <li class="site-menu-item">
               <a class="animsition-link" href="../dashboard/team.html">
                 <span class="site-menu-title">Team</span>
               </a>
             </li>
           </ul>
         </li>
-
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <i class="site-menu-icon wb-table" aria-hidden="true"></i>
-            <span class="site-menu-title">项目和学术活动</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="/tables/proj-datatable.html">
-                <span class="site-menu-title">项目</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="/tables/party.html">
-                <span class="site-menu-title">学术活动</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <i class="site-menu-icon wb-table" aria-hidden="true"></i>
-            <span class="site-menu-title">学术成果</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="/tables/achi.html">
-                <span class="site-menu-title">学术成果</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-
         <li class="site-menu-item has-sub">
           <a href="javascript:void(0)">
                   <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
@@ -675,7 +633,7 @@
             </li>
           </ul>
         </li>
-        <li class="site-menu-item has-sub">
+        <li class="site-menu-item has-sub active open">
           <a href="javascript:void(0)">
                   <i class="site-menu-icon wb-file" aria-hidden="true"></i>
                   <span class="site-menu-title">Pages</span>
@@ -730,7 +688,7 @@
                 <span class="site-menu-title">Gallery Grid</span>
               </a>
             </li>
-            <li class="site-menu-item">
+            <li class="site-menu-item active">
               <a class="animsition-link" href="../pages/search-result.html">
                 <span class="site-menu-title">Search Result</span>
               </a>
@@ -1331,13 +1289,8 @@
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/proj-datatable.html">
-                <span class="site-menu-title">项目</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="/tables/party.html">
-                <span class="site-menu-title">学术活动</span>
+              <a class="animsition-link" href="../tables/datatable.html">
+                <span class="site-menu-title">DataTables</span>
               </a>
             </li>
             <li class="site-menu-item">
@@ -1571,201 +1524,54 @@
 
     <!-- Page -->
     <div class="page">
-      <div class="page-content container-fluid">
-        <div class="row" data-plugin="matchHeight" data-by-row="true">
-          <!-- Second Row -->
-          <!-- Recent Activity -->
-          <div class="col-xxl-12">
-            <div id="recentActivityWidget" class="card card-shadow card-lg pb-20">
-              <div class="card-header card-header-transparent pb-10">
-                <div class="card-header-actions">
-                  <span class="badge badge-default badge-round">查看所有</span>
-                </div>
-                <h5 class="card-title">
-                  学术成果
-                </h5>
+      <div class="page-content">
+        <!-- Panel -->
+        <div class="panel">
+          <div class="panel-body">
+            <form class="page-search-form" role="search" action="/getProjCenterPage">
+              <div class="input-search input-search-dark">
+                <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                <input type="text" class="form-control" id="inputSearch"
+                       name="condition"
+                       placeholder="输入项目/活动关键字进行筛选...">
+                <button type="button" class="input-search-close icon wb-close" aria-label="Close"></button>
               </div>
-              <ul class="timeline timeline-icon">
-                <li class="timeline-reverse timeline-item">
-                  <div class="timeline-content-wrap">
-                    <div class="timeline-dot bg-green-600">
-                      <i class="icon wb-chat" aria-hidden="true"></i>
-                    </div>
-                    <div class="timeline-content">
-                      <div class="title">
-                        <span class="authors">Victor Erixon</span> assigned to a task
-                      </div>
-                      <div class="metas">
-                        active 14 minutes ago
-                      </div>
+            </form>
+            <h1 class="page-search-title"
+                th:text="${condition==null?'所有项目/学术活动':'关于 < '+condition+' > 的搜索结果'}">
+              Search Results For "Web Design"</h1>
+            <p class="page-search-count" th:text="${'总共 '+count+' 条'}">About
+              <span>1,370</span> result (
+              <span>0.13</span> seconds)</p>
+            <ul class="list-group list-group-full list-group-dividered">
 
-                    </div>
-                  </div>
-                </li>
-                <li class="timeline-reverse timeline-item">
-                  <div class="timeline-content-wrap">
-                    <div class="timeline-dot bg-blue-600">
-                      <i class="icon wb-image" aria-hidden="true"></i>
-                    </div>
-                    <div class="timeline-content">
-                      <div class="title">
-                        <span class="authors">Alex Bender</span>uploaded 3 photos
-                      </div>
-                      <div class="metas">
-                        active 2 hours ago
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="timeline-reverse timeline-item">
-                  <div class="timeline-content-wrap">
-                    <div class="timeline-dot bg-cyan-600">
-                      <i class="icon wb-file" aria-hidden="true"></i>
-                    </div>
-                    <div class="timeline-content">
-                      <div class="title">
-                        <span class="authors">Jeff Erixon</span>
-                        invite you to attend topic discussion in
-                        <span class="room-number">B205</span>
-                        classroom
-                      </div>
-                      <div class="metas">
-                        active 4 hours ago
-                      </div>
-                      <div class="tags">
-                        As user experience designers we have to find the sweet spot
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="timeline-reverse timeline-item">
-                  <div class="timeline-content-wrap">
-                    <div class="timeline-dot bg-orange-600">
-                      <i class="icon wb-map" aria-hidden="true"></i>
-                    </div>
-                    <div class="timeline-content">
-                      <div class="title">
-                        <span class="authors">Jeff Erixon</span>
-                        invite you to attend topic discussion in
-                        <span class="room-number">B205</span>
-                        classroom
-                      </div>
-                      <div class="metas">
-                        active 3 hours ago
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+              <li class="list-group-item flex-column align-items-start"
+              th:each="p,s:${projs2Center}">
+                <h4>
+                  <a th:href="@{'/getProjInfoPage?id='+${p.id}}"
+                  th:text="${p.name}">
+                    Eademque Virtutum Laudantium
+                  </a>
+                </h4>
+                <span class="search-result-link" th:text="${'发起时间: '+p.ctime}">
+                  https://github.com/amazingSurge?tab=repositories
+                </span>
+                <p th:text="${p.detail}">Praebeat pecunias viveremus probamus opus apeirian haec perveniri,
+                  memoriter.Praebeat pecunias viveremus probamus opus apeirian
+                  haec perveniri, memoriter.Praebeat pecunias viveremus probamus
+                  opus apeirian haec perveniri, memoriter.</p>
+              </li>
+
+            </ul>
+<!--            <nav>-->
+<!--              <ul data-plugin="paginator" data-th-data-total="${count}" data-skin="pagination-no-border"></ul>-->
+<!--            </nav>-->
           </div>
-          <!-- End Recent Activity -->
-          <!-- End Second Row -->
         </div>
+        <!-- End Panel -->
       </div>
     </div>
     <!-- End Page -->
-
-    <!-- Add Item Dialog -->
-    <div id="addtodoItemForm" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="addtodoItemForm"
-      aria-hidden="true">
-      <div class="modal-dialog modal-simple">
-        <form class="modal-content form-horizontal" role="form" action="#" method="post">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="moadl-title">Create New To Do Item</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label" for="title">Title:</label>
-              <div class="col-sm-10">
-                <input id="title" class="form-control" type="text" name="title" />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label" for="dueDate">Due Date</label>
-              <div class="col-sm-10">
-                <div class="input-group">
-                  <input id="dueDate" class="form-control" type="text" data-plugin="datepicker" data-container="#addtodoItemForm"
-                  />
-                  <span class="input-group-addon">
-                    <i class="icon wb-calendar" aria-hidden="true"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label" for="people">People:</label>
-              <div class="col-sm-10">
-                <select id="people" multiple="multiple" class="plugin-selective">
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <div class="form-actions">
-              <button class="btn btn-primary" data-dismiss="modal" type="button">
-                Add This Item
-              </button>
-              <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">
-            Cancel
-          </a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- End Add Item Dialog -->
-
-    <!-- Edit Dialog -->
-    <div class="modal fade" id="edittodoItemForm" aria-hidden="true" aria-labelledby="edittodoItemForm"
-      role="dialog" tabindex="-1" data-show="false">
-      <div class="modal-dialog modal-simple">
-        <form class="modal-content form-horizontal" action="#" method="post" role="form">
-          <div class="modal-header">
-            <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
-            <h4 class="modal-title">Edit To Do Item</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label" for="editTitle">Title:
-              </label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="editTitle" name="editTitle">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label" for="editStarts">Due Date:
-              </label>
-              <div class="col-sm-10">
-                <div class="input-group">
-                  <input type="text" class="form-control" id="editDueDate" name="editDueDate" data-container="#edittodoItemForm"
-                    data-plugin="datepicker">
-                  <span class="input-group-addon">
-                    <i class="icon wb-calendar" aria-hidden="true"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label" for="editPeople">People:
-              </label>
-              <div class="col-sm-10">
-                <select id="editPeople" multiple="multiple" class="plugin-selective"></select>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <div class="form-actions">
-              <button class="btn btn-primary" data-dismiss="modal" type="button">Save</button>
-              <button class="btn btn-danger" data-dismiss="modal" type="button">Delete</button>
-              <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- End Edit Dialog -->
 
 
     <!-- Footer -->
@@ -1791,12 +1597,7 @@
     <script src="../../../global/vendor/intro-js/intro.js"></script>
     <script src="../../../global/vendor/screenfull/screenfull.js"></script>
     <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-        <script src="../../../global/vendor/chartist/chartist.js"></script>
-        <script src="../../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.js"></script>
-        <script src="../../../global/vendor/aspieprogress/jquery-asPieProgress.js"></script>
-        <script src="../../../global/vendor/matchheight/jquery.matchHeight-min.js"></script>
-        <script src="../../../global/vendor/jquery-selective/jquery-selective.min.js"></script>
-        <script src="../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+        <script src="../../../global/vendor/aspaginator/jquery-asPaginator.min.js"></script>
 
     <!-- Scripts -->
     <script src="../../../global/js/Component.js"></script>
@@ -1819,12 +1620,18 @@
     <script src="../../../global/js/Plugin/asscrollable.js"></script>
     <script src="../../../global/js/Plugin/slidepanel.js"></script>
     <script src="../../../global/js/Plugin/switchery.js"></script>
-        <script src="../../../global/js/Plugin/matchheight.js"></script>
-        <script src="../../../global/js/Plugin/aspieprogress.js"></script>
-        <script src="../../../global/js/Plugin/bootstrap-datepicker.js"></script>
-        <script src="../../../global/js/Plugin/asscrollable.js"></script>
+        <script src="../../../global/js/Plugin/aspaginator.js"></script>
 
-        <script src="../../assets/examples/js/dashboard/team.js"></script>
+    <script>
+      (function(document, window, $){
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function(){
+          Site.run();
+        });
+      })(document, window, jQuery);
+    </script>
 
   </body>
 </html>

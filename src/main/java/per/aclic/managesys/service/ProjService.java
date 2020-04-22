@@ -24,6 +24,11 @@ public class ProjService {
         return projMapper.selectByExample(pe);
     }
 
+//    根据name模糊查询
+    public List<Proj> findAllByCondition(String con){
+        return projMapper.selectAllByCondition("%"+con+"%");
+    }
+
     public List<Proj> findAllProj(){
         return projMapper.selectAllProjWithUser();
     }

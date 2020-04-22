@@ -14,6 +14,7 @@ import per.aclic.managesys.service.MessageService;
 import per.aclic.managesys.service.NoticeService;
 import per.aclic.managesys.service.ProjService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -93,10 +94,18 @@ public class PageController {
         return "/mm/classic/mmenu/html/tables/achiDetail";
     }
 
-    //项目中心界面
+    //项目/学术活动中心
     @RequestMapping("/getProjCenterPage")
-    public String getProjCenterPage(Model model){
-        model.addAttribute("projs2Center",projService.findAllProj());
+    public String getProjCenterPage(Model model, String condition){
+        List<Proj> allProjs = new ArrayList<Proj>();
+        if(null != condition){
+            model.addAttribute("condition",condition);
+            allProjs = projService.findAllByCondition(condition);
+        }else{
+            allProjs = projService.findAll();
+        }
+        model.addAttribute("projs2Center",allProjs);
+        model.addAttribute("count",allProjs.size());
         return "/mm/classic/mmenu/html/tables/proj-center";
     }
 

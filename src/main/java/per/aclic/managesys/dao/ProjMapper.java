@@ -37,4 +37,6 @@ public interface ProjMapper {
     int updateByPrimaryKeySelective(Proj record);
 
     int updateByPrimaryKey(Proj record);
+
+    List<Proj> selectAllByCondition(String con);
 }

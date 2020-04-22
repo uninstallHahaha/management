@@ -133,6 +133,12 @@
         FROM `proj` as p ,`user` as u where p.userid=u.id and p.type &gt; 20
   </select>
 
+<!--    查询所有活动和项目 , 使用like搜索-->
+    <select id="selectAllByCondition" parameterType="per.aclic.managesys.model.ProjExample"
+            resultMap="BaseResultMap">
+       select * from proj where name like #{con}
+  </select>
+
 
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
