@@ -156,7 +156,7 @@
 </nav>
 <div class="site-menubar">
   <ul class="site-menu">
-    <li class="site-menu-item active open"
+    <li class="site-menu-item  open"
         th:if="${session.USER != null && session.USER.role==1}">
       <a href="/index">
         <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
@@ -250,7 +250,7 @@
     </li>
 
 
-    <li class="site-menu-item"
+    <li class="site-menu-item active"
         th:if="${session.USER != null && session.USER.role==3}">
       <a href="/getUserManagePage">
         <i class="site-menu-icon wb-grid-4" aria-hidden="true"></i>

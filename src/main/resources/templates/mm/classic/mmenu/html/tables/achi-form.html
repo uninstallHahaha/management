@@ -184,7 +184,7 @@
 </nav>
 <div class="site-menubar">
   <ul class="site-menu">
-    <li class="site-menu-item active open"
+    <li class="site-menu-item  open"
         th:if="${session.USER != null && session.USER.role==1}">
       <a href="/index">
         <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
@@ -214,7 +214,7 @@
       </ul>
     </li>
 
-    <li class="site-menu-item"
+    <li class="site-menu-item active"
         th:if="${session.USER != null && session.USER.role==1}">
       <a href="/getAchiPPage">
         <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
