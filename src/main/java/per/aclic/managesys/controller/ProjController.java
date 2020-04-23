@@ -87,17 +87,27 @@ public class ProjController {
 
     @ResponseBody
     @RequestMapping("/obtainProjs")
-    public List<projMuser> obtainProjs() {
-        List<projMuser> allProjs = projService.findAllProj();
-        return allProjs;
+    public List<projMuser> obtainProjs(String userid) {
+        if(userid != null && userid != ""){
+            List<projMuser> allProjs = projService.findAllProjByUser(userid);
+            return allProjs;
+        }else{
+            List<projMuser> allProjs = projService.findAllProj();
+            return allProjs;
+        }
     }
 
 
     @ResponseBody
     @RequestMapping("/obtainAcs")
-    public List<projMuser> obtainAcs() {
-        List<projMuser> allProjs = projService.findAllAc();
-        return allProjs;
+    public List<projMuser> obtainAcs(String userid) {
+        if(userid != null && userid != ""){
+            List<projMuser> allProjs = projService.findAllAcByUser(userid);
+            return allProjs;
+        }else {
+            List<projMuser> allProjs = projService.findAllAc();
+            return allProjs;
+        }
     }
 
 

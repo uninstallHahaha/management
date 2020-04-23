@@ -51,7 +51,6 @@ public class PageController {
 
 
     //个人所有  项目界面
-    //TODO 在加入用户系统后,应当更改为获取该用户的项目和活动
     @RequestMapping("/getAllProjPage")
     public String getAllProjPage(Model model) {
         List<projMuser> allProj = projService.findAllProj();
@@ -78,7 +77,6 @@ public class PageController {
     }
 
     //个人所有  活动界面
-    //TODO 在加入用户系统后,应当更改为获取该用户的项目和活动
     @RequestMapping("/getAllAcPage")
     public String getAllAcPage(Model model) {
         List<projMuser> allProj = projService.findAllAc();

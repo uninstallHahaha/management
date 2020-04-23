@@ -49,6 +49,6 @@ public interface ProjMapper {
 
     List<projMuser> selectAllProjMUser();
 
-    List<Proj> selectAllProjByUser(String userid);
-    List<Proj> selectAllAcByUser(String userid);
+    List<projMuser> selectAllProjByUser(String userid);
+    List<projMuser> selectAllAcByUser(String userid);
 }

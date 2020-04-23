@@ -121,13 +121,19 @@
 
 
     <!--  查询用户的所有项目 -->
-    <select id="selectAllProjByUser" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
-    select * from proj where type &lt; 20 and userid=#{userid}
+    <select id="selectAllProjByUser"
+            parameterType="per.aclic.managesys.model.ProjExample"
+            resultMap="ResultMapMUser">
+    SELECT p.*,u.`name` userName,u.pass userPass,u.role userRole
+    FROM `proj` as p ,`user` as u where p.userid=u.id and p.type &lt; 20 and userid=#{userid}
   </select>
 
     <!--  查询用户的所有活动 -->
-    <select id="selectAllAcByUser" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
-    select * from proj where type &gt; 20 and userid=#{userid}
+    <select id="selectAllAcByUser"
+            parameterType="per.aclic.managesys.model.ProjExample"
+            resultMap="ResultMapMUser">
+    SELECT p.*,u.`name` userName,u.pass userPass,u.role userRole
+    FROM `proj` as p ,`user` as u where p.userid=u.id and p.type > 20 and userid=#{userid}
   </select>
 
 

@@ -98,10 +98,10 @@ public class ProjService {
         return projMapper.selectAllProjMUser();
     }
 
-    public List<Proj> findAllProjByUser(String userid) {
+    public List<projMuser> findAllProjByUser(String userid) {
         return projMapper.selectAllProjByUser(userid);
     }
-    public List<Proj> findAllAcByUser(String userid) {
+    public List<projMuser> findAllAcByUser(String userid) {
         return projMapper.selectAllAcByUser(userid);
     }
 }
