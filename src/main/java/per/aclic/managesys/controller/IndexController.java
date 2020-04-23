@@ -45,6 +45,12 @@ public class IndexController {
     }
 
 
+    @RequestMapping("/getsignupforadmin")
+    public String getsignupforadmin() {
+        return "/mm/classic/mmenu/html/login/registerforadmin";
+    }
+
+
     @RequestMapping("/index")
     public String getIndex(Model model , HttpSession session) {
         model.addAttribute("str", "个人主页");

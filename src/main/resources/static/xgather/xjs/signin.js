@@ -14,7 +14,15 @@ $(function () {
             success: function (res) {
                 if (res.stat == 1) {
                     layer.msg('登录成功')
-                    location.href = "/index"
+                    if(res.data ==1 ){
+                        location.href = "/index"
+                    }
+                    if(res.data ==2 ){
+                        location.href = "/getProjManagePage"
+                    }
+                    if(res.data ==3 ){
+                        location.href = "/getUserManagePage"
+                    }
                 } else {
                     layer.msg(res.data)
                 }

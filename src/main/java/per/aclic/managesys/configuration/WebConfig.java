@@ -20,7 +20,8 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         };
         //不要拦截的路径
         String[] excludePathPattents = {
-                "/login","/signin","/getSignUpPage","signup"
+                "/login","/signin","/getSignUpPage","/signup",
+                "/getsignupforadmin"
         };
         //注册拦截器
         registry.addInterceptor(interceptor)

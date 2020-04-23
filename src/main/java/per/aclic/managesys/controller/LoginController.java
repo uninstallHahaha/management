@@ -59,7 +59,7 @@ public class LoginController {
                 //session
                 session.setAttribute("USER", oneByName);
                 map.put("stat", 1);
-                map.put("data", "");
+                map.put("data", oneByName.getRole());
                 return map;
             }
         }

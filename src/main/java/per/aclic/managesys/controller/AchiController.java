@@ -69,7 +69,7 @@ public class AchiController {
             achi.setCtime(ctime);
             res = achiService.addAchi(achi);
         }
-        return "forward:/getAchiPPage";
+        return "redirect:/getAchiPPage";
     }
 
     @ResponseBody
