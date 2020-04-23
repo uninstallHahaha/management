@@ -48,4 +48,7 @@ public interface ProjMapper {
     int stopProj(String projid);
 
     List<projMuser> selectAllProjMUser();
+
+    List<Proj> selectAllProjByUser(String userid);
+    List<Proj> selectAllAcByUser(String userid);
 }

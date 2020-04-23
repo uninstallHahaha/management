@@ -119,6 +119,18 @@
     select * from proj where type &lt; 20
   </select>
 
+
+    <!--  查询用户的所有项目 -->
+    <select id="selectAllProjByUser" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
+    select * from proj where type &lt; 20 and userid=#{userid}
+  </select>
+
+    <!--  查询用户的所有活动 -->
+    <select id="selectAllAcByUser" parameterType="per.aclic.managesys.model.ProjExample" resultMap="BaseResultMap">
+    select * from proj where type &gt; 20 and userid=#{userid}
+  </select>
+
+
 <!--    查询所有项目加活动,联合User-->
     <select id="selectAllProjMUser" parameterType="per.aclic.managesys.model.ProjExample"
             resultMap="ResultMapMUser">

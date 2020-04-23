@@ -97,4 +97,11 @@ public class ProjService {
 
         return projMapper.selectAllProjMUser();
     }
+
+    public List<Proj> findAllProjByUser(String userid) {
+        return projMapper.selectAllProjByUser(userid);
+    }
+    public List<Proj> findAllAcByUser(String userid) {
+        return projMapper.selectAllAcByUser(userid);
+    }
 }
