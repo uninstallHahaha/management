@@ -28,7 +28,7 @@ public class IndexController {
     }
 
 
-    @RequestMapping("/")
+    @RequestMapping("/login")
     public String getLogin() {
         return "/mm/classic/mmenu/html/login/login";
     }

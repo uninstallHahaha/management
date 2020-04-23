@@ -11,6 +11,7 @@ import per.aclic.managesys.service.LogService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Component
 public class LogInterceptor implements HandlerInterceptor {
@@ -24,14 +25,20 @@ public class LogInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-
-        //log
+        //static
         if(request.getRequestURI().contains(".")){
             return true;
         }
+        //login
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("USER");
+        if(null == user){
+            response.sendRedirect("/login");
+            return false;
+        }
+        //log
         Log log = new Log(Utils.genUUID(),
                 "-","-",0,request.getRequestURI());
-        User user = (User)request.getSession().getAttribute("USER");
         if(null != user){
             log.setUserid(user.getId());
             log.setUsername(user.getName());

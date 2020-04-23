@@ -67,4 +67,11 @@ public class LoginController {
             return map;
         }
     }
+
+    @ResponseBody
+    @RequestMapping("/logout")
+    public boolean logout(HttpSession session){
+        session.invalidate();
+        return true;
+    }
 }
