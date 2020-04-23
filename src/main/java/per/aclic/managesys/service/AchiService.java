@@ -20,6 +20,8 @@ public class AchiService {
          return achiMapper.insert(achi);
      }
 
+
+
      public List<Achi> findAll(){
          return achiMapper.selectByExample(new AchiExample());
      }
@@ -34,5 +36,14 @@ public class AchiService {
 
     public List<AchiMuser> findAllMUser() {
         return achiMapper.selectAllMUser();
+    }
+
+    public Achi findOne(String id) {
+
+         return achiMapper.selectByPrimaryKey(id);
+    }
+
+    public int modProj(Achi achi) {
+        return achiMapper.updateById(achi);
     }
 }

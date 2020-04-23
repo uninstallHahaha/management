@@ -112,7 +112,16 @@ public class PageController {
         return "/mm/classic/mmenu/html/tables/achiDetail";
     }
 
-    //项目/学术活动中心
+    //发布成果
+    @RequestMapping("/getAddAchiPage")
+    public String getAddAchiPage(Model model, String achiid) {
+        if(achiid != null && achiid != ""){
+            model.addAttribute("achiInfo",achiService.findOne(achiid));
+        }
+        return "/mm/classic/mmenu/html/tables/achi-form";
+    }
+
+  //项目/学术活动中心
     @RequestMapping("/getProjCenterPage")
     public String getProjCenterPage(Model model, String condition) {
         List<Proj> allProjs = new ArrayList<Proj>();

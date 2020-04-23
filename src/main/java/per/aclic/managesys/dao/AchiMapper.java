@@ -36,4 +36,6 @@ public interface AchiMapper {
     List<AchiMuser> selectAllMUser();
 
     AchiMuser selectByPrimaryKeyMUser(String id);
+
+    int updateById(Achi record);
 }

@@ -1531,10 +1531,11 @@
           <li class="breadcrumb-item active">成果展示</li>
         </ol>
         <div class="page-header-actions">
-          <a class="btn btn-sm btn-inverse btn-round" href="https://github.com/metafizzy/isotope"
-            target="_blank">
+          <a class="btn btn-sm btn-inverse btn-round"
+             href="/getAddAchiPage"
+            target="_self">
         <i class="icon wb-link" aria-hidden="true"></i>
-        <span class="hidden-sm-down">Official Website</span>
+        <span class="hidden-sm-down">发布我的学术成果</span>
       </a>
         </div>
 
@@ -1570,7 +1571,9 @@
                      alt="...">
               </a>
               <div class="card-block">
-                <h4 class="card-title" th:text="${a.name}">Animal Horse</h4>
+                <h4 class="card-title" th:text="${a.name}" style="display: inline-block;">Animal Horse</h4>
+                <a  th:if="${session.USER!=null && session.USER.id == a.userid}"
+                  th:href="@{'/getAddAchiPage?achiid='+${a.id}}" style="display: inline-block;"><i class="icon wb-wrench" aria-hidden="true"></i></a>
               </div>
             </div>
           </li>

@@ -26,6 +26,15 @@ public class Achi {
         this.detail = detail;
     }
 
+    public Achi(String id, String name, String userid, Integer type, String detail, Date ctime) {
+        this.id = id;
+        this.name = name;
+        this.userid = userid;
+        this.type = type;
+        this.detail = detail;
+        this.ctime = ctime;
+    }
+
     public String getId() {
         return id;
     }
