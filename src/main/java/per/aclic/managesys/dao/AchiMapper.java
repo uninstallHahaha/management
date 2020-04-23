@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import per.aclic.managesys.model.Achi;
 import per.aclic.managesys.model.AchiExample;
+import per.aclic.managesys.model.mixmodel.AchiMuser;
 
 @Repository
 public interface AchiMapper {
@@ -31,4 +32,8 @@ public interface AchiMapper {
     int updateByPrimaryKey(Achi record);
 
     List<Achi> selectByUserid(String userid);
+
+    List<AchiMuser> selectAllMUser();
+
+    AchiMuser selectByPrimaryKeyMUser(String id);
 }

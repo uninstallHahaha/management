@@ -17,29 +17,22 @@ public class AchiService {
     AchiMapper achiMapper;
     
      public int addAchi(Achi achi){
-         for(int i=0;i<10;i++){
-             Achi ac = new Achi();
-             ac.setId(Utils.genUUID());
-             ac.setName("学术成果"+i);
-             ac.setType(i%3);
-             ac.setDetail("成果描述成果描述成果描述成果描述成果描述成果描述" +
-                     "成果描述成果描述成果描述成果描述成果描述成果描述" +
-                     "成果描述成果描述成果描述成果描述成果描述成果描述");
-             ac.setUserid(Utils.genUUID());
-             achiMapper.insert(ac);
-         }
-         return 1;
+         return achiMapper.insert(achi);
      }
 
      public List<Achi> findAll(){
          return achiMapper.selectByExample(new AchiExample());
      }
 
-     public Achi findById(String id){
-         return achiMapper.selectByPrimaryKey(id);
+     public AchiMuser findById(String id){
+         return achiMapper.selectByPrimaryKeyMUser(id);
      }
 
     public List<Achi> findAllByUser(String userid) {
         return achiMapper.selectByUserid(userid);
+    }
+
+    public List<AchiMuser> findAllMUser() {
+        return achiMapper.selectAllMUser();
     }
 }

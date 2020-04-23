@@ -165,6 +165,7 @@
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
+
     <insert id="insert" parameterType="per.aclic.managesys.model.Proj">
     insert into proj (id, userid, name, 
       state, count, detail, 
@@ -173,6 +174,7 @@
       #{state,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, #{detail,jdbcType=VARCHAR}, 
       #{type,jdbcType=INTEGER}, #{ctime,jdbcType=TIMESTAMP})
   </insert>
+
     <insert id="insertSelective" parameterType="per.aclic.managesys.model.Proj">
         insert into proj
         <trim prefix="(" suffix=")" suffixOverrides=",">

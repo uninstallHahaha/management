@@ -91,6 +91,17 @@ public class PageController {
         return "/mm/classic/mmenu/html/tables/achi";
     }
 
+
+    //学术成果页面 - 中心
+    @RequestMapping("/getAchiCenterPage")
+    public String getAchiCenterPage(Model model, HttpSession session) {
+        List<AchiMuser> allAchis = achiService.findAllMUser();
+        model.addAttribute("achis", allAchis);
+        model.addAttribute("pageType","center");
+        return "/mm/classic/mmenu/html/tables/achi";
+    }
+
+
     //学术成果详情页面
     @RequestMapping("/getPage/getAchiDetailPage/{achid}")
     public String getAchiDetailPage(Model model, @PathVariable String achid) {
