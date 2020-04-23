@@ -6,6 +6,7 @@ import per.aclic.managesys.Utils.Utils;
 import per.aclic.managesys.dao.ProjMapper;
 import per.aclic.managesys.model.Proj;
 import per.aclic.managesys.model.ProjExample;
+import per.aclic.managesys.model.mixmodel.projMuser;
 
 import java.util.List;
 
@@ -29,11 +30,11 @@ public class ProjService {
         return projMapper.selectAllByCondition("%"+con+"%");
     }
 
-    public List<Proj> findAllProj(){
+    public List<projMuser> findAllProj(){
         return projMapper.selectAllProjWithUser();
     }
 
-    public List<Proj> findAllAc(){
+    public List<projMuser> findAllAc(){
         return projMapper.selectAllAcWithUser();
     }
 
@@ -41,6 +42,10 @@ public class ProjService {
         return projMapper.selectByPrimaryKey(id);
     }
 
+
+    public projMuser findOneMUser(String projid){
+        return projMapper.selectOneMUser(projid);
+    }
 
     public int addProj(Proj proj){
 //        for(int i = 0;i<10;i++){
@@ -79,4 +84,12 @@ public class ProjService {
        return projMapper.updateByPrimaryKey(proj);
     }
 
+
+    public int modProjCount(String projid) {
+        return projMapper.updateCount(projid);
+    }
+
+    public int stopProj(String projid) {
+        return projMapper.stopProj(projid);
+    }
 }

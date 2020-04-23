@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import per.aclic.managesys.model.Proj;
 import per.aclic.managesys.model.ProjExample;
+import per.aclic.managesys.model.mixmodel.projMuser;
 
 @Repository
 public interface ProjMapper {
@@ -24,9 +25,9 @@ public interface ProjMapper {
 
     List<Proj> selectAllProj();
 
-    List<Proj> selectAllProjWithUser();
+    List<projMuser> selectAllProjWithUser();
 
-    List<Proj> selectAllAcWithUser();
+    List<projMuser> selectAllAcWithUser();
 
     Proj selectByPrimaryKey(String id);
 
@@ -39,4 +40,10 @@ public interface ProjMapper {
     int updateByPrimaryKey(Proj record);
 
     List<Proj> selectAllByCondition(String con);
+
+    int updateCount(String projid);
+
+    projMuser selectOneMUser(String projid);
+
+    int stopProj(String projid);
 }

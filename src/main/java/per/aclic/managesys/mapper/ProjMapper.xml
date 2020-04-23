@@ -128,15 +128,24 @@
 
     <!--  查询所有活动 -联合user-->
     <select id="selectAllAcWithUser" parameterType="per.aclic.managesys.model.ProjExample"
-            resultMap="BaseResultMap">
+            resultMap="ResultMapMUser">
         SELECT p.*,u.`name` userName,u.pass userPass,u.role userRole
-        FROM `proj` as p ,`user` as u where p.userid=u.id and p.type &gt; 20
+        FROM `proj` as p ,`user` as u where p.userid=u.id and p.type > 20
   </select>
 
-<!--    查询所有活动和项目 , 使用like搜索-->
+    <!--    查询所有活动和项目 , 使用like搜索-->
     <select id="selectAllByCondition" parameterType="per.aclic.managesys.model.ProjExample"
             resultMap="BaseResultMap">
        select * from proj where name like #{con}
+  </select>
+
+
+    <!--    查询单个mix user-->
+    <select id="selectOneMUser"
+            parameterType="per.aclic.managesys.model.ProjExample"
+            resultMap="ResultMapMUser">
+       SELECT p.*,u.`name` userName,u.pass userPass,u.role userRole
+    FROM `proj` as p ,`user` as u where p.userid=u.id and p.id=#{projid}
   </select>
 
 
@@ -225,6 +234,8 @@
             <include refid="Example_Where_Clause"/>
         </if>
     </select>
+
+
     <update id="updateByExampleSelective" parameterType="map">
         update proj
         <set>
@@ -257,6 +268,8 @@
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
+
+
     <update id="updateByExample" parameterType="map">
         update proj
         set id = #{record.id,jdbcType=VARCHAR},
@@ -271,6 +284,8 @@
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
+
+
     <update id="updateByPrimaryKeySelective" parameterType="per.aclic.managesys.model.Proj">
         update proj
         <set>
@@ -298,6 +313,8 @@
         </set>
         where id = #{id,jdbcType=VARCHAR}
     </update>
+
+
     <update id="updateByPrimaryKey" parameterType="per.aclic.managesys.model.Proj">
     update proj
     set userid = #{userid,jdbcType=VARCHAR},
@@ -308,5 +325,19 @@
       type = #{type,jdbcType=INTEGER},
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+    <update id="updateCount" parameterType="per.aclic.managesys.model.Proj">
+    update proj
+    set count = count+1
+    where id = #{projid,jdbcType=VARCHAR}
+  </update>
+
+
+    <update id="stopProj" parameterType="per.aclic.managesys.model.Proj">
+    update proj
+    set state = 0
+    where id = #{projid,jdbcType=VARCHAR}
   </update>
 </mapper>

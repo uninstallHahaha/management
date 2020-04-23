@@ -10,6 +10,7 @@ import per.aclic.managesys.model.Achi;
 import per.aclic.managesys.model.Notice;
 import per.aclic.managesys.model.Proj;
 import per.aclic.managesys.model.User;
+import per.aclic.managesys.model.mixmodel.projMuser;
 import per.aclic.managesys.service.*;
 
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class PageController {
     //TODO 在加入用户系统后,应当更改为获取该用户的项目和活动
     @RequestMapping("/getAllProjPage")
     public String getAllProjPage(Model model) {
-        List<Proj> allProj = projService.findAllProj();
+        List<projMuser> allProj = projService.findAllProj();
         model.addAttribute("projs", allProj);
         model.addAttribute("pageType", 1);
         return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
@@ -60,7 +61,7 @@ public class PageController {
     //项目详情
     @RequestMapping("/getProjInfoPage")
     public String getProjInfoPage(Model model, String id) {
-        model.addAttribute("projInfo", projService.findOne(id));
+        model.addAttribute("projInfo", projService.findOneMUser(id));
         model.addAttribute("projRelativeMessage", messageService.findByProjid(id));
         return "/mm/classic/mmenu/html/tables/projDetail";
     }
@@ -69,7 +70,7 @@ public class PageController {
     //TODO 在加入用户系统后,应当更改为获取该用户的项目和活动
     @RequestMapping("/getAllAcPage")
     public String getAllAcPage(Model model) {
-        List<Proj> allProj = projService.findAllAc();
+        List<projMuser> allProj = projService.findAllAc();
         model.addAttribute("projs", allProj);
         model.addAttribute("pageType", 2);
         return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
