@@ -29,4 +29,6 @@ public interface AchiMapper {
     int updateByPrimaryKeySelective(Achi record);
 
     int updateByPrimaryKey(Achi record);
+
+    List<Achi> selectByUserid(String userid);
 }

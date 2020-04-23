@@ -1580,55 +1580,6 @@
                 </ul>
               </div>
               <div class="card-block ">
-                <div class="project-controls clearfix">
-                  <div class="float-left">
-                    <button class="btn btn-outline btn-default">
-                      Assign
-                    </button>
-                    <div class="dropdown">
-                      <button type="button" class="btn btn-default btn-outline dropdown-toggle" data-toggle="dropdown"
-                        aria-expanded="true">
-                        More
-                      </button>
-                      <div class="dropdown-menu">
-                        <a href="javascript:void(0)" class="dropdown-item" role="menuitem">
-                        more
-                      </a>
-                        <a href="javascript:void(0)" class="dropdown-item" role="menuitem">
-                        more
-                      </a>
-                        <a href="javascript:void(0)" class="dropdown-item" role="menuitem">
-                        more
-                      </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="float-right">
-                    <button class="btn btn-outline btn-default">
-                      Start Project
-                    </button>
-                    <button class="btn btn-outline btn-default">
-                      Resolve Issue
-                    </button>
-                    <div class="dropdown">
-                      <button type="button" class="btn btn-default btn-outline dropdown-toggle mr-0"
-                        data-toggle="dropdown" aria-expanded="true">
-                        Workflow
-                      </button>
-                      <div class="dropdown-menu">
-                        <a href="javascript:void(0)" class="dropdown-item" role="menuitem">
-                        workflow
-                      </a>
-                        <a href="javascript:void(0)" class="dropdown-item" role="menuitem">
-                        workflow
-                      </a>
-                        <a href="javascript:void(0)" class="dropdown-item" role="menuitem">
-                        workflow
-                      </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <h4 class="card-title">成果描述</h4>
                 <p class="card-text" th:text="${achiDetail.detail}">
                   Cillum adipisicing nisi adipisicing ut exercitation sunt. Sint cupidatat excepteur
@@ -1654,7 +1605,7 @@
                     <div class="comment-body media-body">
                       <div class="comment-title">
                         <div class="comment-meta float-right">
-                          <span th:text="${m.ctime}">04.07.11, 8:02 AM</span>
+                          <span th:text="${#dates.format(m.ctime, 'yyyy-MM-dd hh:mm:ss')}">04.07.11, 8:02 AM</span>
                         </div>
                         <a href="javascript:void(0)"
                            th:text="${m.username}"
@@ -1672,13 +1623,13 @@
                           esse. Consequat cupidatat enim fugiat sunt nostrud. Nostrud
                           cupidatat sunt non nostrud minim nostrud esse cupidatat.
                         </p>
-                        <button type="button" class="btn btn-pure btn-default icon wb-pencil p-0 btn-edit">
-                        </button>
-                        <button type="button" class="btn btn-pure btn-default icon wb-trash p-0 btn-trash">
+                        <button type="button"
+                                data-th-date-commentid="${m.id}"
+                                th:if="${session.USER!=null && m.userid==session.USER.id}"
+                                class="btn btn-pure btn-default icon wb-trash p-0 btn-trash delComBtn">
                         </button>
                       </div>
                       <div class="comment-actions text-left">
-                        <a href="javascript:void(0)" role="button">Replay</a>
                         <a>
                       <i class="icon wb-chevron-down"></i>
                       <span class="pos-number mx-5">1</span>
@@ -1700,7 +1651,7 @@
                                style="display:none;" name="projid">
                         <div class="col-xl-12 col-md-9">
                       <textarea class="form-control"
-                                name="message" rows="3" placeholder="Describe your skills"
+                                name="message" rows="3" placeholder="输入留言..."
                                 required=""></textarea>
                         </div>
 
@@ -1718,34 +1669,8 @@
                           <span class="blue-grey-400">View by All Users</span>
                         </div>
                         <div class="form-group mb-0">
-                          <button type="submit" class="btn btn-primary mr-10">Send</button>
-                          <button type="reset" class="btn btn-default">Clear</button>
-                          <div class="dropdown dropup comment-attach">
-                            <button type="button" class="btn btn-pure btn-primary" data-toggle="dropdown" aria-expanded="false">Attach
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-bullet dropdown-menu-right" role="menu">
-                              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                            <i class="icon wb-camera" aria-hidden="true"></i>
-                            Photo
-                          </a>
-                              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                            <i class="icon wb-video" aria-hidden="true"></i>
-                            Video
-                          </a>
-                              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                            <i class="icon wb-volume-high" aria-hidden="true"></i>
-                            Audio
-                          </a>
-                              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                            <i class="icon wb-file" aria-hidden="true"></i>
-                            Document
-                          </a>
-                              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                            <i class="icon wb-map" aria-hidden="true"></i>
-                            Map
-                          </a>
-                            </div>
-                          </div>
+                          <button type="submit" class="btn btn-primary mr-10">发送</button>
+                          <button type="reset" class="btn btn-default">清除</button>
                         </div>
                       </form>
                     </div>
@@ -1758,32 +1683,18 @@
             <div class="card">
               <div class="card-block">
                 <p class="mb-10">
-                  <span class="float-right pl-10">4h 30m</span>
-                  Time estimated
-                </p>
-                <p>
-                  <span class="float-right pl-10">2h 10m</span>
-                  Time working
+                  <span class="float-right pl-10">48h 30m</span>
+                  学术成果消耗开发时间
                 </p>
                 </ul>
                 <div class="progress progress-xs mb-10">
                   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemax="100"
-                    aria-valuemin="0" aria-valuenow="60" style="width: 60%;">
+                    aria-valuemin="0" aria-valuenow="100" style="width: 100%;">
                   </div>
                 </div>
               </div>
               <div class="card-block">
-                <h4 class="project-option-title">Label</h4>
-                <span class="badge badge-default badge-outline mr-5 mb-5">Default</span>
-                <span class="badge badge-primary mr-5 mb-5">Primary</span>
-                <span class="badge badge-success mr-5 mb-5">Success</span>
-                <span class="badge badge-info mr-5 mb-5">Info</span>
-                <span class="badge badge-warning mr-5 mb-5">Warning</span>
-                <span class="badge badge-danger mr-5 mb-5">Danger</span>
-                <span class="badge badge-dark mr-5 mb-5">Dark</span>
-              </div>
-              <div class="card-block">
-                <h4 class="project-option-title">Assigned to</h4>
+                <h4 class="project-option-title">成果负责人</h4>
                 <div class="media mt-0">
                   <div class="pr-20 text-middle">
                     <a href="javascript:void(0)" class="avatar">
@@ -1791,80 +1702,50 @@
                     </a>
                   </div>
                   <div class="media-body">
-                    <h4 class="mt-0 mb-5 font-size-16">Tim Collins</h4>
-                    <span>Developer</span>
+                    <h4 class="mt-0 mb-5 font-size-16"
+                        th:text="${session.USER?.name}"
+                    >Tim Collins</h4>
+                    <span>开发者</span>
                   </div>
                 </div>
               </div>
               <div class="card-block project-participators">
-                <h4 class="project-option-title">People</h4>
+                <h4 class="project-option-title">参与人员</h4>
                 <div class="media mt-0">
                   <div class="pr-20 text-middle">
-                    <span>Assignee</span>
+                    <span>成果委派人</span>
                   </div>
                   <div class="media-body">
                     <a href="javascript:void(0)" class="avatar avatar-sm text-middle">
                       <img src="../../../global/portraits/4.jpg">
                     </a>
-                    <span class="font-size-16 ml-5">Tim Collins</span>
+                    <span class="font-size-16 ml-5"
+                          th:text="${session.USER?.name}"
+                    >Tim Collins</span>
                   </div>
                 </div>
                 <div class="media">
                   <div class="pr-20 text-middle">
-                    <span>Reporter</span>
+                    <span>成果报告人</span>
                   </div>
                   <div class="media-body">
                     <a href="javascript:void(0)" class="avatar avatar-sm text-middle">
                       <img src="../../../global/portraits/4.jpg">
                     </a>
-                    <span class="font-size-16 ml-5">Tim Collins</span>
-                  </div>
-                </div>
-                <div class="media">
-                  <div class="pr-20">
-                    <span>Votes
-                      <span>
-                  </div>
-                  <div class="media-body">
-                    <a class="media-content">
-                      <span>11</span>
-                      vote for this issue
-                    </a>
-                  </div>
-                </div>
-                <div class="media">
-                  <div class="pr-20">
-                    <span>Watches
-                      <span>
-                  </div>
-                  <div class="media-body">
-                    <a class="media-content">
-                      <span>56</span>
-                      start watching this issue
-                    </a>
+                    <span class="font-size-16 ml-5"
+                          th:text="${session.USER?.name}"
+                    >Tim Collins</span>
                   </div>
                 </div>
               </div>
               <div class="card-block project-dates">
-                <h4 class="project-option-title">Dates</h4>
-                <p class="mb-10">
-                  <span>Created:</span>
+                <h4 class="project-option-title">学术成果日程</h4>
+                <p class="mb-10"
+                   th:text="'完成时间: '+${#dates.format(achiDetail.ctime, 'yyyy年MM月dd日')}"
+                >
+                  <span>完成时间:</span>
                   5 days ago
                 </p>
-                <p class="mb-10">
-                  <span>Updates:</span>
-                  6 days ago
-                </p>
-              </div>
-              <div class="card-block">
-                <h4 class="project-option-title">Developers</h4>
-                <a href="#">Create branch</a>
-              </div>
-              <div class="card-block">
-                <h4 class="card-title">Agile</h4>
-                <span class="pr-50">Future Sprint</span>
-                <span>Sprit - Signature</span>
-                <a href="#" class="project-agility-view">View on Board</a>
               </div>
               <div class="card-block project-fast-operation">
                 <a href="#">
@@ -1949,6 +1830,10 @@
         <script src="../../../global/js/Plugin/summernote.js"></script>
 
         <script src="../../assets/examples/js/pages/project.js"></script>
+
+<!--  X-->
+    <script src="/xgather/xlib/layer/layer.js"></script>
+    <script src="/xgather/xjs/projDetail.js"></script>
 
   </body>
 </html>

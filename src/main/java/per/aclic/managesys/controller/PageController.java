@@ -10,9 +10,11 @@ import per.aclic.managesys.model.Achi;
 import per.aclic.managesys.model.Notice;
 import per.aclic.managesys.model.Proj;
 import per.aclic.managesys.model.User;
+import per.aclic.managesys.model.mixmodel.AchiMuser;
 import per.aclic.managesys.model.mixmodel.projMuser;
 import per.aclic.managesys.service.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,11 +78,16 @@ public class PageController {
         return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
     }
 
-    //学术成果页面
+    //学术成果页面 - 个人
     @RequestMapping("/getAchiPPage")
-    public String getAchiPPage(Model model) {
-        List<Achi> allAchis = achiService.findAll();
+    public String getAchiPPage(Model model, HttpSession session) {
+        User user = (User)session.getAttribute("USER");
+        if(user == null){
+            user = new User("2bfadee2-d089-4c8d-b60b-906c","test","testpass",1);
+        }
+        List<Achi> allAchis = achiService.findAllByUser(user.getId());
         model.addAttribute("achis", allAchis);
+        model.addAttribute("pageType","p");
         return "/mm/classic/mmenu/html/tables/achi";
     }
 

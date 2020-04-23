@@ -6,6 +6,7 @@ import per.aclic.managesys.Utils.Utils;
 import per.aclic.managesys.dao.AchiMapper;
 import per.aclic.managesys.model.Achi;
 import per.aclic.managesys.model.AchiExample;
+import per.aclic.managesys.model.mixmodel.AchiMuser;
 
 import java.util.List;
 
@@ -37,4 +38,8 @@ public class AchiService {
      public Achi findById(String id){
          return achiMapper.selectByPrimaryKey(id);
      }
+
+    public List<Achi> findAllByUser(String userid) {
+        return achiMapper.selectByUserid(userid);
+    }
 }

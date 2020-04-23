@@ -70,6 +70,7 @@
   <sql id="Base_Column_List">
     id, name, userid, type, detail, ctime
   </sql>
+
   <select id="selectByExample" parameterType="per.aclic.managesys.model.AchiExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -84,12 +85,22 @@
       order by ${orderByClause}
     </if>
   </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from achi
     where id = #{id,jdbcType=VARCHAR}
   </select>
+
+
+  <select id="selectByUserid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    *
+    from achi
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from achi
     where id = #{id,jdbcType=VARCHAR}

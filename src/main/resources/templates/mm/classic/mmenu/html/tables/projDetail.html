@@ -1678,7 +1678,7 @@
 <!--                    th:if="${session.USER!=null && m.userid==session.USER.id}"-->
                     <button type="button"
                             data-th-date-commentid="${m.id}"
-
+                            th:if="${session.USER!=null && m.userid==session.USER.id}"
                             class="btn btn-pure btn-default icon wb-trash p-0 btn-trash delComBtn">
                     </button>
                   </div>

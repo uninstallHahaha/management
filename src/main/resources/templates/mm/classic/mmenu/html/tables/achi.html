@@ -8,7 +8,7 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
 
-    <title>项目中心</title>
+    <title th:text="${pageType=='p'?'我的学术成果':'学术成果中心'}"></title>
 
     <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -1525,11 +1525,11 @@
 
     <div class="page">
       <div class="page-header page-header-bordered page-header-tabs">
+        <h1 class="page-title" th:text="${pageType=='p'?'我的':''}+'成果墙'"></h1>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-          <li class="breadcrumb-item active">Pages</li>
+          <li class="breadcrumb-item"><a href="/index">概要页面</a></li>
+          <li class="breadcrumb-item active">成果展示</li>
         </ol>
-        <h1 class="page-title">Gallery</h1>
         <div class="page-header-actions">
           <a class="btn btn-sm btn-inverse btn-round" href="https://github.com/metafizzy/isotope"
             target="_blank">
@@ -1574,178 +1574,6 @@
               </div>
             </div>
           </li>
-
-<!--
-          <li data-type="animal">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">Animal Horse</h4>
-              </div>
-            </div>
-          </li>
-
-          <li data-type="object">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">Object Coffee</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="object">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">Object Cup</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="city">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">City Nature</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="scenery">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">City Station</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="city">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">City Leaf</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="animal">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">Animal Bird</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="city">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">City Street</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="animal">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">Animal Nature</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="city">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">City Night</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="object">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">Object Book</h4>
-              </div>
-            </div>
-          </li>
-          <li data-type="object">
-            <div class="card card-shadow">
-              <figure class="card-img-top overlay-hover overlay">
-                <img class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-                  alt="...">
-                <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
-                  <a class="icon wb-search" href="../../../global/photos/placeholder.png"></a>
-                </figcaption>
-              </figure>
-              <div class="card-block">
-                <h4 class="card-title">Object Grape</h4>
-              </div>
-            </div>
-          </li>
--->
 
         </ul>
       </div>
