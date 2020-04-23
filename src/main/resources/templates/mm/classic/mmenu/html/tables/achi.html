@@ -1531,7 +1531,9 @@
           <li class="breadcrumb-item active">成果展示</li>
         </ol>
         <div class="page-header-actions">
-          <a class="btn btn-sm btn-inverse btn-round"
+          <a
+            th:if="${pageType=='p'}"
+            class="btn btn-sm btn-inverse btn-round"
              href="/getAddAchiPage"
             target="_self">
         <i class="icon wb-link" aria-hidden="true"></i>

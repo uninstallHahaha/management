@@ -1551,25 +1551,10 @@
     </ol>
     <div class="page-header-actions">
 
-      <button class="btn btn-primary" data-target="#exampleFormModal" data-toggle="modal" type="button">发布通知</button>
+      <button
+        th:if="${session.USER != null && session.USER.role == 2}"
+        class="btn btn-primary" data-target="#exampleFormModal" data-toggle="modal" type="button">发布通知</button>
 
-      <div class="btn-group btn-group-sm" id="withBtnGroup" aria-label="Page Header Actions"
-           role="group">
-        <div class="dropdown">
-          <button type="button" class="btn btn-pure" data-toggle="dropdown" aria-expanded="false">
-            Try Transtion
-            <span class="icon wb-chevron-down-mini" aria-hidden="true"></span>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right" role="menu">
-            <a class="dropdown-item" data-type="fade" href="javascript:void(0)">Fade</a>
-            <a class="dropdown-item" data-type="scale-up" href="javascript:void(0)">Scale Up</a>
-            <a class="dropdown-item" data-type="slide-left" href="javascript:void(0)">Slide Left</a>
-            <a class="dropdown-item" data-type="slide-right" href="javascript:void(0)">Slide Right</a>
-            <a class="dropdown-item" data-type="slide-top" href="javascript:void(0)">Slide Top</a>
-            <a class="dropdown-item" data-type="slide-bottom" href="javascript:void(0)">Slide Bottom</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div id="exampleTransition" class="page-content container-fluid" data-plugin="animateList">

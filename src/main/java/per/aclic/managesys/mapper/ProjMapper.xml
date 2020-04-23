@@ -119,6 +119,13 @@
     select * from proj where type &lt; 20
   </select>
 
+<!--    查询所有项目加活动,联合User-->
+    <select id="selectAllProjMUser" parameterType="per.aclic.managesys.model.ProjExample"
+            resultMap="ResultMapMUser">
+    SELECT p.*,u.`name` userName,u.pass userPass,u.role userRole
+    FROM `proj` as p ,`user` as u where p.userid=u.id
+  </select>
+
     <!--  查询所有项目-联合user -->
     <select id="selectAllProjWithUser" parameterType="per.aclic.managesys.model.ProjExample"
             resultMap="ResultMapMUser">

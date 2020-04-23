@@ -46,4 +46,6 @@ public interface ProjMapper {
     projMuser selectOneMUser(String projid);
 
     int stopProj(String projid);
+
+    List<projMuser> selectAllProjMUser();
 }

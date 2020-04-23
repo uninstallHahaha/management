@@ -77,6 +77,14 @@ public class ProjController {
         }
     }
 
+
+    @ResponseBody
+    @RequestMapping("/obtainProjsAndAcs")
+    public List<projMuser> obtainProjsAndAcs() {
+        List<projMuser> allProjs = projService.findAllMUser();
+        return allProjs;
+    }
+
     @ResponseBody
     @RequestMapping("/obtainProjs")
     public List<projMuser> obtainProjs() {

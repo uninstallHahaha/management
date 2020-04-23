@@ -92,4 +92,9 @@ public class ProjService {
     public int stopProj(String projid) {
         return projMapper.stopProj(projid);
     }
+
+    public List<projMuser> findAllMUser() {
+
+        return projMapper.selectAllProjMUser();
+    }
 }

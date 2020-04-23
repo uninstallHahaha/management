@@ -60,6 +60,15 @@ public class PageController {
         return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
     }
 
+    //管理所有  项目界面
+    @RequestMapping("/getProjManagePage")
+    public String getProjManagePage(Model model) {
+        List<projMuser> allProjAndAc = projService.findAllMUser();
+        model.addAttribute("projs", allProjAndAc);
+        model.addAttribute("pageType", 3);
+        return "/mm/classic/mmenu/html/tables/proj-bootstraptable";
+    }
+
     //项目详情
     @RequestMapping("/getProjInfoPage")
     public String getProjInfoPage(Model model, String id) {
