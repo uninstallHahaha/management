@@ -68,10 +68,9 @@ public class LoginController {
         }
     }
 
-    @ResponseBody
     @RequestMapping("/logout")
-    public boolean logout(HttpSession session){
+    public String logout(HttpSession session){
         session.invalidate();
-        return true;
+        return "/mm/classic/mmenu/html/login/login";
     }
 }
