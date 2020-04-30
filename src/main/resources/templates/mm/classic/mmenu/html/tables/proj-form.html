@@ -183,6 +183,24 @@
 </nav>
 <div class="site-menubar">
   <ul class="site-menu">
+
+    <li class="site-menu-item"
+        th:if="${session.USER != null && session.USER.role==1}">
+      <a  href="/getAchiCenterPage">
+        <i class="site-menu-icon wb-extension" aria-hidden="true"></i>
+        <span class="site-menu-title">学术成果中心</span>
+        <span class="site-menu-arrow"></span>
+      </a>
+    </li>
+
+    <li class="site-menu-item"
+        th:if="${session.USER != null && session.USER.role==1}">
+      <a href="/getProjCenterPage">
+        <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>
+        <span class="site-menu-title">项目/学术活动中心</span>
+        <span class="site-menu-arrow"></span>
+      </a>
+    </li>
     <li class="site-menu-item  open"
         th:if="${session.USER != null && session.USER.role==1}">
       <a href="/index">
@@ -222,23 +240,7 @@
       </a>
     </li>
 
-    <li class="site-menu-item"
-        th:if="${session.USER != null && session.USER.role==1}">
-      <a  href="/getAchiCenterPage">
-        <i class="site-menu-icon wb-extension" aria-hidden="true"></i>
-        <span class="site-menu-title">学术成果中心</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-    </li>
 
-    <li class="site-menu-item"
-        th:if="${session.USER != null && session.USER.role==1}">
-      <a href="/getProjCenterPage">
-        <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>
-        <span class="site-menu-title">项目/学术活动中心</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-    </li>
 
     <li class="site-menu-item"
         th:if="${session.USER != null && session.USER.role==1}">

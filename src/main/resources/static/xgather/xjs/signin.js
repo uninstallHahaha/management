@@ -15,7 +15,7 @@ $(function () {
                 if (res.stat == 1) {
                     layer.msg('登录成功')
                     if(res.data ==1 ){
-                        location.href = "/index"
+                        location.href = "/getAchiCenterPage"
                     }
                     if(res.data ==2 ){
                         location.href = "/getProjManagePage"
