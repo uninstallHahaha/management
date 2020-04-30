@@ -131,8 +131,10 @@
           </a>
           <div class="dropdown-menu" role="menu">
 
-            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem">  <i class="icon wb-edit" aria-hidden="true"></i>修改密码</a><a class="dropdown-item" href="/logout" role="menuitem">
-              <i class="icon wb-power" aria-hidden="true"></i> 退出登录</a>
+            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem"> <i class="icon wb-edit"
+                                                                                  aria-hidden="true"></i>修改密码</a><a
+            class="dropdown-item" href="/logout" role="menuitem">
+            <i class="icon wb-power" aria-hidden="true"></i> 退出登录</a>
           </div>
         </li>
       </ul>
@@ -215,7 +217,6 @@
         <span class="site-menu-arrow"></span>
       </a>
     </li>
-
 
 
     <li class="site-menu-item"
@@ -698,20 +699,21 @@
     padding: 24px;
     display: none;
   }
-  .ma{
+
+  .ma {
     margin-bottom: 12px;
   }
 </style>
 <div class="modpasslayer" id="modpasslayer">
   <div class="col-xxl-12 ma"><h4>修改密码</h4></div>
   <div class="col-xxl-12 ma">
-    <input type="password"  class="form-control round" id="oldpass" placeholder="输入原密码">
+    <input type="password" class="form-control round" id="oldpass" placeholder="输入原密码">
   </div>
   <div class="col-xxl-12 ma">
     <input type="password" class="form-control round" id="pass" placeholder="输入新密码">
   </div>
   <div class="col-xxl-12 ma">
-    <input type="password"  class="form-control round" id="repass" placeholder="重复新密码">
+    <input type="password" class="form-control round" id="repass" placeholder="重复新密码">
   </div>
   <div class="col-xxl-12 ma">
     <button type="submit" class="btn btn-primary btn-round" id="submodpass">提交</button>

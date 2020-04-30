@@ -341,15 +341,9 @@
 
         <div class="nav-tabs-horizontal nav-tabs-animate" data-plugin="tabs">
           <div class="dropdown page-user-sortlist">
-            Order By: <a class="dropdown-toggle inline-block" data-toggle="dropdown"
-                         href="#" aria-expanded="false">Last Active</a>
-            <div class="dropdown-menu animation-scale-up animation-top-right animation-duration-250"
-                 role="menu">
-              <a class="active dropdown-item" href="javascript:void(0)">Last Active</a>
-              <a class="dropdown-item" href="javascript:void(0)">Username</a>
-              <a class="dropdown-item" href="javascript:void(0)">Location</a>
-              <a class="dropdown-item" href="javascript:void(0)">Register Date</a>
-            </div>
+            <button type="button" class="btn btn-outline btn-primary btn-sm btn-round"
+                    id="newuserbtn">添加科研管理员
+            </button>
           </div>
 
           <ul class="nav nav-tabs nav-tabs-line" role="tablist">
@@ -618,6 +612,7 @@
 
 <script src="/xgather/xlib/layer/layer.js"></script>
 <script src="/xgather/xjs/modpass.js"></script>
+<script src="/xgather/xjs/newuser.js"></script>
 </body>
 
 
@@ -647,4 +642,28 @@
   </div>
 </div>
 </div>
+
+<div class="modpasslayer" id="newUser">
+  <div class="col-xxl-12 ma"><h4>添加科研管理员</h4></div>
+  <div class="col-xxl-12 ma">
+    <input type="text" class="form-control round" id="newusername" placeholder="输入用户名">
+  </div>
+  <div class="col-xxl-12 ma">
+    <input type="password" class="form-control round" id="newuserpass" placeholder="输入用户密码">
+  </div>
+  <div class="col-xxl-12 ma">
+    <input type="password" class="form-control round" id="newuserrepass" placeholder="确认密码">
+  </div>
+  <div class="col-xxl-12 ma">
+    <button type="submit" class="btn btn-primary btn-round" id="subnewuser">提交</button>
+    <button type="submit" class="btn btn-default btn-round" id="cancelnewuser">取消</button>
+  </div>
+</div>
+
+<style type="text/css">
+  .layui-layer-btn0{
+    color:#fff!important;
+  }
+</style>
+
 </html>
