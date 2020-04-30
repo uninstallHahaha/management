@@ -34,4 +34,6 @@ public interface UserMapper {
     List<User> selectByCondition(String name);
 
     User selectByName(String name);
+
+    int modPass(String userid, String pass);
 }

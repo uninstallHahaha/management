@@ -29,7 +29,14 @@ public class LoginController {
             HttpSession session,
             String name, String pass, int mem) {
         HashMap<String, Object> map = new HashMap<>();
-        User oneByName = userService.findOneByName(name);
+        User oneByName = null;
+        try{
+            oneByName = userService.findOneByName(name);
+        }catch (Exception e){
+            map.put("stat", 0);
+            map.put("data", "你是不是没开数据库?");
+            return map;
+        }
         if (null == oneByName) {
             map.put("stat", 0);
             map.put("data", "账号不存在");

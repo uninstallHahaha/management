@@ -10,7 +10,10 @@ import per.aclic.managesys.model.User;
 import per.aclic.managesys.model.UserTest;
 import per.aclic.managesys.service.UserService;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -35,9 +38,38 @@ public class UserController {
     }
 
 
+
+
     @ResponseBody
     @RequestMapping("/delUser")
     public int delUser(String id){
         return userService.delUser(id);
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/modPass")
+    public Map<String,Object> modPass(
+            HttpSession session,
+            String oldpass,
+            String pass){
+        Map<String,Object> map = new HashMap<String,Object>();
+        User user = (User)session.getAttribute("USER");
+        if(!user.getPass().equals(oldpass)){
+            map.put("stat",0);
+            map.put("data","原密码错误");
+            return map;
+        }
+        String userid = user.getId();
+        int res = userService.modPass(userid, pass);
+        if(res == 1){
+            map.put("stat",1);
+            map.put("data","修改成功");
+            return map;
+        }else{
+            map.put("stat",0);
+            map.put("data","修改失败");
+            return map;
+        }
     }
 }

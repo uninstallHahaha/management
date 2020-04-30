@@ -7,7 +7,7 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
 
-  <title th:text="${str}">概要</title>
+  <title th:text="${str}">个人中心</title>
 
   <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -123,12 +123,15 @@
           <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
              data-animation="scale-up" role="button">
                 <span class="avatar avatar-online">
-                  <img th:src="'/global/portraits/'+${#numbers.formatDecimal(T(java.lang.Math).floor(T(java.lang.Math).random()*10),1,0)}+'.jpg'" alt="...">
+                  <img
+                    th:src="'/global/portraits/'+${#numbers.formatDecimal(T(java.lang.Math).floor(T(java.lang.Math).random()*10),1,0)}+'.jpg'"
+                    alt="...">
                   <i></i>
                 </span>
           </a>
           <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item" href="/logout" role="menuitem">
+
+            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem">  <i class="icon wb-edit" aria-hidden="true"></i>修改密码</a><a class="dropdown-item" href="/logout" role="menuitem">
               <i class="icon wb-power" aria-hidden="true"></i> 退出登录</a>
           </div>
         </li>
@@ -159,7 +162,7 @@
         th:if="${session.USER != null && session.USER.role==1}">
       <a href="/index">
         <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-        <span class="site-menu-title">概要</span>
+        <span class="site-menu-title">个人中心</span>
         <span class="site-menu-arrow"></span>
       </a>
     </li>
@@ -196,9 +199,9 @@
 
     <li class="site-menu-item"
         th:if="${session.USER != null && session.USER.role==1}">
-      <a  href="/getAchiCenterPage">
+      <a href="/getAchiCenterPage">
         <i class="site-menu-icon wb-extension" aria-hidden="true"></i>
-          <span class="site-menu-title">学术成果中心</span>
+        <span class="site-menu-title">学术成果中心</span>
         <span class="site-menu-arrow"></span>
       </a>
     </li>
@@ -232,7 +235,7 @@
 
     <li class="site-menu-item"
         th:if="${session.USER != null && session.USER.role==2}">
-      <a  href="/getAchiCenterPage">
+      <a href="/getAchiCenterPage">
         <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
         <span class="site-menu-title">学术成果管理</span>
         <span class="site-menu-arrow"></span>
@@ -343,7 +346,7 @@
                       <div class="counter-label mt-10">我的项目
                       </div>
                       <div class="counter-number font-size-40 mt-10"
-                      th:text="${userProjCount}">
+                           th:text="${userProjCount}">
                         1,234
                       </div>
                     </div>
@@ -352,10 +355,10 @@
                     <div
                       title="我的项目在所有项目中的占比数"
                       class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                         data-barcolor="#57c7d4" data-size="100" data-barsize="10"
-                         data-goal="80" th:aria-valuenow="${userProjPercent*100}" role="progressbar">
+                      data-barcolor="#57c7d4" data-size="100" data-barsize="10"
+                      data-goal="80" th:aria-valuenow="${userProjPercent*100}" role="progressbar">
                           <span class="pie-progress-number blue-grey-700 font-size-20"
-                          th:text="${userProjPercent*100}+'%'">
+                                th:text="${userProjPercent*100}+'%'">
                             86%
                           </span>
                     </div>
@@ -373,7 +376,7 @@
                       <div class="counter-label mt-10">我的学术活动
                       </div>
                       <div class="counter-number font-size-40 mt-10"
-                      th:text="${userAcCount}">
+                           th:text="${userAcCount}">
                         698
                       </div>
                     </div>
@@ -382,10 +385,10 @@
                     <div
                       title="我的学术活动在所有学术活动中的占比数"
                       class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                         data-barcolor="#62a8ea" data-size="100" data-barsize="10"
-                         data-goal="62" th:aria-valuenow="${userAcPercent*100}" role="progressbar">
+                      data-barcolor="#62a8ea" data-size="100" data-barsize="10"
+                      data-goal="62" th:aria-valuenow="${userAcPercent*100}" role="progressbar">
                           <span class="pie-progress-number blue-grey-700 font-size-20"
-                          th:text="${userAcPercent*100}+'%'">
+                                th:text="${userAcPercent*100}+'%'">
                             62%
                           </span>
                     </div>
@@ -403,7 +406,7 @@
                       <div class="counter-label mt-10">我的成果
                       </div>
                       <div class="counter-number font-size-40 mt-10"
-                      th:text="${userAchiCount}">
+                           th:text="${userAchiCount}">
                         1,358
                       </div>
                     </div>
@@ -412,10 +415,10 @@
                     <div
                       title="我的学术成果在所有学术成果中的占比数"
                       class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                         data-barcolor="#926dde" data-size="100" data-barsize="10"
-                         data-goal="56" th:aria-valuenow="${userAchiPercent*100}" role="progressbar">
+                      data-barcolor="#926dde" data-size="100" data-barsize="10"
+                      data-goal="56" th:aria-valuenow="${userAchiPercent*100}" role="progressbar">
                           <span class="pie-progress-number blue-grey-700 font-size-20"
-                          th:text="${userAchiPercent*100}+'%'">
+                                th:text="${userAchiPercent*100}+'%'">
                             56%
                           </span>
                     </div>
@@ -682,6 +685,36 @@
 
 
 <!--  mine-->
-<script src="/xgather/xjs/general.js"></script>
+<script src="/xgather/xlib/layer/layer.js"></script>
+<script src="/xgather/xjs/modpass.js"></script>
 </body>
+
+
+<style type="text/css">
+  .modpasslayer {
+    padding: 24px;
+    display: none;
+  }
+  .ma{
+    margin-bottom: 12px;
+  }
+</style>
+<div class="modpasslayer" id="modpasslayer">
+  <div class="col-xxl-12 ma"><h4>修改密码</h4></div>
+  <div class="col-xxl-12 ma">
+    <input type="password"  class="form-control round" id="oldpass" placeholder="输入原密码">
+  </div>
+  <div class="col-xxl-12 ma">
+    <input type="password" class="form-control round" id="pass" placeholder="输入新密码">
+  </div>
+  <div class="col-xxl-12 ma">
+    <input type="password"  class="form-control round" id="repass" placeholder="重复新密码">
+  </div>
+  <div class="col-xxl-12 ma">
+    <button type="submit" class="btn btn-primary btn-round" id="submodpass">提交</button>
+    <button type="submit" class="btn btn-default btn-round" id="cancelmodpass">取消</button>
+  </div>
+</div>
+</div>
+
 </html>

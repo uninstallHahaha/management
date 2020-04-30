@@ -9,6 +9,12 @@
 
   <title>项目-表单</title>
 
+  <style type="text/css">
+    .datepicker{
+      z-index: 9999180!important;
+    }
+  </style>
+
   <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
@@ -150,7 +156,7 @@
                 </span>
           </a>
           <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item" href="/logout" role="menuitem">
+            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem">  <i class="icon wb-edit" aria-hidden="true"></i>修改密码</a><a class="dropdown-item" href="/logout" role="menuitem">
               <i class="icon wb-power" aria-hidden="true"></i> 退出登录</a>
           </div>
         </li>
@@ -181,7 +187,7 @@
         th:if="${session.USER != null && session.USER.role==1}">
       <a href="/index">
         <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-        <span class="site-menu-title">概要</span>
+        <span class="site-menu-title">个人中心</span>
         <span class="site-menu-arrow"></span>
       </a>
     </li>
@@ -354,16 +360,12 @@
     <h1 class="page-title" th:if="${projInfo} eq null">新建项目/活动</h1>
     <h1 class="page-title" th:if="${projInfo} ne null">修改项目/活动</h1>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="javascript:void(0)">Forms</a></li>
-      <li class="breadcrumb-item active">Validation</li>
+      <li class="breadcrumb-item"><a href="/index">概要页面</a></li>
+      <li class="breadcrumb-item"><a href="/getAllProjPage">我的项目</a></li>
+      <li class="breadcrumb-item active">新建项目</li>
     </ol>
     <div class="page-header-actions">
-      <a class="btn btn-sm btn-default btn-outline btn-round" href="http://formvalidation.io"
-         target="_blank">
-        <i class="icon wb-link" aria-hidden="true"></i>
-        <span class="hidden-sm-down">Official Website</span>
-      </a>
+
     </div>
   </div>
 
@@ -489,7 +491,7 @@
                   <span class="required">*</span>
                 </label>
                 <div class="col-xl-12 col-md-9">
-                      <textarea class="form-control" name="detail" rows="3" placeholder="Describe your skills"
+                      <textarea class="form-control" name="detail" rows="3" placeholder="输入项目描述"
                                 required=""
                       th:text="${projInfo?.detail}"></textarea>
                 </div>
@@ -643,4 +645,36 @@
 <script src="../../assets/examples/js/forms/validation.js"></script>
 
 </body>
+
+<script src="/xgather/xlib/layer/layer.js"></script>
+<script src="/xgather/xjs/modpass.js"></script>
+</body>
+
+
+<style type="text/css">
+  .modpasslayer {
+    padding: 24px;
+    display: none;
+  }
+  .ma{
+    margin-bottom: 12px;
+  }
+</style>
+<div class="modpasslayer" id="modpasslayer">
+  <div class="col-xxl-12 ma"><h4>修改密码</h4></div>
+  <div class="col-xxl-12 ma">
+    <input type="password"  class="form-control round" id="oldpass" placeholder="输入原密码">
+  </div>
+  <div class="col-xxl-12 ma">
+    <input type="password" class="form-control round" id="pass" placeholder="输入新密码">
+  </div>
+  <div class="col-xxl-12 ma">
+    <input type="password"  class="form-control round" id="repass" placeholder="重复新密码">
+  </div>
+  <div class="col-xxl-12 ma">
+    <button type="submit" class="btn btn-primary btn-round" id="submodpass">提交</button>
+    <button type="submit" class="btn btn-default btn-round" id="cancelmodpass">取消</button>
+  </div>
+</div>
+</div>
 </html>

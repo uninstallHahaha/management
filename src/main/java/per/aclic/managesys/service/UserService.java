@@ -38,4 +38,9 @@ public class UserService {
     public int delUser(String id){
         return userMapper.deleteByPrimaryKey(id);
     }
+
+    public int modPass(String userid, String pass) {
+
+        return userMapper.modPass(userid,pass);
+    }
 }

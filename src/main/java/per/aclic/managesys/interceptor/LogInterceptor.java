@@ -12,6 +12,7 @@ import per.aclic.managesys.service.LogService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @Component
 public class LogInterceptor implements HandlerInterceptor {
@@ -43,6 +44,7 @@ public class LogInterceptor implements HandlerInterceptor {
             log.setUserid(user.getId());
             log.setUsername(user.getName());
             log.setUserrole(user.getRole());
+            log.setCtime(new Date());
         }
         logService.addLog(log);
         return true;

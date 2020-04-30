@@ -11,6 +11,7 @@ import per.aclic.managesys.service.MessageService;
 
 import javax.rmi.CORBA.Util;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @Controller
 public class MessageController {
@@ -32,6 +33,7 @@ public class MessageController {
         ms.setProjid(projid);
         ms.setId(Utils.genUUID());
         ms.setContent(message);
+        ms.setCtime(new Date());
         int res = messageService.addMessage(ms);
         if(null != pageType && pageType.equals("proj")){
             return "redirect:/getProjInfoPage?id="+projid;

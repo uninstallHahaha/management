@@ -12,6 +12,7 @@ import per.aclic.managesys.service.NoticeService;
 import per.aclic.managesys.service.ProjService;
 
 import javax.servlet.http.HttpSession;
+import java.text.NumberFormat;
 import java.util.List;
 
 @Controller
@@ -52,22 +53,29 @@ public class IndexController {
 
 
     @RequestMapping("/index")
-    public String getIndex(Model model , HttpSession session) {
+    public String getIndex(Model model, HttpSession session) {
         model.addAttribute("str", "个人主页");
         //仪表盘
-        User user = (User)session.getAttribute("USER");
+        // 创建一个数值格式化对象
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        // 设置精确到小数点后2位
+        numberFormat.setMaximumFractionDigits(2);
+        User user = (User) session.getAttribute("USER");
         model.addAttribute("userProjCount",
                 projService.findAllProjByUser(user.getId()).size());
         model.addAttribute("userProjPercent",
-                projService.findAllProjByUser(user.getId()).size()/projService.findAllProj().size());
+                Double.parseDouble(numberFormat.format((float) projService.findAllProjByUser(user.getId()).size()
+                        / (float) projService.findAllProj().size())));
         model.addAttribute("userAcCount",
                 projService.findAllAcByUser(user.getId()).size());
         model.addAttribute("userAcPercent",
-                projService.findAllAcByUser(user.getId()).size()/projService.findAllAc().size());
+                Double.parseDouble(numberFormat.format((float) projService.findAllAcByUser(user.getId()).size()
+                        / (float) projService.findAllAc().size())));
         model.addAttribute("userAchiCount",
                 achiService.findAllByUser(user.getId()).size());
         model.addAttribute("userAchiPercent",
-                achiService.findAllByUser(user.getId()).size()/achiService.findAll().size());
+                Double.parseDouble(numberFormat.format((float) achiService.findAllByUser(user.getId()).size()
+                        / (float) achiService.findAll().size())));
         //通知
         String[] iconList = {" wb-chat", " wb-image", " wb-file", " wb-map"};
         model.addAttribute("recentNotices", noticeService.findRecentNotice(7));
