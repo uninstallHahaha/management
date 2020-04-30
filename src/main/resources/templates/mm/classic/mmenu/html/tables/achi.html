@@ -371,10 +371,11 @@
 
       <li th:each="a,stat:${achis}" data-th-data-type="${a.type}">
         <div class="card card-shadow">
-          <a th:href="@{'/getPage/getAchiDetailPage/'+${a.id}}">
-            <img
-              class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"
-              alt="...">
+          <a th:href="@{'/getPage/getAchiDetailPage/'+${a.id}}" style="height:264px;">
+<!--            <img-->
+<!--              class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"-->
+<!--              alt="...">-->
+            <div style="height:100%;background:#D5E4F1;"></div>
           </a>
           <div class="card-block">
             <h4 class="card-title" th:text="${a.name}" style="display: inline-block;">Animal Horse</h4>
