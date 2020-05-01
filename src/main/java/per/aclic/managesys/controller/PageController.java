@@ -205,4 +205,10 @@ public class PageController {
     public String getUppage(){
         return "/mm/classic/mmenu/html/tables/file-uploads";
     }
+
+    //数据库备份
+    @RequestMapping("/getdatabasesavePage")
+    public String getdatabasesavePage(){
+        return "/mm/classic/mmenu/html/tables/databasesave";
+    }
 }
