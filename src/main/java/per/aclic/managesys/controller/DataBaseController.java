@@ -1,5 +1,6 @@
 package per.aclic.managesys.controller;
 
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class DataBaseController {
@@ -31,11 +36,12 @@ public class DataBaseController {
             for (int i = 0; i < ts.size(); i++) {
                 tablstr += ts.get(i) + " ";
             }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
             String command = "cmd  /c  mysqldump -t management -u root -p" + pass + " --tables " + tablstr + ">"
-                    + path + "/backup" + new java.util.Date().getTime()
+                    + path + "/backup_" + simpleDateFormat.format(new Date())
                     + ".sql";
             Process process = Runtime.getRuntime().exec(command);
-            System.out.println("success!!!");
+//            System.out.println("success!!!");
             return "success";
         } catch (Exception e) {
             e.printStackTrace();

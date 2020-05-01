@@ -258,6 +258,14 @@
       </a>
     </li>
 
+    <li class="site-menu-item active">
+      <a href="/getdatabasesavePage">
+        <i class="site-menu-icon wb-grid-4" aria-hidden="true"></i>
+        <span class="site-menu-title">数据备份</span>
+        <span class="site-menu-arrow"></span>
+      </a>
+    </li>
+
   </ul>
 </div>
 <div class="site-gridmenu">
@@ -324,7 +332,11 @@
     <div class="panel">
       <div class="panel-body">
 
-        <div id="test1"></div>
+        <h3 style="margin-bottom:12px;">数据表备份</h3>
+        <span>注: 使用此功能之前确保mysql的可执行文件路径已经加入操作系统的path变量中,备份生成的文件路径为/target/classes/static/databasebackup/,
+        备份文件名格式为"backup_yyyy-MM-dd_HH-mm-ss.spl"</span>
+
+        <div style="margin-bottom:12px;" id="test1"></div>
         <button class="btn btn-primary btn-round btn-outline" onclick="tosave()">备份数据表</button>
 
       </div>
@@ -399,7 +411,7 @@
 <script src="/xgather/xlib/jquery.min.js"></script>
 <link rel="stylesheet" href="/xgather/xlib/layui-v2.5.6/layui/css/layui.css">
 <script src="/xgather/xlib/layui-v2.5.6/layui/layui.js"></script>
-<script src="/xgather/xlib/layer/layer.js"></script>
+<!--<script src="/xgather/xlib/layer/layer.js"></script>-->
 <script src="/xgather/xjs/modpass.js"></script>
 <script src="/xgather/xjs/databasesave.js"></script>
 </body>

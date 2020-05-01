@@ -1,26 +1,31 @@
-function tosave(){
+function tosave() {
     var ts = new Array()
     var rs = layui.transfer.getData('demo1')
-    rs.forEach(item=>{
+    rs.forEach(item => {
         ts.push(item.value)
     })
-debugger
-    $.ajax({
-        url: "/databasebackup",
-        type: "post",
-        data: {pass: '123123',ts:ts},
-        datatype: "json",
-        success: function(result){
-            if(result=="success"){
-                layer.msg('数据备份成功')
+    if(ts.length == 0){
+        layer.msg('至少选择一张表')
+        return
+    }
+    layer.prompt({title: '请输入数据库密码', formType: 1}, function (pass, index) {
+        $.ajax({
+            url: "/databasebackup",
+            type: "post",
+            data: {pass: pass, ts: ts},
+            datatype: "json",
+            success: function (result) {
+                if (result == "success") {
+                    layer.msg('数据备份成功')
+                } else {
+                    layer.msg('数据备份失败')
+                }
             }
-            else{
-                layer.msg('数据备份失败')
-            }
-        }
-    })
-}
+        })
 
+        layer.close(index);
+    });
+}
 
 
 $(function () {
@@ -28,7 +33,8 @@ $(function () {
         var transfer = layui.transfer;
         //渲染
         transfer.render({
-            elem: '#test1'  //绑定元素
+            elem: '#test1' , //绑定元素
+            title: ['所有数据表','备份目标数据表']
             , data: [
                 {"value": "achi", "title": "achi: 学术成果表", "disabled": "", "checked": ""}
                 , {"value": "log", "title": "log: 日志表", "disabled": "", "checked": ""}
