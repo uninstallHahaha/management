@@ -2,12 +2,9 @@ package per.aclic.managesys.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 import per.aclic.managesys.model.Achi;
 import per.aclic.managesys.model.AchiExample;
-import per.aclic.managesys.model.mixmodel.AchiMuser;
 
-@Repository
 public interface AchiMapper {
     long countByExample(AchiExample example);
 
@@ -30,13 +27,4 @@ public interface AchiMapper {
     int updateByPrimaryKeySelective(Achi record);
 
     int updateByPrimaryKey(Achi record);
-
-    List<Achi> selectByUserid(String userid);
-
-    List<AchiMuser> selectAllMUser();
-
-    AchiMuser selectByPrimaryKeyMUser(String id);
-
-    int updateById(Achi record);
-
 }

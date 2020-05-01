@@ -1,8 +1,8 @@
-package per.aclic.managesys.model.mixmodel;
+package per.aclic.managesys.model;
 
 import java.util.Date;
 
-public class AchiMuser {
+public class Achi {
     private String id;
 
     private String name;
@@ -16,35 +16,6 @@ public class AchiMuser {
     private String pic;
 
     private Date ctime;
-
-    private String userName;
-    private int userRole;
-
-
-
-    public String getPic() {
-        return pic;
-    }
-
-    public void setPic(String pic) {
-        this.pic = pic;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public int getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(int userRole) {
-        this.userRole = userRole;
-    }
 
     public String getId() {
         return id;
@@ -84,6 +55,14 @@ public class AchiMuser {
 
     public void setDetail(String detail) {
         this.detail = detail == null ? null : detail.trim();
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic == null ? null : pic.trim();
     }
 
     public Date getCtime() {

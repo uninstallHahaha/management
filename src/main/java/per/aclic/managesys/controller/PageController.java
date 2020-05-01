@@ -180,4 +180,9 @@ public class PageController {
     public String getLogPage(){
         return "/mm/classic/mmenu/html/tables/log-bootstrap";
     }
+    //文件上传测试
+    @RequestMapping("/getUppage")
+    public String getUppage(){
+        return "/mm/classic/mmenu/html/tables/file-uploads";
+    }
 }

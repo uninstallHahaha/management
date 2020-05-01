@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="per.aclic.managesys.dao.AchiMapper">
-
-
   <resultMap id="BaseResultMap" type="per.aclic.managesys.model.Achi">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -12,20 +10,6 @@
     <result column="pic" jdbcType="VARCHAR" property="pic" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
   </resultMap>
-
-  <resultMap id="ResultMapMUser" type="per.aclic.managesys.model.mixmodel.AchiMuser">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="userid" jdbcType="VARCHAR" property="userid" />
-    <result column="type" jdbcType="INTEGER" property="type" />
-    <result column="detail" jdbcType="VARCHAR" property="detail" />
-    <result column="pic" jdbcType="VARCHAR" property="pic" />
-    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
-
-    <result column="userName" jdbcType="VARCHAR" property="userName"/>
-    <result column="userRole" jdbcType="INTEGER" property="userRole"/>
-  </resultMap>
-
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -256,43 +240,4 @@
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-
-
-  <!--  成果中心-->
-  <select id="selectAllMUser"
-          parameterType="per.aclic.managesys.model.AchiExample"
-          resultMap="ResultMapMUser">
-    SELECT a.*,u.`name` userName,u.pass userPass,u.role userRole
-    FROM `achi` as a ,`user` as u where a.userid=u.id
-  </select>
-
-
-  <!--  根据id单个联合查询-->
-  <select id="selectByPrimaryKeyMUser"
-          parameterType="java.lang.String"
-          resultMap="ResultMapMUser">
-    SELECT a.*,u.`name` userName,u.pass userPass,u.role userRole
-    FROM `achi` as a ,`user` as u where a.userid=u.id and a.id=#{id}
-  </select>
-
-
-  <select id="selectByUserid" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    *
-    from achi
-    where userid = #{userid,jdbcType=VARCHAR}
-  </select>
-
-
-  <update id="updateById" parameterType="map">
-    update achi set
-    name = #{name,jdbcType=VARCHAR},
-    userid = #{userid,jdbcType=VARCHAR},
-    type = #{type,jdbcType=INTEGER},
-    detail = #{detail,jdbcType=VARCHAR},
-    ctime = #{ctime,jdbcType=TIMESTAMP}
-    where id=#{id}
-  </update>
-
-
 </mapper>
