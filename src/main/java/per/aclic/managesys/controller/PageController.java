@@ -92,7 +92,7 @@ public class PageController {
         if(user == null){
             user = new User("2bfadee2-d089-4c8d-b60b-906c","test","testpass",1);
         }
-        List<Achi> allAchis = achiService.findAllByUser(user.getId());
+        List<AchiMuser> allAchis = achiService.findAllByUserMUser(user.getId());
         model.addAttribute("achis", allAchis);
         model.addAttribute("pageType","p");
         return "/mm/classic/mmenu/html/tables/achi";
@@ -127,6 +127,26 @@ public class PageController {
         }
         return "/mm/classic/mmenu/html/tables/achi-form";
     }
+
+    //发布成果 - 结果
+    @RequestMapping("/getpage/getAddAchiResPage/{res}")
+    public String getAddAchiSuccessPage(Model model, @PathVariable int res) {
+        if(res == 11){
+            model.addAttribute("data","发布成功!");
+        }
+        if(res == 10){
+            model.addAttribute("data","发布失败");
+        }
+        if(res == 21){
+            model.addAttribute("data","修改成功!");
+        }
+        if(res == 20){
+            model.addAttribute("data","修改失败");
+        }
+
+        return "/mm/classic/mmenu/html/tables/achi-form-success";
+    }
+
 
   //项目/学术活动中心
     @RequestMapping("/getProjCenterPage")

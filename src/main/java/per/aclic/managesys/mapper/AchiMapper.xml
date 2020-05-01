@@ -117,6 +117,8 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+
+
   <insert id="insert" parameterType="per.aclic.managesys.model.Achi">
     insert into achi (id, name, userid, 
       type, detail, pic, 
@@ -125,6 +127,8 @@
       #{type,jdbcType=INTEGER}, #{detail,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
       #{ctime,jdbcType=TIMESTAMP})
   </insert>
+
+
   <insert id="insertSelective" parameterType="per.aclic.managesys.model.Achi">
     insert into achi
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -283,6 +287,12 @@
     where userid = #{userid,jdbcType=VARCHAR}
   </select>
 
+  <select id="selectByUseridMUser" parameterType="java.lang.String"
+          resultMap="ResultMapMUser">
+    SELECT a.*,u.`name` userName,u.pass userPass,u.role userRole
+    FROM `achi` as a ,`user` as u where a.userid=u.id and a.userid=#{id}
+  </select>
+
 
   <update id="updateById" parameterType="map">
     update achi set
@@ -290,6 +300,7 @@
     userid = #{userid,jdbcType=VARCHAR},
     type = #{type,jdbcType=INTEGER},
     detail = #{detail,jdbcType=VARCHAR},
+    pic = #{pic,jdbcType=VARCHAR},
     ctime = #{ctime,jdbcType=TIMESTAMP}
     where id=#{id}
   </update>

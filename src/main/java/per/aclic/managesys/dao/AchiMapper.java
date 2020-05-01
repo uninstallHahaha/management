@@ -39,4 +39,5 @@ public interface AchiMapper {
 
     int updateById(Achi record);
 
+    List<AchiMuser> selectByUseridMUser(String id);
 }

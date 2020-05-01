@@ -367,10 +367,13 @@
 <!-- Page -->
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">发布成果</h1>
+    <h1 class="page-title" th:if="${achiInfo} eq null">发布成果</h1>
+    <h1 class="page-title" th:if="${achiInfo} ne null">修改成果</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/index">概要页面</a></li>
-      <li class="breadcrumb-item active">发布成果</li>
+      <li class="breadcrumb-item"><a href="/getAchiPPage">我的学术成果</a></li>
+      <li class="breadcrumb-item active" th:if="${achiInfo} eq null">发布成果</li>
+      <li class="breadcrumb-item active" th:if="${achiInfo} ne null">修改成果</li>
     </ol>
     <div class="page-header-actions">
     </div>
@@ -397,7 +400,7 @@
       <div class="panel-body">
 
         <form id="exampleFullForm" autocomplete="off"
-              method="post"
+              method="post" enctype="multipart/form-data"
               action="/addAchiForm">
 
           <div class="row row-lg">
@@ -472,7 +475,10 @@
                 </label>
                 <div class="col-xl-12 col-md-12">
                   <input type="file" id="input-file-now"
-                         data-plugin="dropify" data-default-file="" data-height="150"
+                         name="achipic"
+                         data-plugin="dropify"
+                         data-th-data-default-file="'/uploads/achipics/'+${achiInfo?.pic}"
+                         data-height="150"
                          data-max-file-size="2M"/>
                 </div>
               </div>

@@ -37,6 +37,16 @@ public class Achi {
         this.ctime = ctime;
     }
 
+    public Achi(String id, String name, String userid, Integer type, String detail, String pic, Date ctime) {
+        this.id = id;
+        this.name = name;
+        this.userid = userid;
+        this.type = type;
+        this.detail = detail;
+        this.pic = pic;
+        this.ctime = ctime;
+    }
+
     public String getId() {
         return id;
     }

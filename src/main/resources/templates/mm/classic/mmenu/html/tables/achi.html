@@ -371,20 +371,44 @@
 
       <li th:each="a,stat:${achis}" data-th-data-type="${a.type}">
         <div class="card card-shadow">
-          <a th:href="@{'/getPage/getAchiDetailPage/'+${a.id}}" style="height:264px;">
+          <a th:href="@{'/getPage/getAchiDetailPage/'+${a.id}}" style="height:264px;text-decoration: none;">
 <!--            <img-->
 <!--              class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"-->
 <!--              alt="...">-->
-            <div style="height:100%;background:#D5E4F1;"></div>
+            <div th:style="'height:100%;background:#D5E4F1;background-image: url(\'/uploads/achipics/'+${a.pic}+'\')'+';background-repeat: no-repeat;background-position: center;background-size: 70%;padding: 12px 20px;color:#fff;text-shadow: 1px 1px 1px #6d6d6d;'">
+              <div th:text="'作者: '+${a.userName}"></div>
+              <div th:text="'文章字数: '+${#strings.length(a.detail)}"></div>
+              <div th:text="'发布时间: '+${#dates.format(a.ctime, 'yyyy-MM-dd')}"></div>
+            </div>
           </a>
           <div class="card-block">
-            <h4 class="card-title" th:text="${a.name}" style="display: inline-block;">Animal Horse</h4>
+            <h4 class="card-title" th:text="${a.name}" style="display: inline-block;cursor: default;">Animal Horse</h4>
             <a th:if="${session.USER!=null && session.USER.id == a.userid}"
-               th:href="@{'/getAddAchiPage?achiid='+${a.id}}" style="display: inline-block;"><i class="icon wb-wrench"
-                                                                                                aria-hidden="true"></i></a>
+               th:href="@{'/getAddAchiPage?achiid='+${a.id}}"
+               style="display: inline-block;float:right;color:#929292;"
+            class="toolbtn">
+              <i class="icon wb-wrench"  aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </li>
+
+      <style type="text/css">
+        .toolbtn{
+          display: inline-block;
+          float: right;
+          color: #929292;
+          border: 1px solid;
+          width: 40px;
+          height: 20px;
+          border-radius: 100px;
+          text-align: center;
+          transition-duration: .3s;
+        }
+        .toolbtn:hover{
+          color: #d8d5d5;
+        }
+      </style>
 
     </ul>
   </div>

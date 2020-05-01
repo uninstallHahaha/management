@@ -46,4 +46,8 @@ public class AchiService {
     public int modProj(Achi achi) {
         return achiMapper.updateById(achi);
     }
+
+    public List<AchiMuser> findAllByUserMUser(String id) {
+        return achiMapper.selectByUseridMUser(id);
+    }
 }
