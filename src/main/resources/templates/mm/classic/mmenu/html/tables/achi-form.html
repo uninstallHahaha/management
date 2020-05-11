@@ -131,7 +131,45 @@
       </ul>
       <!-- End Navbar Toolbar -->
 
-      <!-- Navbar Toolbar Right -->
+      <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+<li class="nav-item dropdown">
+          <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
+             data-animation="scale-up" role="button">
+                <span class="avatar avatar-online">
+                  <img
+                    th:src="'/global/portraits/'+${#numbers.formatDecimal(T(java.lang.Math).floor(T(java.lang.Math).random()*10),1,0)}+'.jpg'"
+                    alt="...">
+                  <i></i>
+                </span>
+          </a>
+          <div class="dropdown-menu" role="menu">
+            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem">
+              <i class="icon wb-edit" aria-hidden="true"></i>修改密码</a><a
+            class="dropdown-item" href="/logout" role="menuitem">
+            <i class="icon wb-power" aria-hidden="true"></i> 退出登录</a>
+          </div>
+        </li>
+      </ul>
+<ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+<li class="nav-item dropdown">
+          <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
+             data-animation="scale-up" role="button">
+                <span class="avatar avatar-online">
+                  <img
+                    th:src="'/global/portraits/'+${#numbers.formatDecimal(T(java.lang.Math).floor(T(java.lang.Math).random()*10),1,0)}+'.jpg'"
+                    alt="...">
+                  <i></i>
+                </span>
+          </a>
+          <div class="dropdown-menu" role="menu">
+            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem">
+              <i class="icon wb-edit" aria-hidden="true"></i>修改密码</a><a
+            class="dropdown-item" href="/logout" role="menuitem">
+            <i class="icon wb-power" aria-hidden="true"></i> 退出登录</a>
+          </div>
+        </li>
+      </ul>
+<!-- Navbar Toolbar Right --><!--
       <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
@@ -169,7 +207,7 @@
           </div>
         </li>
       </ul>
-      <!-- End Navbar Toolbar Right -->
+      --><!-- End Navbar Toolbar Right -->
     </div>
     <!-- End Navbar Collapse -->
 

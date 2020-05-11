@@ -94,7 +94,26 @@
       </ul>
       <!-- End Navbar Toolbar -->
 
-      <!-- Navbar Toolbar Right -->
+      <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+<li class="nav-item dropdown">
+          <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
+             data-animation="scale-up" role="button">
+                <span class="avatar avatar-online">
+                  <img
+                    th:src="'/global/portraits/'+${#numbers.formatDecimal(T(java.lang.Math).floor(T(java.lang.Math).random()*10),1,0)}+'.jpg'"
+                    alt="...">
+                  <i></i>
+                </span>
+          </a>
+          <div class="dropdown-menu" role="menu">
+            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem">
+              <i class="icon wb-edit" aria-hidden="true"></i>修改密码</a><a
+            class="dropdown-item" href="/logout" role="menuitem">
+            <i class="icon wb-power" aria-hidden="true"></i> 退出登录</a>
+          </div>
+        </li>
+      </ul>
+<!-- Navbar Toolbar Right --><!--
       <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
@@ -125,14 +144,14 @@
                 </span>
           </a>
           <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem"> <i class="icon wb-edit"
-                                                                                  aria-hidden="true"></i>修改密码</a><a
+            <a class="dropdown-item" href="#" id="modpassbtn" role="menuitem">
+              <i class="icon wb-edit" aria-hidden="true"></i>修改密码</a><a
             class="dropdown-item" href="/logout" role="menuitem">
             <i class="icon wb-power" aria-hidden="true"></i> 退出登录</a>
           </div>
         </li>
       </ul>
-      <!-- End Navbar Toolbar Right -->
+      --><!-- End Navbar Toolbar Right -->
     </div>
     <!-- End Navbar Collapse -->
 
@@ -372,10 +391,11 @@
       <li th:each="a,stat:${achis}" data-th-data-type="${a.type}">
         <div class="card card-shadow">
           <a th:href="@{'/getPage/getAchiDetailPage/'+${a.id}}" style="height:264px;text-decoration: none;">
-<!--            <img-->
-<!--              class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"-->
-<!--              alt="...">-->
-            <div th:style="'height:100%;background:#D5E4F1;background-image: url(\'/uploads/achipics/'+${a.pic}+'\')'+';background-repeat: no-repeat;background-position: center;background-size: 70%;padding: 12px 20px;color:#fff;text-shadow: 1px 1px 1px #6d6d6d;'">
+            <!--            <img-->
+            <!--              class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"-->
+            <!--              alt="...">-->
+            <div
+              th:style="'height:100%;background:#D5E4F1;background-image: url(\'/uploads/achipics/'+${a.pic}+'\')'+';background-repeat: no-repeat;background-position: center;background-size: 70%;padding: 12px 20px;color:#fff;text-shadow: 1px 1px 1px #6d6d6d;'">
               <div th:text="'作者: '+${a.userName}"></div>
               <div th:text="'文章字数: '+${#strings.length(a.detail)}"></div>
               <div th:text="'发布时间: '+${#dates.format(a.ctime, 'yyyy-MM-dd')}"></div>
@@ -386,15 +406,15 @@
             <a th:if="${session.USER!=null && session.USER.id == a.userid}"
                th:href="@{'/getAddAchiPage?achiid='+${a.id}}"
                style="display: inline-block;float:right;color:#929292;"
-            class="toolbtn">
-              <i class="icon wb-wrench"  aria-hidden="true"></i>
+               class="toolbtn">
+              <i class="icon wb-wrench" aria-hidden="true"></i>
             </a>
           </div>
         </div>
       </li>
 
       <style type="text/css">
-        .toolbtn{
+        .toolbtn {
           display: inline-block;
           float: right;
           color: #929292;
@@ -405,7 +425,8 @@
           text-align: center;
           transition-duration: .3s;
         }
-        .toolbtn:hover{
+
+        .toolbtn:hover {
           color: #d8d5d5;
         }
       </style>
