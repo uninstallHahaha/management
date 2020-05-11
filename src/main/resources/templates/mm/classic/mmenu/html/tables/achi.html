@@ -405,14 +405,14 @@
           <div class="card-block">
             <h4 class="card-title" th:text="${a.name}" style="display: inline-block;cursor: default;">Animal Horse</h4>
             <!--            修改-->
-            <a th:if="${session.USER!=null && session.USER.id == a.userid}"
+            <a th:if="${(session.USER!=null && session.USER.id == a.userid) || session.USER.role==2}"
                th:href="@{'/getAddAchiPage?achiid='+${a.id}}"
                style="display: inline-block;float:right;color:#929292;"
                class="toolbtn">
               <i class="icon wb-wrench" aria-hidden="true"></i>
             </a>
             <!--            删除-->
-            <a th:if="${session.USER!=null && session.USER.id == a.userid}"
+            <a th:if="${(session.USER!=null && session.USER.id == a.userid) || session.USER.role==2}"
                href="#"
                th:onclick="delAchi([[${a.id}]]);"
                style="display: inline-block;float:right;color:#929292;"
@@ -428,14 +428,14 @@
           $.ajax({
             'url': '/delAchi',
             method: 'post',
-            data:{achiid:aid},
+            data: {achiid: aid},
             async: false,
             success: function (res) {
               if (res == 1) {
-                layer.msg('删除成功',function () {
-                  location.href='/getAchiCenterPage'
+                layer.msg('删除成功', function () {
+                  location.href = '/getAchiCenterPage'
                 })
-              }else{
+              } else {
                 layer.msg('删除失败')
               }
             }

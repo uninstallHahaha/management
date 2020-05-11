@@ -64,28 +64,36 @@ public class AchiController {
         }
         //获取上传文件的名称
         String filename = achipic.getOriginalFilename();
-        //使用uuid使得文件名唯一
-        String uuid = UUID.randomUUID().toString().replace("-", "").substring(0, 6);
-        filename = uuid + "_" + filename;
-        //上传
-        try {
-            achipic.transferTo(new File(path, filename));
-        } catch (Exception e) {
-            //上传失败
+        if(!filename.equals("")){
+            //使用uuid使得文件名唯一
+            String uuid = UUID.randomUUID().toString().replace("-", "").substring(0, 6);
+            filename = uuid + "_" + filename;
+            //上传
+            try {
+                achipic.transferTo(new File(path, filename));
+            } catch (Exception e) {
+                //上传失败
+            }
         }
 
         int res = 0;
         if (null != id && !id.equals("")) {
             Achi oneAchi = achiService.findOne(id);
-            res = achiService.modProj(new Achi(
+            Achi modAchi = new Achi(
                     id,
                     name,
                     user.getId(),
                     subject,
                     detail,
-                    filename,
+                    "",
                     ctime
-            ));
+            );
+            if(!filename.equals("")){
+                modAchi.setPic(filename);
+            }else{
+                modAchi.setPic(oneAchi.getPic());
+            }
+            res = achiService.modProj(modAchi);
             if(res == 1){
                 return "redirect:/getpage/getAddAchiResPage/21";
             }else{

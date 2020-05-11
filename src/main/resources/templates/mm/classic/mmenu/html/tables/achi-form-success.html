@@ -348,7 +348,7 @@
           <div class="panel-body">
             <h2 th:text="${data}">发布成功!</h2>
             <a href="/getAchiCenterPage">返回学术成果中心</a>&nbsp;&nbsp;
-            <a href="/getAchiPPage">返回我的学术成果</a>
+            <a th:if="${session.USER.role==1}" href="/getAchiPPage">返回我的学术成果</a>
           </div>
         </div>
         <!-- End Panel -->
