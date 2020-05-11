@@ -50,4 +50,8 @@ public class AchiService {
     public List<AchiMuser> findAllByUserMUser(String id) {
         return achiMapper.selectByUseridMUser(id);
     }
+
+    public int delAchi(String achiid) {
+        return achiMapper.deleteByPrimaryKey(achiid);
+    }
 }

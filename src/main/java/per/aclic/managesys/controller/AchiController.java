@@ -120,4 +120,10 @@ public class AchiController {
         }
         return 1;
     }
+
+    @ResponseBody
+    @RequestMapping("/delAchi")
+    public int delAchi(String achiid) {
+        return achiService.delAchi(achiid);
+    }
 }

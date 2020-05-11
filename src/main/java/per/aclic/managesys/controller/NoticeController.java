@@ -9,6 +9,8 @@ import per.aclic.managesys.Utils.Utils;
 import per.aclic.managesys.model.Notice;
 import per.aclic.managesys.service.NoticeService;
 
+import java.util.Date;
+
 @Controller
 public class NoticeController {
 
@@ -25,6 +27,7 @@ public class NoticeController {
 //            noticeService.addNotice(nt);
 //        }
         Notice notice = new Notice(Utils.genUUID(),title,content,Utils.genUUID());
+        notice.setCtime(new Date());
         int res = noticeService.addNotice(notice);
         return res;
     }

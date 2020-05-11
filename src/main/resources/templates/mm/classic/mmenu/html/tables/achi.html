@@ -95,7 +95,7 @@
       <!-- End Navbar Toolbar -->
 
       <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-<li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
              data-animation="scale-up" role="button">
                 <span class="avatar avatar-online">
@@ -114,7 +114,7 @@
           </div>
         </li>
       </ul>
-<!-- Navbar Toolbar Right --><!--
+      <!-- Navbar Toolbar Right --><!--
       <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
@@ -389,13 +389,14 @@
     <ul class="blocks blocks-100 blocks-xxl-4 blocks-lg-3 blocks-md-2" data-plugin="filterable"
         data-filters="#exampleFilter">
 
-      <li th:each="a,stat:${achis}" data-th-data-type="${a.type}">
+      <li th:each="a,stat:${achis}" data-th-data-type="${a.type}" th:liachiid="${a.id}">
         <div class="card card-shadow">
           <a th:href="@{'/getPage/getAchiDetailPage/'+${a.id}}" style="height:264px;text-decoration: none;">
-<!--            <img-->
-<!--              class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"-->
-<!--              alt="...">-->
-            <div th:style="'height:100%;background:#D5E4F1;background-image: url(\'/uploads/achipics/'+${a.pic}+'\')'+';background-repeat: no-repeat;background-position: center;background-size: 70%;padding: 12px 20px;color:#fff;text-shadow: 1px 1px 1px #6d6d6d;'">
+            <!--            <img-->
+            <!--              class="overlay-figure overlay-scale" src="../../../global/photos/placeholder.png"-->
+            <!--              alt="...">-->
+            <div
+              th:style="'height:100%;background:#D5E4F1;background-image: url(\'/uploads/achipics/'+${a.pic}+'\')'+';background-repeat: no-repeat;background-position: center;background-size: 70%;padding: 12px 20px;color:#fff;text-shadow: 1px 1px 1px #6d6d6d;'">
               <div th:text="'作者: '+${a.userName}"></div>
               <div th:text="'文章字数: '+${#strings.length(a.detail)}"></div>
               <div th:text="'发布时间: '+${#dates.format(a.ctime, 'yyyy-MM-dd')}"></div>
@@ -403,29 +404,59 @@
           </a>
           <div class="card-block">
             <h4 class="card-title" th:text="${a.name}" style="display: inline-block;cursor: default;">Animal Horse</h4>
+            <!--            修改-->
             <a th:if="${session.USER!=null && session.USER.id == a.userid}"
                th:href="@{'/getAddAchiPage?achiid='+${a.id}}"
                style="display: inline-block;float:right;color:#929292;"
-            class="toolbtn">
-              <i class="icon wb-wrench"  aria-hidden="true"></i>
+               class="toolbtn">
+              <i class="icon wb-wrench" aria-hidden="true"></i>
+            </a>
+            <!--            删除-->
+            <a th:if="${session.USER!=null && session.USER.id == a.userid}"
+               href="#"
+               th:onclick="delAchi([[${a.id}]]);"
+               style="display: inline-block;float:right;color:#929292;"
+               class="toolbtn">
+              <i class="icon wb-trash" aria-hidden="true"></i>
             </a>
           </div>
         </div>
       </li>
 
+      <script>
+        function delAchi(aid) {
+          $.ajax({
+            'url': '/delAchi',
+            method: 'post',
+            data:{achiid:aid},
+            async: false,
+            success: function (res) {
+              if (res == 1) {
+                layer.msg('删除成功',function () {
+                  location.href='/getAchiCenterPage'
+                })
+              }else{
+                layer.msg('删除失败')
+              }
+            }
+          })
+        }
+      </script>
+
       <style type="text/css">
-        .toolbtn{
+        .toolbtn {
           display: inline-block;
           float: right;
           color: #929292;
-          border: 1px solid;
+          border: 0px solid;
           width: 40px;
           height: 20px;
           border-radius: 100px;
           text-align: center;
           transition-duration: .3s;
         }
-        .toolbtn:hover{
+
+        .toolbtn:hover {
           color: #d8d5d5;
         }
       </style>
